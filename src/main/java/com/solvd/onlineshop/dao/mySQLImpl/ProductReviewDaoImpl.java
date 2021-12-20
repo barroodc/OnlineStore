@@ -19,7 +19,7 @@ public class ProductReviewDaoImpl implements IProductReviewDao {
     }
 
     @Override
-    public ProductReview getProductReviewByID(Long id) {
+    public ProductReview getProductReviewByID(long id) {
         return null;
     }
 

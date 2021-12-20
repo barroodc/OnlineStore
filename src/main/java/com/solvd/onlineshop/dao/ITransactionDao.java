@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ITransactionDao {
     List<Transaction> getAllTransactions();
-    Transaction getTransactionByID(Long id);
+    Transaction getTransactionByID(long id);
     void updateTransaction(Transaction transaction);
     void deleteTransaction(Transaction transaction);
 }

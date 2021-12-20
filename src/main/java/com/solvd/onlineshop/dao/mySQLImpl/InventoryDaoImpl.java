@@ -19,7 +19,7 @@ public class InventoryDaoImpl implements IInventoryDao {
     }
 
     @Override
-    public Inventory getInventoryByID(Long id) {
+    public Inventory getInventoryByID(long id) {
         return null;
     }
 

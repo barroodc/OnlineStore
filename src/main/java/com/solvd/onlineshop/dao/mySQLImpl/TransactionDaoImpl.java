@@ -19,7 +19,7 @@ public class TransactionDaoImpl implements ITransactionDao {
     }
 
     @Override
-    public Transaction getTransactionByID(Long id) {
+    public Transaction getTransactionByID(long id) {
         return null;
     }
 

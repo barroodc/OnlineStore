@@ -19,7 +19,7 @@ public class ItemsInCartDaoImpl implements IItemsInCartDao {
     }
 
     @Override
-    public ItemsInCart getItemsByID(Long id) {
+    public ItemsInCart getItemsByID(long id) {
         return null;
     }
 

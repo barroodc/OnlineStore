@@ -19,7 +19,7 @@ public class ProductDaoImpl implements IProductDao {
     }
 
     @Override
-    public Product getProductsByID(Long id) {
+    public Product getProductsByID(long id) {
         return null;
     }
 

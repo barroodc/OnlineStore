@@ -19,7 +19,7 @@ public class CheckoutCartDaoImpl implements ICheckoutCartDao {
     }
 
     @Override
-    public CheckoutCart getCheckoutCartByID(Long id) {
+    public CheckoutCart getCheckoutCartByID(long id) {
         return null;
     }
 

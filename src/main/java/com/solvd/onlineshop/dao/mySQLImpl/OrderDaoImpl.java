@@ -19,7 +19,7 @@ public class OrderDaoImpl implements IOrderDao {
     }
 
     @Override
-    public Order getOrderByID(Long id) {
+    public Order getOrderByID(long id) {
         return null;
     }
 

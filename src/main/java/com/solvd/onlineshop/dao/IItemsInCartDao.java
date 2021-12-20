@@ -7,7 +7,7 @@ import java.util.List;
 public interface IItemsInCartDao {
 
     List<ItemsInCart> getAllItems();
-    ItemsInCart getItemsByID(Long id);
+    ItemsInCart getItemsByID(long id);
     void saveItemsInCart(ItemsInCart itemsInCart);
     void deleteItemsInCart(ItemsInCart itemsInCart);
 }

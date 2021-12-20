@@ -20,7 +20,7 @@ public class UserDaoImpl implements IUserDao {
     }
 
     @Override
-    public User getUserByID(Long id) {
+    public User getUserByID(long id) {
         return null;
     }
 
@@ -31,6 +31,27 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public void deleteUser(User user) {
+
+    }
+
+
+    @Override
+    public void createEntity(User entity) {
+
+    }
+
+    @Override
+    public void updateEntity(User entity) {
+
+    }
+
+    @Override
+    public User getEntityById(long id) {
+        return null;
+    }
+
+    @Override
+    public void deleteEntity(long id) {
 
     }
 }

@@ -19,7 +19,7 @@ public class EmployeesDaoImpl implements IEmployeesDao {
     }
 
     @Override
-    public Employees getEmployeeByID(Long id) {
+    public Employees getEmployeeByID(long id) {
         return null;
     }
 

@@ -19,7 +19,7 @@ public class JobsDaoImpl implements IJobsDao {
     }
 
     @Override
-    public Jobs getJobsByID(Long id) {
+    public Jobs getJobsByID(long id) {
         return null;
     }
 

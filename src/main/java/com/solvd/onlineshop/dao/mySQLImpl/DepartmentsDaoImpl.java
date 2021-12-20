@@ -19,7 +19,7 @@ public class DepartmentsDaoImpl implements IDepartmentsDao {
     }
 
     @Override
-    public Departments getDepartmentByID(Long id) {
+    public Departments getDepartmentByID(long id) {
         return null;
     }
 

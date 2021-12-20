@@ -4,10 +4,10 @@ import com.solvd.onlineshop.user.User;
 
 import java.util.List;
 
-public interface IUserDao {
+public interface IUserDao extends IBaseDao<User> {
 
     List<User> getAllUsers();
-    User getUserByID(Long id);
+    User getUserByID(long id);
     void updateUser(User user);
     void deleteUser(User user);
 }

@@ -19,7 +19,7 @@ public class OrderItemDaoImpl implements IOrderItemDao {
     }
 
     @Override
-    public OrderItem getOrderItemByID(Long id) {
+    public OrderItem getOrderItemByID(long id) {
         return null;
     }
 

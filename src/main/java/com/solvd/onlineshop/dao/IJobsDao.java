@@ -7,7 +7,7 @@ import java.util.List;
 public interface IJobsDao {
 
     List<Jobs> getAllJobs();
-    Jobs getJobsByID(Long id);
+    Jobs getJobsByID(long id);
     void addJobs(Jobs jobs);
     void deleteJobs(Jobs jobs);
 }

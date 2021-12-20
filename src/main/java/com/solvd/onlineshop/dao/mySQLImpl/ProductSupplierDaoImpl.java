@@ -19,7 +19,7 @@ public class ProductSupplierDaoImpl implements IProductSupplierDao {
     }
 
     @Override
-    public ProductSupplier getSupplierByID(Long id) {
+    public ProductSupplier getSupplierByID(long id) {
         return null;
     }
 

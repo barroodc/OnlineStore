@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductReviewDao {
     List<ProductReview> getAllProductReviews();
-    ProductReview getProductReviewByID(Long id);
+    ProductReview getProductReviewByID(long id);
     void updateProductReview(ProductReview productReview);
     void deleteProductReview(ProductReview productReview);
 }

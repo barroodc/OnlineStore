@@ -19,7 +19,7 @@ public class InvoiceDaoImpl implements IInvoiceDao {
     }
 
     @Override
-    public Invoice getInvoiceByID(Long id) {
+    public Invoice getInvoiceByID(long id) {
         return null;
     }
 

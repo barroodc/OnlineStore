@@ -7,7 +7,7 @@ import java.util.List;
 public interface ICheckoutCartDao {
 
     List<CheckoutCart> getAllCheckoutCarts();
-    CheckoutCart getCheckoutCartByID(Long id);
+    CheckoutCart getCheckoutCartByID(long id);
     void updateCheckoutCart(CheckoutCart checkoutCart);
     void deleteCheckoutCart(CheckoutCart checkoutCart);
 }

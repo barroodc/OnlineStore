@@ -19,7 +19,7 @@ public class ProductCategoryDaoImpl implements IProductCategoryDao {
     }
 
     @Override
-    public ProductCategory getProductCategoryByID(Long id) {
+    public ProductCategory getProductCategoryByID(long id) {
         return null;
     }
 
