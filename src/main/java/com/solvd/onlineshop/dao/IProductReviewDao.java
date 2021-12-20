@@ -1,0 +1,12 @@
+package com.solvd.onlineshop.dao;
+
+import com.solvd.onlineshop.product.ProductReview;
+
+import java.util.List;
+
+public interface IProductReviewDao {
+    List<ProductReview> getAllProductReviews();
+    ProductReview getProductReviewByID(Long id);
+    void updateProductReview(ProductReview productReview);
+    void deleteProductReview(ProductReview productReview);
+}
