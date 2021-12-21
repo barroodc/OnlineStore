@@ -1,13 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.purchase.Order;
+import com.solvd.onlineshop.model.purchase.Order;
 
-import java.util.List;
 
-public interface IOrderDao {
+public interface IOrderDao extends IBaseDao<Order> {
 
-    List<Order> getAllOrders();
-    Order getOrderByID(long id);
-    void updateOrder(Order order);
-    void deleteOrder(Order order);
 }

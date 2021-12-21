@@ -1,13 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.checkout.ItemsInCart;
+import com.solvd.onlineshop.model.checkout.ItemsInCart;
 
-import java.util.List;
 
-public interface IItemsInCartDao {
+public interface IItemsInCartDao extends IBaseDao<ItemsInCart> {
 
-    List<ItemsInCart> getAllItems();
-    ItemsInCart getItemsByID(long id);
-    void saveItemsInCart(ItemsInCart itemsInCart);
-    void deleteItemsInCart(ItemsInCart itemsInCart);
 }

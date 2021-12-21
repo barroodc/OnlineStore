@@ -1,12 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.product.ProductSupplier;
+import com.solvd.onlineshop.model.product.ProductSupplier;
 
-import java.util.List;
 
-public interface IProductSupplierDao {
-    List<ProductSupplier> getSupplierName();
-    ProductSupplier getSupplierByID(long id);
-    void addSupplier(ProductSupplier productSupplier);
-    void deleteSupplier(ProductSupplier productSupplier);
+public interface IProductSupplierDao extends IBaseDao<ProductSupplier> {
+
 }

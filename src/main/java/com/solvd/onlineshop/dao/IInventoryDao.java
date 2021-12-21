@@ -1,13 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.product.Inventory;
+import com.solvd.onlineshop.model.product.Inventory;
 
-import java.util.List;
 
-public interface IInventoryDao {
+public interface IInventoryDao extends IBaseDao<Inventory> {
 
-    List<Inventory> getAllInventory();
-    Inventory getInventoryByID(long id);
-    void updateInventory(Inventory inventory);
-    void deleteInventory(Inventory inventory);
 }

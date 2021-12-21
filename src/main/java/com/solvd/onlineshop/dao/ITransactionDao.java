@@ -1,12 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.purchase.Transaction;
+import com.solvd.onlineshop.model.purchase.Transaction;
 
-import java.util.List;
 
-public interface ITransactionDao {
-    List<Transaction> getAllTransactions();
-    Transaction getTransactionByID(long id);
-    void updateTransaction(Transaction transaction);
-    void deleteTransaction(Transaction transaction);
+public interface ITransactionDao extends IBaseDao<Transaction> {
+
 }

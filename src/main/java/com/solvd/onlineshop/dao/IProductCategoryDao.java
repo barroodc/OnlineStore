@@ -1,14 +1,7 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.product.Product;
-import com.solvd.onlineshop.product.ProductCategory;
+import com.solvd.onlineshop.model.product.ProductCategory;
 
-import java.util.List;
+public interface IProductCategoryDao extends IBaseDao<ProductCategory> {
 
-public interface IProductCategoryDao {
-
-    List<ProductCategory> getAllProductCategories();
-    ProductCategory getProductCategoryByID(long id);
-    void updateProductCategory(ProductCategory productCategory);
-    void deleteProductCategory(ProductCategory productCategory);
 }

@@ -1,13 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.labor.Employees;
+import com.solvd.onlineshop.model.labor.Employees;
 
-import java.util.List;
 
-public interface IEmployeesDao {
+public interface IEmployeesDao extends IBaseDao<Employees> {
 
-    List<Employees> getAllEmployees();
-    Employees getEmployeeByID(long id);
-    void addEmployee(Employees employees);
-    void deleteEmployee(Employees employees);
 }

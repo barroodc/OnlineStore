@@ -1,9 +1,5 @@
 package com.solvd.onlineshop;
 
-import com.solvd.onlineshop.checkout.CheckoutCart;
-import com.solvd.onlineshop.dao.ICheckoutCartDao;
-import com.solvd.onlineshop.dao.mySQLImpl.CheckoutCartDaoImpl;
-
 import java.util.logging.Logger;
 
 public class Main {

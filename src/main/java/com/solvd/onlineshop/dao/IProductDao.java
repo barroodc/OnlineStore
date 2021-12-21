@@ -1,13 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.product.Product;
+import com.solvd.onlineshop.model.product.Product;
 
-import java.util.List;
 
-public interface IProductDao {
+public interface IProductDao extends IBaseDao<Product>{
 
-    List<Product> getAllProducts();
-    Product getProductsByID(long id);
-    void addProduct(Product product);
-    void deleteProduct(Product product);
 }

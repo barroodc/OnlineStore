@@ -1,12 +1,8 @@
 package com.solvd.onlineshop.dao;
 
-import com.solvd.onlineshop.product.ProductReview;
+import com.solvd.onlineshop.model.product.ProductReview;
 
-import java.util.List;
 
-public interface IProductReviewDao {
-    List<ProductReview> getAllProductReviews();
-    ProductReview getProductReviewByID(long id);
-    void updateProductReview(ProductReview productReview);
-    void deleteProductReview(ProductReview productReview);
+public interface IProductReviewDao extends IBaseDao<ProductReview>{
+
 }
