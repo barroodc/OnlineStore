@@ -33,4 +33,8 @@ public class DepartmentsDaoImpl extends BaseDaoImpl<Departments> implements IDep
 
     }
 
+    @Override
+    public List<Departments> getAllDepartments() {
+        return null;
+    }
 }

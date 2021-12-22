@@ -11,13 +11,38 @@ public class Employees {
     private String email;
     private Date hireDate;
     private String jobID;
-    private float Salary;
+    private float salary;
     private Long managerID;
     private Long departmentID;
 
     public Employees() {
 
     }
+
+    public Employees(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Employees(String firstName, String lastName, Date hireDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.hireDate = hireDate;
+    }
+
+    public Employees(String firstName, String lastName, float salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
+
+    public Employees(String firstName, String lastName, String mobile, String email){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.email = email;
+    }
+
 
     public Employees(Long id, Long jobsID, Long departmentsID, String firstName, String lastName, String mobile, String email, Date hireDate, String jobID, float salary, Long managerID, Long departmentID) {
         this.id = id;
@@ -29,7 +54,7 @@ public class Employees {
         this.email = email;
         this.hireDate = hireDate;
         this.jobID = jobID;
-        Salary = salary;
+        this.salary = salary;
         this.managerID = managerID;
         this.departmentID = departmentID;
     }
@@ -45,10 +70,11 @@ public class Employees {
         this.email = email;
         this.hireDate = hireDate;
         this.jobID = jobID;
-        Salary = salary;
+        this.salary = salary;
         this.managerID = managerID;
         this.departmentID = departmentID;
     }
+
 
     public Long getId() {
         return id;
@@ -131,11 +157,11 @@ public class Employees {
     }
 
     public float getSalary() {
-        return Salary;
+        return salary;
     }
 
     public void setSalary(float salary) {
-        Salary = salary;
+        this.salary = salary;
     }
 
     public Long getManagerID() {

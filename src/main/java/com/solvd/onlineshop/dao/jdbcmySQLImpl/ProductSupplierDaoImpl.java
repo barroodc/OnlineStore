@@ -4,6 +4,7 @@ import com.solvd.onlineshop.dao.IProductSupplierDao;
 import com.solvd.onlineshop.model.product.ProductSupplier;
 
 import java.util.List;
+import java.util.Map;
 
 public class ProductSupplierDaoImpl extends BaseDaoImpl<ProductSupplier> implements IProductSupplierDao {
 
@@ -33,4 +34,8 @@ public class ProductSupplierDaoImpl extends BaseDaoImpl<ProductSupplier> impleme
 
     }
 
+    @Override
+    public Map<String, String> supplierAndProductsSupplied() {
+        return null;
+    }
 }

@@ -33,4 +33,13 @@ public class InvoiceDaoImpl extends BaseDaoImpl<Invoice> implements IInvoiceDao 
 
     }
 
+    @Override
+    public void inStock(byte[] isInStock) {
+
+    }
+
+    @Override
+    public List<Invoice> getPaymentInformation() {
+        return null;
+    }
 }

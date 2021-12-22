@@ -11,6 +11,15 @@ public class ProductCategory {
 
     }
 
+    public ProductCategory(String productName) {
+        this.productName = productName;
+    }
+
+    public ProductCategory(String title, String metaTitle) {
+        this.title = title;
+        this.metaTitle = metaTitle;
+    }
+
     public ProductCategory(Long id, Long productID, String title, String metaTitle, String productName) {
         this.id = id;
         this.productID = productID;

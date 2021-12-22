@@ -4,6 +4,7 @@ import com.solvd.onlineshop.dao.IJobsDao;
 import com.solvd.onlineshop.model.labor.Jobs;
 
 import java.util.List;
+import java.util.Map;
 
 public class JobsDaoImpl extends BaseDaoImpl<Jobs> implements IJobsDao {
 
@@ -32,5 +33,16 @@ public class JobsDaoImpl extends BaseDaoImpl<Jobs> implements IJobsDao {
     public void deleteEntity(Long id) {
 
     }
+
+    @Override
+    public Map<String, Float> jobsAndSalary() {
+        return null;
+    }
+
+    @Override
+    public List<Jobs> getMinAndMaxSalaries() {
+        return null;
+    }
+
 
 }

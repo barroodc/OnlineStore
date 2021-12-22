@@ -10,6 +10,11 @@ public class ProductSupplier {
 
     }
 
+    public ProductSupplier(String supplierName, String categoryOfProducts) {
+        this.supplierName = supplierName;
+        this.categoryOfProducts = categoryOfProducts;
+    }
+
     public ProductSupplier(Long id, Long productID, String supplierName, String categoryOfProducts) {
         this.id = id;
         this.productID = productID;

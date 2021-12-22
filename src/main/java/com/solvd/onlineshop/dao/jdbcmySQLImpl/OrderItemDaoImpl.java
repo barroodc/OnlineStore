@@ -33,4 +33,18 @@ public class OrderItemDaoImpl extends BaseDaoImpl<OrderItem> implements IOrderIt
 
     }
 
+    @Override
+    public OrderItem getProductIdentifiers(String sku, float price) {
+        return null;
+    }
+
+    @Override
+    public void currentDiscount() {
+
+    }
+
+    @Override
+    public void timeOfOrder() {
+
+    }
 }

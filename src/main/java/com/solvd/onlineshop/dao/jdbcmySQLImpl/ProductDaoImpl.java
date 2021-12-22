@@ -33,4 +33,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements IProductDao 
 
     }
 
+    @Override
+    public Product getProductName(String productName) {
+        return null;
+    }
 }

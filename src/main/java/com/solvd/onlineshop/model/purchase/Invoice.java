@@ -15,6 +15,17 @@ public class Invoice {
 
     }
 
+    public Invoice(byte[] inStock) {
+        this.inStock = inStock;
+    }
+
+    public Invoice(float price, float discount, float preTax, float tax, float subtotal) {
+        this.price = price;
+        this.preTax = preTax;
+        this.tax = tax;
+        this.subtotal = subtotal;
+    }
+
     public Invoice(Long id, Long transactionID, Long inventoryID, byte[] inStock, float price, float discount, float preTax, float tax, float subtotal) {
         this.id = id;
         this.transactionID = transactionID;

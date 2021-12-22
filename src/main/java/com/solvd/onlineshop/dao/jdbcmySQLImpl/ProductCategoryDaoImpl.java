@@ -33,4 +33,13 @@ public class ProductCategoryDaoImpl extends BaseDaoImpl<ProductCategory> impleme
 
     }
 
+    @Override
+    public ProductCategory getProductName(String productName) {
+        return null;
+    }
+
+    @Override
+    public ProductCategory getClassifications(String title, String metaTitle) {
+        return null;
+    }
 }

@@ -8,6 +8,10 @@ public class Departments {
 
     }
 
+    public Departments(String departmentName) {
+       this.departmentName = departmentName;
+    }
+
     public Departments(Long id, String departmentName) {
         this.id = id;
         this.departmentName = departmentName;

@@ -16,6 +16,25 @@ public class CheckoutCart {
 
     }
 
+    public CheckoutCart(byte[] gift) {
+        this.gift = gift;
+    }
+
+    public CheckoutCart(Long numberOfItems) {
+        this.numberOfItems = numberOfItems;
+    }
+
+    public CheckoutCart(Date timeCreated, Date cartUpdated) {
+        this.timeCreated = timeCreated;
+        this.cartUpdated = cartUpdated;
+    }
+
+    public CheckoutCart(String mobile, String email, String country) {
+      this.mobile = mobile;
+      this.email = email;
+      this.country = country;
+    }
+
     public CheckoutCart(Long id, Long userID, Long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] gift) {
         this.id = id;
         this.userID = userID;

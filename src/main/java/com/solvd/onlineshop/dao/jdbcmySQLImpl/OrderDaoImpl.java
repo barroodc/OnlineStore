@@ -3,7 +3,9 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 import com.solvd.onlineshop.dao.IOrderDao;
 import com.solvd.onlineshop.model.purchase.Order;
 
+import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 public class OrderDaoImpl extends BaseDaoImpl<Order> implements IOrderDao {
 
@@ -33,4 +35,13 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements IOrderDao {
 
     }
 
+    @Override
+    public List<Order> getOtherCustomerInformation() {
+        return null;
+    }
+
+    @Override
+    public Map<Date, String> timePlacedAndStatus() {
+        return null;
+    }
 }

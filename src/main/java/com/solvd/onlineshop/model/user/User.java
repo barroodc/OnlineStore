@@ -18,6 +18,21 @@ public class User {
 
     }
 
+    public User(String firstName, String middleName, String lastName, String mobile) {
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+    }
+
+    public User(Date timeCreated, String email, String userName, String password, Date lastLogin) {
+        this.timeCreated = timeCreated;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.lastLogin = lastLogin;
+    }
+
     public User(Long id, Long employeesID, String firstName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
         this.id = id;
         this.employeesID = employeesID;

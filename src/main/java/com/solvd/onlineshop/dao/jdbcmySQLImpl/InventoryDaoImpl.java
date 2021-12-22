@@ -4,6 +4,7 @@ import com.solvd.onlineshop.dao.IInventoryDao;
 import com.solvd.onlineshop.model.product.Inventory;
 
 import java.util.List;
+import java.util.Map;
 
 public class InventoryDaoImpl extends BaseDaoImpl<Inventory> implements IInventoryDao {
 
@@ -33,4 +34,18 @@ public class InventoryDaoImpl extends BaseDaoImpl<Inventory> implements IInvento
 
     }
 
+    @Override
+    public Map<String, String> productAndDescription() {
+        return null;
+    }
+
+    @Override
+    public Map<String, Float> productAndPrice() {
+        return null;
+    }
+
+    @Override
+    public Map<String, Integer> productAndAmountInStock() {
+        return null;
+    }
 }

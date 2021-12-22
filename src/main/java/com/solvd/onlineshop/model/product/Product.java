@@ -14,6 +14,10 @@ public class Product {
 
     }
 
+    public Product(String productName) {
+        this.productName = productName;
+    }
+
     public Product(Long id, Long inventoryID, Long productTypeID, Long categoryID, Long marketID, Long shopID, Long countryID, String productName) {
         this.id = id;
         this.inventoryID = inventoryID;

@@ -4,6 +4,7 @@ import java.sql.Date;
 public class ItemsInCart {
     private Long id;
     private Long productID;
+    private String productName;
     private String sku;
     private float price;
     private float subtotalOfItems;
@@ -16,9 +17,31 @@ public class ItemsInCart {
 
     }
 
-    public ItemsInCart(Long id, Long productID, String sku, float price, float subtotalOfItems, float discount, float quantity, Date timeCreated, Date cartUpdated) {
+    public ItemsInCart(float subtotalOfItems, float quantity) {
+        this.subtotalOfItems = subtotalOfItems;
+        this.quantity = quantity;
+    }
+
+    public ItemsInCart(String productName, float price) {
+        this.productName = productName;
+        this.price = price;
+    }
+
+    public ItemsInCart(Date timeCreated, Date cartUpdated) {
+        this.timeCreated = timeCreated;
+        this.cartUpdated = cartUpdated;
+    }
+
+    public ItemsInCart(float subtotalOfItems, float quantity, float discount) {
+        this.subtotalOfItems = subtotalOfItems;
+        this.quantity = quantity;
+        this.discount = discount;
+    }
+
+    public ItemsInCart(Long id, Long productID, String productName, String sku, float price, float subtotalOfItems, float discount, float quantity, Date timeCreated, Date cartUpdated) {
         this.id = id;
         this.productID = productID;
+        this.productName = productName;
         this.sku = sku;
         this.price = price;
         this.subtotalOfItems = subtotalOfItems;
@@ -42,6 +65,14 @@ public class ItemsInCart {
 
     public void setProductID(Long productID) {
         this.productID = productID;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getSku() {

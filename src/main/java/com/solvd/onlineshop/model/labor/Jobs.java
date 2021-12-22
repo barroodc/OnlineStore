@@ -3,6 +3,7 @@ package com.solvd.onlineshop.model.labor;
 public class Jobs {
     private Long id;
     private String jobTitle;
+    private float positionSalary;
     private float minSalary;
     private float maxSalary;
 
@@ -10,7 +11,17 @@ public class Jobs {
 
     }
 
-    public Jobs(Long id, String jobTitle, float minSalary, float maxSalary) {
+    public Jobs(String jobTitle, float positionSalary) {
+        this.jobTitle = jobTitle;
+        this.positionSalary = positionSalary;
+    }
+
+    public Jobs(float minSalary, float maxSalary) {
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+    }
+
+    public Jobs(Long id, String jobTitle, float positionSalary, float minSalary, float maxSalary) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.minSalary = minSalary;
@@ -31,6 +42,14 @@ public class Jobs {
 
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
+    }
+
+    public float getPositionSalary() {
+        return positionSalary;
+    }
+
+    public void setPositionSalary(float positionSalary) {
+        this.positionSalary = positionSalary;
     }
 
     public float getMinSalary() {

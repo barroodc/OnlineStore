@@ -14,6 +14,21 @@ public class ProductReview {
 
     }
 
+    public ProductReview(String title, float overallRating) {
+        this.title = title;
+        this.overallRating = overallRating;
+    }
+
+    public ProductReview(float overallRating, String userReview) {
+        this.overallRating = overallRating;
+        this.userReview = userReview;
+    }
+
+    public ProductReview(String title, Date timeCreated) {
+        this.title = title;
+        this.timeCreated = timeCreated;
+    }
+
     public ProductReview(Long id, Long productID, float overallRating, String title, Long parentID, Date timeCreated, String userReview) {
         this.id = id;
         this.productID = productID;

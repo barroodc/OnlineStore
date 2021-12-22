@@ -3,6 +3,7 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 import com.solvd.onlineshop.dao.ITransactionDao;
 import com.solvd.onlineshop.model.purchase.Transaction;
 
+import java.sql.Date;
 import java.util.List;
 
 public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements ITransactionDao {
@@ -33,4 +34,8 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements ITra
 
     }
 
+    @Override
+    public Transaction getTransactionCycle(Date timeCreated, String status, String approvalStatus) {
+        return null;
+    }
 }

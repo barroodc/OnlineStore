@@ -15,6 +15,19 @@ public class OrderItem {
 
     }
 
+    public OrderItem(float discount) {
+        this.discount = discount;
+    }
+
+    public OrderItem(Date timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public OrderItem(String sku, float price) {
+        this.sku = sku;
+        this.price = price;
+    }
+
     public OrderItem(Long id, Long orderID, Long productID, String sku, float price, float discount, Long quantity, Date timeCreated) {
         this.id = id;
         this.orderID = orderID;

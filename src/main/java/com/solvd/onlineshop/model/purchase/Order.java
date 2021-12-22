@@ -23,6 +23,37 @@ public class Order {
 
     }
 
+    public Order(Date timeCreated, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String status) {
+        this.timeCreated = timeCreated;
+        this.dateOfOrder = dateOfOrder;
+        this.dateOfDelivery = dateOfDelivery;
+        this.timeOfDelivery = timeOfDelivery;
+        this.status = status;
+    }
+
+    public Order(String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email) {
+      this.placeOfDelivery = placeOfDelivery;
+      this.cityOfDelivery = cityOfDelivery;
+      this.postalCode = postalCode;
+      this.country = country;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.mobile = mobile;
+      this.email = email;
+    }
+
+    public Order(String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String middleName, String lastName, String mobile, String email) {
+        this.placeOfDelivery = placeOfDelivery;
+        this.cityOfDelivery = cityOfDelivery;
+        this.postalCode = postalCode;
+        this.country = country;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.mobile = mobile;
+        this.email = email;
+    }
+
     public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
