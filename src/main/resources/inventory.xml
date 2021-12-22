@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Clothes>
+    <Clothes id = "1">
+    <name>Chess Board T-Shirts</name>
+    <price>$10.98</price>
+    <description>Available in large, medium, and small sizes</description>
+    </Clothes>
+
+    <Clothes id = "2">
+        <name>Autographed T-Shirt</name>
+        <price>$34.89</price>
+        <description>Autographed by the 2021 World Champion Magnus Carlsen</description>
+    </Clothes>
+</Clothes>
