@@ -1,9 +1,9 @@
 package com.solvd.onlineshop.model.purchase;
 
 public class Invoice {
-    private Long id;
-    private Long transactionID;
-    private Long inventoryID;
+    private long id;
+    private long transactionID;
+    private long inventoryID;
     private byte[] isInStock;
     private float price;
     private float discount;
@@ -26,7 +26,7 @@ public class Invoice {
         this.subtotal = subtotal;
     }
 
-    public Invoice(Long id, Long transactionID, Long inventoryID, byte[] isInStock, float price, float discount, float preTax, float tax, float subtotal) {
+    public Invoice(long id, long transactionID, long inventoryID, byte[] isInStock, float price, float discount, float preTax, float tax, float subtotal) {
         this.id = id;
         this.transactionID = transactionID;
         this.inventoryID = inventoryID;
@@ -38,27 +38,27 @@ public class Invoice {
         this.subtotal = subtotal;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getTransactionID() {
+    public long getTransactionID() {
         return transactionID;
     }
 
-    public void setTransactionID(Long transactionID) {
+    public void setTransactionID(long transactionID) {
         this.transactionID = transactionID;
     }
 
-    public Long getInventoryID() {
+    public long getInventoryID() {
         return inventoryID;
     }
 
-    public void setInventoryID(Long inventoryID) {
+    public void setInventoryID(long inventoryID) {
         this.inventoryID = inventoryID;
     }
 

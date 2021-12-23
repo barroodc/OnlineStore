@@ -1,11 +1,11 @@
 package com.solvd.onlineshop.model.product;
 
 public class Inventory {
-    private Long id;
+    private long id;
     private String productName;
     private String description;
     private float price;
-    private Long amountInStock;
+    private long amountInStock;
 
     public Inventory() {
 
@@ -26,7 +26,7 @@ public class Inventory {
        this.amountInStock = amountInStock;
     }
 
-    public Inventory(Long id, String productName, String description, float price, Long amountInStock) {
+    public Inventory(long id, String productName, String description, float price, Long amountInStock) {
         this.id = id;
         this.productName = productName;
         this.description = description;
@@ -34,11 +34,11 @@ public class Inventory {
         this.amountInStock = amountInStock;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

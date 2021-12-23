@@ -1,16 +1,16 @@
 package com.solvd.onlineshop.model.labor;
 import java.sql.Date;
 public class Employees {
-    private Long id;
-    private Long jobsID;
-    private Long departmentsID;
+    private long id;
+    private long jobsID;
+    private long departmentsID;
     private String mobile;
     private String email;
     private Date hireDate;
     private String jobID;
     private float salary;
-    private Long managerID;
-    private Long departmentID;
+    private long managerID;
+    private long departmentID;
 
     public Employees() {
 
@@ -31,7 +31,7 @@ public class Employees {
     }
 
 
-    public Employees(Long id, Long jobsID, Long departmentsID, String mobile, String email, Date hireDate, String jobID, float salary, Long managerID, Long departmentID) {
+    public Employees(long id, long jobsID, long departmentsID, String mobile, String email, Date hireDate, String jobID, float salary, long managerID, long departmentID) {
         this.id = id;
         this.jobsID = jobsID;
         this.departmentsID = departmentsID;
@@ -45,27 +45,27 @@ public class Employees {
     }
 
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getJobsID() {
+    public long getJobsID() {
         return jobsID;
     }
 
-    public void setJobsID(Long jobsID) {
+    public void setJobsID(long jobsID) {
         this.jobsID = jobsID;
     }
 
-    public Long getDepartmentsID() {
+    public long getDepartmentsID() {
         return departmentsID;
     }
 
-    public void setDepartmentsID(Long departmentsID) {
+    public void setDepartmentsID(long departmentsID) {
         this.departmentsID = departmentsID;
     }
 
@@ -109,7 +109,7 @@ public class Employees {
         this.salary = salary;
     }
 
-    public Long getManagerID() {
+    public long getManagerID() {
         return managerID;
     }
 
@@ -117,7 +117,7 @@ public class Employees {
         this.managerID = managerID;
     }
 
-    public Long getDepartmentID() {
+    public long getDepartmentID() {
         return departmentID;
     }
 

@@ -24,14 +24,15 @@ public class ProductCategoryDaoImpl extends BaseDaoImpl<ProductCategory> impleme
     }
 
     @Override
-    public ProductCategory getEntityById(Long id) {
+    public ProductCategory getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
+
 
     @Override
     public ProductCategory getProductName(String productName) {

@@ -26,17 +26,17 @@ public class CheckoutCartDaoImpl extends BaseDaoImpl<CheckoutCart> implements IC
     }
 
     @Override
-    public CheckoutCart getEntityById(Long id) {
+    public CheckoutCart getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 
     @Override
-    public CheckoutCart getNumberOfItemsInCart(Long numberOfItems) {
+    public CheckoutCart getNumberOfItemsInCart(long numberOfItems) {
         return null;
     }
 

@@ -3,8 +3,8 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class User implements Serializable {
-    private Long id;
-    private Long employeesID;
+    private long id;
+    private long employeesID;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -34,7 +34,7 @@ public class User implements Serializable {
         this.lastLogin = lastLogin;
     }
 
-    public User(Long id, Long employeesID, String firstName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
+    public User(long id, long employeesID, String firstName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
         this.id = id;
         this.employeesID = employeesID;
         this.firstName = firstName;
@@ -47,7 +47,7 @@ public class User implements Serializable {
         this.lastLogin = lastLogin;
     }
 
-    public User(Long id, Long employeesID, String firstName, String middleName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
+    public User(long id, long employeesID, String firstName, String middleName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
         this.id = id;
         this.employeesID = employeesID;
         this.firstName = firstName;
@@ -61,19 +61,19 @@ public class User implements Serializable {
         this.lastLogin = lastLogin;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getEmployeesID() {
+    public long getEmployeesID() {
         return employeesID;
     }
 
-    public void setEmployeesID(Long employeesID) {
+    public void setEmployeesID(long employeesID) {
         this.employeesID = employeesID;
     }
 

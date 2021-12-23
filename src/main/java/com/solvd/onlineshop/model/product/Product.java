@@ -1,13 +1,13 @@
 package com.solvd.onlineshop.model.product;
 
 public class Product {
-    private Long id;
-    private Long inventoryID;
-    private Long productTypeID;
-    private Long categoryID;
-    private Long marketID;
-    private Long shopID;
-    private Long countryID;
+    private long id;
+    private long inventoryID;
+    private long productTypeID;
+    private long categoryID;
+    private long marketID;
+    private long shopID;
+    private long countryID;
     private String productName;
 
     public Product() {
@@ -29,59 +29,59 @@ public class Product {
         this.productName = productName;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getInventoryID() {
+    public long getInventoryID() {
         return inventoryID;
     }
 
-    public void setInventoryID(Long inventoryID) {
+    public void setInventoryID(long inventoryID) {
         this.inventoryID = inventoryID;
     }
 
-    public Long getProductTypeID() {
+    public long getProductTypeID() {
         return productTypeID;
     }
 
-    public void setProductTypeID(Long productTypeID) {
+    public void setProductTypeID(long productTypeID) {
         this.productTypeID = productTypeID;
     }
 
-    public Long getCategoryID() {
+    public long getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(Long categoryID) {
+    public void setCategoryID(long categoryID) {
         this.categoryID = categoryID;
     }
 
-    public Long getMarketID() {
+    public long getMarketID() {
         return marketID;
     }
 
-    public void setMarketID(Long marketID) {
+    public void setMarketID(long marketID) {
         this.marketID = marketID;
     }
 
-    public Long getShopID() {
+    public long getShopID() {
         return shopID;
     }
 
-    public void setShopID(Long shopID) {
+    public void setShopID(long shopID) {
         this.shopID = shopID;
     }
 
-    public Long getCountryID() {
+    public long getCountryID() {
         return countryID;
     }
 
-    public void setCountryID(Long countryID) {
+    public void setCountryID(long countryID) {
         this.countryID = countryID;
     }
 

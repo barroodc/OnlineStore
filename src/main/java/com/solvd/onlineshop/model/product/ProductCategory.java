@@ -1,8 +1,8 @@
 package com.solvd.onlineshop.model.product;
 
 public class ProductCategory {
-    private Long id;
-    private Long productID;
+    private long id;
+    private long productID;
     private String title;
     private String metaTitle;
     private String productName;
@@ -20,7 +20,7 @@ public class ProductCategory {
         this.metaTitle = metaTitle;
     }
 
-    public ProductCategory(Long id, Long productID, String title, String metaTitle, String productName) {
+    public ProductCategory(long id, long productID, String title, String metaTitle, String productName) {
         this.id = id;
         this.productID = productID;
         this.title = title;
@@ -28,15 +28,15 @@ public class ProductCategory {
         this.productName = productName;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getProductID() {
+    public long getProductID() {
         return productID;
     }
 

@@ -2,9 +2,9 @@ package com.solvd.onlineshop.model.checkout;
 import java.sql.Date;
 
 public class CheckoutCart {
-    private Long id;
-    private Long userID;
-    private Long numberOfItems;
+    private long id;
+    private long userID;
+    private long numberOfItems;
     private String mobile;
     private String email;
     private String country;
@@ -20,7 +20,7 @@ public class CheckoutCart {
         this.isGift = gift;
     }
 
-    public CheckoutCart(Long numberOfItems) {
+    public CheckoutCart(long numberOfItems) {
         this.numberOfItems = numberOfItems;
     }
 
@@ -35,7 +35,7 @@ public class CheckoutCart {
       this.country = country;
     }
 
-    public CheckoutCart(Long id, Long userID, Long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] isGift) {
+    public CheckoutCart(long id, long userID, long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] isGift) {
         this.id = id;
         this.userID = userID;
         this.numberOfItems = numberOfItems;
@@ -47,11 +47,11 @@ public class CheckoutCart {
         this.isGift = isGift;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -59,15 +59,15 @@ public class CheckoutCart {
         return userID;
     }
 
-    public void setUserID(Long userID) {
+    public void setUserID(long userID) {
         this.userID = userID;
     }
 
-    public Long getNumberOfItems() {
+    public long getNumberOfItems() {
         return numberOfItems;
     }
 
-    public void setNumberOfItems(Long numberOfItems) {
+    public void setNumberOfItems(long numberOfItems) {
         this.numberOfItems = numberOfItems;
     }
 

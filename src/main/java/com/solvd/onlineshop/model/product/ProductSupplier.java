@@ -1,8 +1,8 @@
 package com.solvd.onlineshop.model.product;
 
 public class ProductSupplier {
-    private Long id;
-    private Long productID;
+    private long id;
+    private long productID;
     private String supplierName;
     private String categoryOfProducts;
 
@@ -15,26 +15,26 @@ public class ProductSupplier {
         this.categoryOfProducts = categoryOfProducts;
     }
 
-    public ProductSupplier(Long id, Long productID, String supplierName, String categoryOfProducts) {
+    public ProductSupplier(long id, long productID, String supplierName, String categoryOfProducts) {
         this.id = id;
         this.productID = productID;
         this.supplierName = supplierName;
         this.categoryOfProducts = categoryOfProducts;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getProductID() {
+    public long getProductID() {
         return productID;
     }
 
-    public void setProductID(Long productID) {
+    public void setProductID(long productID) {
         this.productID = productID;
     }
 

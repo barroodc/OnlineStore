@@ -25,12 +25,12 @@ public class InventoryDaoImpl extends BaseDaoImpl<Inventory> implements IInvento
     }
 
     @Override
-    public Inventory getEntityById(Long id) {
+    public Inventory getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

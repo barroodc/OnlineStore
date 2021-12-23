@@ -25,12 +25,12 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements ITra
     }
 
     @Override
-    public Transaction getEntityById(Long id) {
+    public Transaction getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

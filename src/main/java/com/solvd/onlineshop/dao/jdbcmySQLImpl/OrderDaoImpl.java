@@ -26,12 +26,12 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements IOrderDao {
     }
 
     @Override
-    public Order getEntityById(Long id) {
+    public Order getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

@@ -24,12 +24,12 @@ public class DepartmentsDaoImpl extends BaseDaoImpl<Departments> implements IDep
     }
 
     @Override
-    public Departments getEntityById(Long id) {
+    public Departments getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

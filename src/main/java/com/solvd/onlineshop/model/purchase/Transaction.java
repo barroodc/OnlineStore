@@ -2,8 +2,8 @@ package com.solvd.onlineshop.model.purchase;
 import java.sql.Date;
 
 public class Transaction {
-    private Long id;
-    private Long userID;
+    private long id;
+    private long userID;
     private String status;
     private Date timeCreated;
     private String approvalStatus;
@@ -12,19 +12,19 @@ public class Transaction {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getUserID() {
+    public long getUserID() {
         return userID;
     }
 
-    public void setUserID(Long userID) {
+    public void setUserID(long userID) {
         this.userID = userID;
     }
 

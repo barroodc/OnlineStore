@@ -1,7 +1,7 @@
 package com.solvd.onlineshop.model.labor;
 
 public class Departments {
-    private Long id;
+    private long id;
     private String departmentName;
 
     public Departments() {
@@ -12,16 +12,16 @@ public class Departments {
        this.departmentName = departmentName;
     }
 
-    public Departments(Long id, String departmentName) {
+    public Departments(long id, String departmentName) {
         this.id = id;
         this.departmentName = departmentName;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

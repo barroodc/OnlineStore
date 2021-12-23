@@ -25,12 +25,12 @@ public class ProductSupplierDaoImpl extends BaseDaoImpl<ProductSupplier> impleme
     }
 
     @Override
-    public ProductSupplier getEntityById(Long id) {
+    public ProductSupplier getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

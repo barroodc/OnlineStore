@@ -24,12 +24,12 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements IProductDao 
     }
 
     @Override
-    public Product getEntityById(Long id) {
+    public Product getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

@@ -25,12 +25,12 @@ public class JobsDaoImpl extends BaseDaoImpl<Jobs> implements IJobsDao {
     }
 
     @Override
-    public Jobs getEntityById(Long id) {
+    public Jobs getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

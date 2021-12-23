@@ -2,9 +2,9 @@ package com.solvd.onlineshop.model.purchase;
 import java.sql.Date;
 
 public class OrderItem {
-    private Long id;
-    private Long orderID;
-    private Long productID;
+    private long id;
+    private long orderID;
+    private long productID;
     private String sku;
     private float price;
     private float discount;
@@ -28,7 +28,7 @@ public class OrderItem {
         this.price = price;
     }
 
-    public OrderItem(Long id, Long orderID, Long productID, String sku, float price, float discount, Long quantity, Date timeCreated) {
+    public OrderItem(long id, long orderID, long productID, String sku, float price, float discount, Long quantity, Date timeCreated) {
         this.id = id;
         this.orderID = orderID;
         this.productID = productID;
@@ -39,27 +39,27 @@ public class OrderItem {
         this.timeCreated = timeCreated;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getOrderID() {
+    public long getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(Long orderID) {
+    public void setOrderID(long orderID) {
         this.orderID = orderID;
     }
 
-    public Long getProductID() {
+    public long getProductID() {
         return productID;
     }
 
-    public void setProductID(Long productID) {
+    public void setProductID(long productID) {
         this.productID = productID;
     }
 

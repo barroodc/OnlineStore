@@ -2,8 +2,8 @@ package com.solvd.onlineshop.model.checkout;
 import java.sql.Date;
 
 public class ItemsInCart {
-    private Long id;
-    private Long productID;
+    private long id;
+    private long productID;
     private String productName;
     private String sku;
     private float price;
@@ -38,7 +38,7 @@ public class ItemsInCart {
         this.discount = discount;
     }
 
-    public ItemsInCart(Long id, Long productID, String productName, String sku, float price, float subtotalOfItems, float discount, float quantity, Date timeCreated, Date cartUpdated) {
+    public ItemsInCart(long id, long productID, String productName, String sku, float price, float subtotalOfItems, float discount, float quantity, Date timeCreated, Date cartUpdated) {
         this.id = id;
         this.productID = productID;
         this.productName = productName;
@@ -51,19 +51,19 @@ public class ItemsInCart {
         this.cartUpdated = cartUpdated;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getProductID() {
+    public long getProductID() {
         return productID;
     }
 
-    public void setProductID(Long productID) {
+    public void setProductID(long productID) {
         this.productID = productID;
     }
 

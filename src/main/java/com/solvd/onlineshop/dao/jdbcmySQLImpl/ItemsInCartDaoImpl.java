@@ -26,12 +26,12 @@ public class ItemsInCartDaoImpl extends BaseDaoImpl<ItemsInCart> implements IIte
     }
 
     @Override
-    public ItemsInCart getEntityById(Long id) {
+    public ItemsInCart getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

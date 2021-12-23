@@ -24,12 +24,12 @@ public class InvoiceDaoImpl extends BaseDaoImpl<Invoice> implements IInvoiceDao 
     }
 
     @Override
-    public Invoice getEntityById(Long id) {
+    public Invoice getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

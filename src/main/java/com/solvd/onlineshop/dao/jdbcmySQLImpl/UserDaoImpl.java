@@ -59,12 +59,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao, Serializ
     }
 
     @Override
-    public User getEntityById(Long id) {
+    public User getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 

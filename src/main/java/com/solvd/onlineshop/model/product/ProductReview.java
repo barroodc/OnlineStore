@@ -2,11 +2,11 @@ package com.solvd.onlineshop.model.product;
 import java.sql.Date;
 
 public class ProductReview {
-    private Long id;
-    private Long productID;
+    private long id;
+    private long productID;
     private float overallRating;
     private String title;
-    private Long parentID;
+    private long parentID;
     private Date timeCreated;
     private String userReview;
 
@@ -29,7 +29,7 @@ public class ProductReview {
         this.timeCreated = timeCreated;
     }
 
-    public ProductReview(Long id, Long productID, float overallRating, String title, Long parentID, Date timeCreated, String userReview) {
+    public ProductReview(long id, long productID, float overallRating, String title, long parentID, Date timeCreated, String userReview) {
         this.id = id;
         this.productID = productID;
         this.overallRating = overallRating;
@@ -39,19 +39,19 @@ public class ProductReview {
         this.userReview = userReview;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getProductID() {
+    public long getProductID() {
         return productID;
     }
 
-    public void setProductID(Long productID) {
+    public void setProductID(long productID) {
         this.productID = productID;
     }
 
@@ -71,11 +71,11 @@ public class ProductReview {
         this.title = title;
     }
 
-    public Long getParentID() {
+    public long getParentID() {
         return parentID;
     }
 
-    public void setParentID(Long parentID) {
+    public void setParentID(long parentID) {
         this.parentID = parentID;
     }
 

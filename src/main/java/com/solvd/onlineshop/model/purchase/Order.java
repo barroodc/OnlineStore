@@ -2,8 +2,8 @@ package com.solvd.onlineshop.model.purchase;
 import java.sql.Date;
 
 public class Order {
-    private Long id;
-    private Long userID;
+    private long id;
+    private long userID;
     private Date dateOfOrder;
     private Date dateOfDelivery;
     private Date timeOfDelivery;
@@ -37,7 +37,7 @@ public class Order {
       this.email = email;
     }
 
-    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email, Date timeCreated, String status) {
+    public Order(long id, long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
         this.dateOfOrder = dateOfOrder;
@@ -53,7 +53,7 @@ public class Order {
         this.status = status;
     }
 
-    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country,  String mobile, String email, Date timeCreated, String status) {
+    public Order(long id, long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country,  String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
         this.dateOfOrder = dateOfOrder;
@@ -69,11 +69,11 @@ public class Order {
         this.status = status;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

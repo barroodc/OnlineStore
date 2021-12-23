@@ -26,12 +26,12 @@ public class ProductReviewDaoImpl extends BaseDaoImpl<ProductReview> implements 
     }
 
     @Override
-    public ProductReview getEntityById(Long id) {
+    public ProductReview getEntityById(long id) {
         return null;
     }
 
     @Override
-    public void deleteEntity(Long id) {
+    public void deleteEntity(long id) {
 
     }
 
