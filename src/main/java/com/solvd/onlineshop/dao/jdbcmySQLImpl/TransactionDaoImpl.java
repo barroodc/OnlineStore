@@ -11,7 +11,7 @@ public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements ITra
     private List<Transaction> transactions;
 
     public TransactionDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

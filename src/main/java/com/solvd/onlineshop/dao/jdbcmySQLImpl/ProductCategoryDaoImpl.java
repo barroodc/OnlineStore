@@ -10,7 +10,7 @@ public class ProductCategoryDaoImpl extends BaseDaoImpl<ProductCategory> impleme
     private List<ProductCategory> productCategories;
 
     public ProductCategoryDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

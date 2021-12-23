@@ -10,14 +10,14 @@ public class CheckoutCart {
     private String country;
     private Date timeCreated;
     private Date cartUpdated;
-    private byte[] gift;
+    private byte[] isGift;
 
     public CheckoutCart() {
 
     }
 
     public CheckoutCart(byte[] gift) {
-        this.gift = gift;
+        this.isGift = gift;
     }
 
     public CheckoutCart(Long numberOfItems) {
@@ -35,7 +35,7 @@ public class CheckoutCart {
       this.country = country;
     }
 
-    public CheckoutCart(Long id, Long userID, Long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] gift) {
+    public CheckoutCart(Long id, Long userID, Long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] isGift) {
         this.id = id;
         this.userID = userID;
         this.numberOfItems = numberOfItems;
@@ -44,7 +44,7 @@ public class CheckoutCart {
         this.country = country;
         this.timeCreated = timeCreated;
         this.cartUpdated = cartUpdated;
-        this.gift = gift;
+        this.isGift = isGift;
     }
 
     public Long getId() {
@@ -111,11 +111,11 @@ public class CheckoutCart {
         this.cartUpdated = cartUpdated;
     }
 
-    public byte[] getGift() {
-        return gift;
+    public byte[] getIsGift() {
+        return isGift;
     }
 
-    public void setGift(byte[] gift) {
-        this.gift = gift;
+    public void setIsGift(byte[] isGift) {
+        this.isGift = isGift;
     }
 }

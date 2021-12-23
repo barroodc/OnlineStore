@@ -11,7 +11,7 @@ public class InventoryDaoImpl extends BaseDaoImpl<Inventory> implements IInvento
     private List<Inventory> inventories;
 
     public InventoryDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

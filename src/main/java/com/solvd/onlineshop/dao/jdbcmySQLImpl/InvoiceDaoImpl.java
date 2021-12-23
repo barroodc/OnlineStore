@@ -10,7 +10,7 @@ public class InvoiceDaoImpl extends BaseDaoImpl<Invoice> implements IInvoiceDao 
     private List<Invoice> invoices;
 
     public InvoiceDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

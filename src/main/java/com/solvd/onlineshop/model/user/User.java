@@ -1,7 +1,8 @@
 package com.solvd.onlineshop.model.user;
+import java.io.Serializable;
 import java.sql.Date;
 
-public class User {
+public class User implements Serializable {
     private Long id;
     private Long employeesID;
     private String firstName;

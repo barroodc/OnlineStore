@@ -12,7 +12,7 @@ public class OrderDaoImpl extends BaseDaoImpl<Order> implements IOrderDao {
     private List<Order> orders;
 
     public OrderDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

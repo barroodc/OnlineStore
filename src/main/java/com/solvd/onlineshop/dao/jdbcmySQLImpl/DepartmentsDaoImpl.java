@@ -10,7 +10,7 @@ public class DepartmentsDaoImpl extends BaseDaoImpl<Departments> implements IDep
     private List<Departments> departments;
 
     public DepartmentsDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

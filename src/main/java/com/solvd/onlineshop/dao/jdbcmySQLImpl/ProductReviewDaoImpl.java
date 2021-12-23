@@ -12,7 +12,7 @@ public class ProductReviewDaoImpl extends BaseDaoImpl<ProductReview> implements 
     private List<ProductReview> productReviews;
 
     public ProductReviewDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

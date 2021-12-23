@@ -11,7 +11,7 @@ public class JobsDaoImpl extends BaseDaoImpl<Jobs> implements IJobsDao {
     private List<Jobs> jobs;
 
     public JobsDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

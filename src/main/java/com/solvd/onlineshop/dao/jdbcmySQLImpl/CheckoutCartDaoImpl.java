@@ -11,7 +11,7 @@ public class CheckoutCartDaoImpl extends BaseDaoImpl<CheckoutCart> implements IC
     private List<CheckoutCart> checkoutCarts;
 
     public CheckoutCartDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
 

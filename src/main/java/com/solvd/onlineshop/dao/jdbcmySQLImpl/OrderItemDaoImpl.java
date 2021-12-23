@@ -10,7 +10,7 @@ public class OrderItemDaoImpl extends BaseDaoImpl<OrderItem> implements IOrderIt
     private List<OrderItem> orderItems;
 
     public OrderItemDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

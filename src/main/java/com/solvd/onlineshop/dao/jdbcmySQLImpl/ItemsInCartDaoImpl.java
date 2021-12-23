@@ -12,7 +12,7 @@ public class ItemsInCartDaoImpl extends BaseDaoImpl<ItemsInCart> implements IIte
     private List<ItemsInCart> itemsInCarts;
 
     public ItemsInCartDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

@@ -10,7 +10,7 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements IProductDao 
     private List<Product> products;
 
     public ProductDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

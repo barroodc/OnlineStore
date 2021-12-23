@@ -11,7 +11,7 @@ public class ProductSupplierDaoImpl extends BaseDaoImpl<ProductSupplier> impleme
     private List<ProductSupplier> productSuppliers;
 
     public ProductSupplierDaoImpl() {
-        //arraylist will be initialized here.
+
     }
 
     @Override

@@ -4,7 +4,7 @@ public class Invoice {
     private Long id;
     private Long transactionID;
     private Long inventoryID;
-    private byte[] inStock;
+    private byte[] isInStock;
     private float price;
     private float discount;
     private float preTax;
@@ -16,7 +16,7 @@ public class Invoice {
     }
 
     public Invoice(byte[] inStock) {
-        this.inStock = inStock;
+        this.isInStock = inStock;
     }
 
     public Invoice(float price, float discount, float preTax, float tax, float subtotal) {
@@ -26,11 +26,11 @@ public class Invoice {
         this.subtotal = subtotal;
     }
 
-    public Invoice(Long id, Long transactionID, Long inventoryID, byte[] inStock, float price, float discount, float preTax, float tax, float subtotal) {
+    public Invoice(Long id, Long transactionID, Long inventoryID, byte[] isInStock, float price, float discount, float preTax, float tax, float subtotal) {
         this.id = id;
         this.transactionID = transactionID;
         this.inventoryID = inventoryID;
-        this.inStock = inStock;
+        this.isInStock = isInStock;
         this.price = price;
         this.discount = discount;
         this.preTax = preTax;
@@ -62,12 +62,12 @@ public class Invoice {
         this.inventoryID = inventoryID;
     }
 
-    public byte[] getInStock() {
-        return inStock;
+    public byte[] getIsInStock() {
+        return isInStock;
     }
 
-    public void setInStock(byte[] inStock) {
-        this.inStock = inStock;
+    public void setIsInStock(byte[] isInStock) {
+        this.isInStock = isInStock;
     }
 
     public float getPrice() {
