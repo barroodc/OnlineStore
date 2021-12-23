@@ -4,9 +4,6 @@ public class Employees {
     private Long id;
     private Long jobsID;
     private Long departmentsID;
-    private String firstName;
-    private String middleName;
-    private String lastName;
     private String mobile;
     private String email;
     private Date hireDate;
@@ -19,53 +16,25 @@ public class Employees {
 
     }
 
-    public Employees(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
-    public Employees(String firstName, String lastName, Date hireDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Employees(Date hireDate) {
         this.hireDate = hireDate;
     }
 
-    public Employees(String firstName, String lastName, float salary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Employees(float salary) {
         this.salary = salary;
     }
 
-    public Employees(String firstName, String lastName, String mobile, String email){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Employees(String mobile, String email){
         this.mobile = mobile;
         this.email = email;
     }
 
 
-    public Employees(Long id, Long jobsID, Long departmentsID, String firstName, String lastName, String mobile, String email, Date hireDate, String jobID, float salary, Long managerID, Long departmentID) {
+    public Employees(Long id, Long jobsID, Long departmentsID, String mobile, String email, Date hireDate, String jobID, float salary, Long managerID, Long departmentID) {
         this.id = id;
         this.jobsID = jobsID;
         this.departmentsID = departmentsID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mobile = mobile;
-        this.email = email;
-        this.hireDate = hireDate;
-        this.jobID = jobID;
-        this.salary = salary;
-        this.managerID = managerID;
-        this.departmentID = departmentID;
-    }
-
-    public Employees(Long id, Long jobsID, Long departmentsID, String firstName, String middleName, String lastName, String mobile, String email, Date hireDate, String jobID, float salary, Long managerID, Long departmentID) {
-        this.id = id;
-        this.jobsID = jobsID;
-        this.departmentsID = departmentsID;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
         this.mobile = mobile;
         this.email = email;
         this.hireDate = hireDate;
@@ -98,30 +67,6 @@ public class Employees {
 
     public void setDepartmentsID(Long departmentsID) {
         this.departmentsID = departmentsID;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getMobile() {

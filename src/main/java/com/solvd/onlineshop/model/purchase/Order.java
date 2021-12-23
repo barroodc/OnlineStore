@@ -11,9 +11,6 @@ public class Order {
     private String cityOfDelivery;
     private String postalCode;
     private String country;
-    private String firstName;
-    private String middleName;
-    private String lastName;
     private String mobile;
     private String email;
     private Date timeCreated;
@@ -31,27 +28,13 @@ public class Order {
         this.status = status;
     }
 
-    public Order(String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email) {
+    public Order(String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String mobile, String email) {
       this.placeOfDelivery = placeOfDelivery;
       this.cityOfDelivery = cityOfDelivery;
       this.postalCode = postalCode;
       this.country = country;
-      this.firstName = firstName;
-      this.lastName = lastName;
       this.mobile = mobile;
       this.email = email;
-    }
-
-    public Order(String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String middleName, String lastName, String mobile, String email) {
-        this.placeOfDelivery = placeOfDelivery;
-        this.cityOfDelivery = cityOfDelivery;
-        this.postalCode = postalCode;
-        this.country = country;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.mobile = mobile;
-        this.email = email;
     }
 
     public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email, Date timeCreated, String status) {
@@ -64,15 +47,13 @@ public class Order {
         this.cityOfDelivery = cityOfDelivery;
         this.postalCode = postalCode;
         this.country = country;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.mobile = mobile;
         this.email = email;
         this.timeCreated = timeCreated;
         this.status = status;
     }
 
-    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String middleName, String lastName, String mobile, String email, Date timeCreated, String status) {
+    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country,  String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
         this.dateOfOrder = dateOfOrder;
@@ -82,9 +63,6 @@ public class Order {
         this.cityOfDelivery = cityOfDelivery;
         this.postalCode = postalCode;
         this.country = country;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
         this.mobile = mobile;
         this.email = email;
         this.timeCreated = timeCreated;
@@ -161,30 +139,6 @@ public class Order {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getMobile() {
