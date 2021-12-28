@@ -1,7 +1,9 @@
 package com.solvd.onlineshop.model.purchase;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.sql.Date;
 
-public class Order {
+public class Order implements DataTransferObject {
     private long id;
     private long userID;
     private Date dateOfOrder;
@@ -171,5 +173,29 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", userID=" + userID +
+                ", dateOfOrder=" + dateOfOrder +
+                ", dateOfDelivery=" + dateOfDelivery +
+                ", timeOfDelivery=" + timeOfDelivery +
+                ", placeOfDelivery='" + placeOfDelivery + '\'' +
+                ", cityOfDelivery='" + cityOfDelivery + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", country='" + country + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", timeCreated=" + timeCreated +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

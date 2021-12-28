@@ -6,5 +6,5 @@ import java.util.List;
 
 
 public interface IDepartmentsDao extends IBaseDao<Departments> {
-      List<Departments> getAllDepartments();
+      List<Departments> getAllDepartments(long id);
 }

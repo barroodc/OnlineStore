@@ -8,5 +8,5 @@ import java.util.Map;
 
 public interface IJobsDao extends IBaseDao<Jobs>{
     Map<String, Float> jobsAndSalary();
-    List<Jobs> getMinAndMaxSalaries();
+    List<Jobs> getMinAndMaxSalaries(long id);
 }

@@ -1,6 +1,8 @@
 package com.solvd.onlineshop.model.labor;
 
-public class Departments {
+import com.solvd.onlineshop.utils.DataTransferObject;
+
+public class Departments implements DataTransferObject {
     private long id;
     private String departmentName;
 
@@ -31,5 +33,18 @@ public class Departments {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Departments{" +
+                "id=" + id +
+                ", departmentName='" + departmentName + '\'' +
+                '}';
     }
 }

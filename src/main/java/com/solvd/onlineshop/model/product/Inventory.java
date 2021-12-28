@@ -1,6 +1,8 @@
 package com.solvd.onlineshop.model.product;
 
-public class Inventory {
+import com.solvd.onlineshop.utils.DataTransferObject;
+
+public class Inventory implements DataTransferObject {
     private long id;
     private String productName;
     private String description;
@@ -72,5 +74,21 @@ public class Inventory {
 
     public void setAmountInStock(Long amountInStock) {
         this.amountInStock = amountInStock;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", amountInStock=" + amountInStock +
+                '}';
     }
 }

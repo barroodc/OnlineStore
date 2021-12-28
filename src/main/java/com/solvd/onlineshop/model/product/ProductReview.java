@@ -1,7 +1,9 @@
 package com.solvd.onlineshop.model.product;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.sql.Date;
 
-public class ProductReview {
+public class ProductReview implements DataTransferObject {
     private long id;
     private long productID;
     private float overallRating;
@@ -93,5 +95,23 @@ public class ProductReview {
 
     public void setUserReview(String userReview) {
         this.userReview = userReview;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductReview{" +
+                "id=" + id +
+                ", productID=" + productID +
+                ", overallRating=" + overallRating +
+                ", title='" + title + '\'' +
+                ", parentID=" + parentID +
+                ", timeCreated=" + timeCreated +
+                ", userReview='" + userReview + '\'' +
+                '}';
     }
 }

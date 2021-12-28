@@ -1,7 +1,10 @@
 package com.solvd.onlineshop.model.checkout;
-import java.sql.Date;
+import com.solvd.onlineshop.utils.DataTransferObject;
 
-public class CheckoutCart {
+import java.sql.Date;
+import java.util.Arrays;
+
+public class CheckoutCart implements DataTransferObject {
     private long id;
     private long userID;
     private long numberOfItems;
@@ -117,5 +120,25 @@ public class CheckoutCart {
 
     public void setIsGift(byte[] isGift) {
         this.isGift = isGift;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "CheckoutCart{" +
+                "id=" + id +
+                ", userID=" + userID +
+                ", numberOfItems=" + numberOfItems +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", country='" + country + '\'' +
+                ", timeCreated=" + timeCreated +
+                ", cartUpdated=" + cartUpdated +
+                ", isGift=" + Arrays.toString(isGift) +
+                '}';
     }
 }

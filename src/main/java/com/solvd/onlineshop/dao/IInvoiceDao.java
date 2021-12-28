@@ -7,5 +7,5 @@ import java.util.List;
 public interface IInvoiceDao extends IBaseDao<Invoice> {
 
     void inStock(byte[] isInStock);
-    List<Invoice> getPaymentInformation();
+    List<Invoice> getPaymentInformation(long id);
 }

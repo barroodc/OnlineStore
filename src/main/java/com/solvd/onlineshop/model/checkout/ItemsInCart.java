@@ -1,7 +1,9 @@
 package com.solvd.onlineshop.model.checkout;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.sql.Date;
 
-public class ItemsInCart {
+public class ItemsInCart implements DataTransferObject {
     private long id;
     private long productID;
     private String productName;
@@ -129,5 +131,26 @@ public class ItemsInCart {
 
     public void setCartUpdated(Date cartUpdated) {
         this.cartUpdated = cartUpdated;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemsInCart{" +
+                "id=" + id +
+                ", productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", sku='" + sku + '\'' +
+                ", price=" + price +
+                ", subtotalOfItems=" + subtotalOfItems +
+                ", discount=" + discount +
+                ", quantity=" + quantity +
+                ", timeCreated=" + timeCreated +
+                ", cartUpdated=" + cartUpdated +
+                '}';
     }
 }

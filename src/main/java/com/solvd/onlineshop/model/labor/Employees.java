@@ -1,16 +1,18 @@
 package com.solvd.onlineshop.model.labor;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.sql.Date;
-public class Employees {
+public class Employees implements DataTransferObject {
     private long id;
     private long jobsID;
     private long departmentsID;
     private String mobile;
     private String email;
     private Date hireDate;
-    private String jobID;
+    private String jobID; //look into this one. It does make sense. Consider renaming
     private float salary;
     private long managerID;
-    private long departmentID;
+    private long departmentID; //look into this one as well. Consider renaming
 
     public Employees() {
 
@@ -123,5 +125,26 @@ public class Employees {
 
     public void setDepartmentID(Long departmentID) {
         this.departmentID = departmentID;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "id=" + id +
+                ", jobsID=" + jobsID +
+                ", departmentsID=" + departmentsID +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", hireDate=" + hireDate +
+                ", jobID='" + jobID + '\'' +
+                ", salary=" + salary +
+                ", managerID=" + managerID +
+                ", departmentID=" + departmentID +
+                '}';
     }
 }

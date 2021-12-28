@@ -1,6 +1,8 @@
 package com.solvd.onlineshop.model.labor;
 
-public class Jobs {
+import com.solvd.onlineshop.utils.DataTransferObject;
+
+public class Jobs implements DataTransferObject {
     private long id;
     private String jobTitle;
     private float positionSalary;
@@ -66,5 +68,21 @@ public class Jobs {
 
     public void setMaxSalary(float maxSalary) {
         this.maxSalary = maxSalary;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Jobs{" +
+                "id=" + id +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", positionSalary=" + positionSalary +
+                ", minSalary=" + minSalary +
+                ", maxSalary=" + maxSalary +
+                '}';
     }
 }

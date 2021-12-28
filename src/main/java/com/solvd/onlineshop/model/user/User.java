@@ -1,8 +1,10 @@
 package com.solvd.onlineshop.model.user;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.io.Serializable;
 import java.sql.Date;
 
-public class User implements Serializable {
+public class User implements DataTransferObject {
     private long id;
     private long employeesID;
     private String firstName;
@@ -147,5 +149,27 @@ public class User implements Serializable {
 
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", employeesID=" + employeesID +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", timeCreated=" + timeCreated +
+                ", lastLogin=" + lastLogin +
+                '}';
     }
 }

@@ -1,6 +1,10 @@
 package com.solvd.onlineshop.model.purchase;
 
-public class Invoice {
+import com.solvd.onlineshop.utils.DataTransferObject;
+
+import java.util.Arrays;
+
+public class Invoice implements DataTransferObject {
     private long id;
     private long transactionID;
     private long inventoryID;
@@ -108,5 +112,25 @@ public class Invoice {
 
     public void setSubtotal(float subtotal) {
         this.subtotal = subtotal;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "id=" + id +
+                ", transactionID=" + transactionID +
+                ", inventoryID=" + inventoryID +
+                ", isInStock=" + Arrays.toString(isInStock) +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", preTax=" + preTax +
+                ", tax=" + tax +
+                ", subtotal=" + subtotal +
+                '}';
     }
 }

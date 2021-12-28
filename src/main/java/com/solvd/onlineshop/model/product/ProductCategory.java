@@ -1,6 +1,8 @@
 package com.solvd.onlineshop.model.product;
 
-public class ProductCategory {
+import com.solvd.onlineshop.utils.DataTransferObject;
+
+public class ProductCategory implements DataTransferObject {
     private long id;
     private long productID;
     private String title;
@@ -66,5 +68,21 @@ public class ProductCategory {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "id=" + id +
+                ", productID=" + productID +
+                ", title='" + title + '\'' +
+                ", metaTitle='" + metaTitle + '\'' +
+                ", productName='" + productName + '\'' +
+                '}';
     }
 }

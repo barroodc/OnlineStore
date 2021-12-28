@@ -1,7 +1,9 @@
 package com.solvd.onlineshop.model.purchase;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.sql.Date;
 
-public class OrderItem {
+public class OrderItem implements DataTransferObject {
     private long id;
     private long orderID;
     private long productID;
@@ -101,5 +103,24 @@ public class OrderItem {
 
     public void setTimeCreated(Date timeCreated) {
         this.timeCreated = timeCreated;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "id=" + id +
+                ", orderID=" + orderID +
+                ", productID=" + productID +
+                ", sku='" + sku + '\'' +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", quantity=" + quantity +
+                ", timeCreated=" + timeCreated +
+                '}';
     }
 }

@@ -1,7 +1,9 @@
 package com.solvd.onlineshop.model.purchase;
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import java.sql.Date;
 
-public class Transaction {
+public class Transaction implements DataTransferObject {
     private long id;
     private long userID;
     private String status;
@@ -50,5 +52,21 @@ public class Transaction {
 
     public void setApprovalStatus(String approvalStatus) {
         this.approvalStatus = approvalStatus;
+    }
+
+    @Override
+    public long id() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", userID=" + userID +
+                ", status='" + status + '\'' +
+                ", timeCreated=" + timeCreated +
+                ", approvalStatus='" + approvalStatus + '\'' +
+                '}';
     }
 }
