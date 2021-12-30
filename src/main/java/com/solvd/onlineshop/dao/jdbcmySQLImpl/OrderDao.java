@@ -2,7 +2,6 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IOrderDao;
 import com.solvd.onlineshop.model.purchase.Order;
-import com.solvd.onlineshop.model.purchase.OrderItem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,13 +9,13 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class OrderDaoImpl extends BaseDaoImpl<Order> implements IOrderDao {
+public class OrderDao extends BaseDao<Order> implements IOrderDao {
 
-    private static final Logger logger = LogManager.getLogger(OrderDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(OrderDao.class);
     protected final static String ORDER_ITEM_SEQUENCE = "onlinestore_order_seq";
 
 
-    public OrderDaoImpl(Connection connection) {
+    public OrderDao(Connection connection) {
         super(connection);
     }
 

@@ -1,7 +1,6 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IProductCategoryDao;
-import com.solvd.onlineshop.model.product.Product;
 import com.solvd.onlineshop.model.product.ProductCategory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,13 +11,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ProductCategoryDaoImpl extends BaseDaoImpl<ProductCategory> implements IProductCategoryDao {
+public class ProductCategoryDao extends BaseDao<ProductCategory> implements IProductCategoryDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductCategoryDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(ProductCategoryDao.class);
     protected final static String PRODUCT_CATEGORY_SEQUENCE = "onlinestore_product_category_seq";
 
 
-    public ProductCategoryDaoImpl(Connection connection) {
+    public ProductCategoryDao(Connection connection) {
         super(connection);
     }
 

@@ -8,13 +8,12 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.List;
 
-public class CheckoutCartDaoImpl extends BaseDaoImpl<CheckoutCart> implements ICheckoutCartDao {
+public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutCartDao {
 
-    private static final Logger logger = LogManager.getLogger(CheckoutCartDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(CheckoutCartDao.class);
     protected final static String EMPLOYEES_SEQUENCE = "onlinestore_checkout_cart_seq";
 
-
-    public CheckoutCartDaoImpl(Connection connection) {
+    public CheckoutCartDao(Connection connection) {
         super(connection);
     }
 
@@ -28,6 +27,11 @@ public class CheckoutCartDaoImpl extends BaseDaoImpl<CheckoutCart> implements IC
             "email = ?, country = ?, time_created = ?, cart_updated = ?, is_gift = ? FROM checkout_cart WHERE checkout_cart_id = ?";
 
     private static final String DELETE = "DELETE FROM checkout_cart WHERE checkout_cart_id = ?";
+
+    public CheckoutCartDao() {
+
+    }
+
 
     @Override
     public CheckoutCart findById(long id) {
@@ -109,5 +113,25 @@ public class CheckoutCartDaoImpl extends BaseDaoImpl<CheckoutCart> implements IC
             logger.error(e);
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public CheckoutCart getNumberOfItemsInCart(long numberOfItems) {
+        return null;
+    }
+
+    @Override
+    public CheckoutCart getContactInformation(String mobile, String email, String country) {
+        return null;
+    }
+
+    @Override
+    public CheckoutCart getCartHistory(Date timeCreated, Date cartUpdated) {
+        return null;
+    }
+
+    @Override
+    public void givenAsGift(byte[] isGift) {
+
     }
 }

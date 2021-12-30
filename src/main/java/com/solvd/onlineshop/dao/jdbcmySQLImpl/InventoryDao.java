@@ -1,9 +1,7 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IInventoryDao;
-import com.solvd.onlineshop.model.checkout.ItemsInCart;
 import com.solvd.onlineshop.model.product.Inventory;
-import com.solvd.onlineshop.model.purchase.Invoice;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,13 +12,13 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class InventoryDaoImpl extends BaseDaoImpl<Inventory> implements IInventoryDao {
+public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
 
-    private static final Logger logger = LogManager.getLogger(InventoryDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(InventoryDao.class);
     protected final static String INVENTORY_SEQUENCE = "onlinestore_inventory_seq";
 
 
-    public InventoryDaoImpl(Connection connection) {
+    public InventoryDao(Connection connection) {
         super(connection);
     }
 

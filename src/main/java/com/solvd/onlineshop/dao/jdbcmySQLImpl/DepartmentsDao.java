@@ -11,13 +11,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DepartmentsDaoImpl extends BaseDaoImpl<Departments> implements IDepartmentsDao {
+public class DepartmentsDao extends BaseDao<Departments> implements IDepartmentsDao {
 
-    private static final Logger logger = LogManager.getLogger(DepartmentsDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(DepartmentsDao.class);
     protected final static String DEPARTMENTS_SEQUENCE = "onlinestore_departments_seq";
 
 
-    public DepartmentsDaoImpl(Connection connection) {
+    public DepartmentsDao(Connection connection) {
         super(connection);
     }
 

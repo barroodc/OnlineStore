@@ -2,20 +2,19 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.ITransactionDao;
 import com.solvd.onlineshop.model.purchase.Transaction;
-import com.solvd.onlineshop.model.user.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.List;
 
-public class TransactionDaoImpl extends BaseDaoImpl<Transaction> implements ITransactionDao {
+public class TransactionDao extends BaseDao<Transaction> implements ITransactionDao {
 
-    private static final Logger logger = LogManager.getLogger(TransactionDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(TransactionDao.class);
     protected final static String TRANSACTION_SEQUENCE = "onlinestore_transaction_seq";
 
 
-    public TransactionDaoImpl(Connection connection) {
+    public TransactionDao(Connection connection) {
         super(connection);
     }
 

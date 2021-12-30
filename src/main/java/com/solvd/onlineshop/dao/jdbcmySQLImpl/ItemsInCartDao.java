@@ -2,7 +2,6 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.model.checkout.ItemsInCart;
 import com.solvd.onlineshop.dao.IItemsInCartDao;
-import com.solvd.onlineshop.model.labor.Jobs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,13 +9,13 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class ItemsInCartDaoImpl extends BaseDaoImpl<ItemsInCart> implements IItemsInCartDao {
+public class ItemsInCartDao extends BaseDao<ItemsInCart> implements IItemsInCartDao {
 
-    private static final Logger logger = LogManager.getLogger(ItemsInCartDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(ItemsInCartDao.class);
     protected final static String ITEMS_IN_CART_SEQUENCE = "onlinestore_items_in_cart_seq";
 
 
-    public ItemsInCartDaoImpl(Connection connection) {
+    public ItemsInCartDao(Connection connection) {
         super(connection);
     }
 

@@ -2,7 +2,6 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IEmployeesDao;
 import com.solvd.onlineshop.model.labor.Employees;
-import com.solvd.onlineshop.model.product.Inventory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,13 +9,13 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class EmployeesDaoImpl extends BaseDaoImpl<Employees> implements IEmployeesDao {
+public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
 
-    private static final Logger logger = LogManager.getLogger(EmployeesDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(EmployeesDao.class);
     protected final static String EMPLOYEES_SEQUENCE = "onlinestore_employees_seq";
 
 
-    public EmployeesDaoImpl(Connection connection) {
+    public EmployeesDao(Connection connection) {
         super(connection);
     }
 

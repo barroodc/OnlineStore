@@ -1,9 +1,7 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IProductSupplierDao;
-import com.solvd.onlineshop.model.product.Product;
 import com.solvd.onlineshop.model.product.ProductSupplier;
-import com.solvd.onlineshop.model.purchase.Transaction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,13 +9,13 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class ProductSupplierDaoImpl extends BaseDaoImpl<ProductSupplier> implements IProductSupplierDao {
+public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IProductSupplierDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductSupplierDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(ProductSupplierDao.class);
     protected final static String PRODUCT_SUPPLIER_SEQUENCE = "onlinestore_product_supplier_seq";
 
 
-    public ProductSupplierDaoImpl(Connection connection) {
+    public ProductSupplierDao(Connection connection) {
         super(connection);
     }
 

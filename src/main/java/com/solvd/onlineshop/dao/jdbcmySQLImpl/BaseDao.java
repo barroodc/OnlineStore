@@ -10,17 +10,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public abstract class BaseDaoImpl<T> implements IBaseDao<T> {
+public abstract class BaseDao<T> implements IBaseDao<T> {
 
-    private static final Logger logger = LogManager.getLogger(BaseDaoImpl.class);
-    protected final Connection connection;
+    private static final Logger logger = LogManager.getLogger(BaseDao.class);
+    protected Connection connection;
     protected final static String LAST_VAL = "SELECT last_value FROM";
 
 
 
-    public BaseDaoImpl(Connection connection) {
+
+    public BaseDao(Connection connection) {
         this.connection = connection;
     }
+
+    public BaseDao() {
+
+    }
+
 
     public abstract T findById(long id);
     public abstract List<T> findAll();

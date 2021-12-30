@@ -8,12 +8,12 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.List;
 
-public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao {
+public class UserDao extends BaseDao<User> implements IUserDao {
 
-    private static final Logger logger = LogManager.getLogger(UserDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(UserDao.class);
     protected final static String USER_SEQUENCE = "onlinestore_user_seq";
 
-    public UserDaoImpl(Connection connection) {
+    public UserDao(Connection connection) {
         super(connection);
     }
 
@@ -27,6 +27,10 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao {
             "last_name = ?, mobile = ?, email = ?, password = ?, user_name = ?, time_created = ?, last_login WHERE user_id = ?";
 
     private static final String DELETE = "DELETE FROM user WHERE user_id = ?";
+
+    public UserDao() {
+        super();
+    }
 
     @Override
     public User findById(long id) {

@@ -1,9 +1,7 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
-import com.solvd.onlineshop.dao.IBaseDao;
 import com.solvd.onlineshop.dao.IProductReviewDao;
 import com.solvd.onlineshop.model.product.ProductReview;
-import com.solvd.onlineshop.model.product.ProductSupplier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,13 +9,13 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class ProductReviewDaoImpl extends BaseDaoImpl<ProductReview> implements IProductReviewDao {
+public class ProductReviewDao extends BaseDao<ProductReview> implements IProductReviewDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductReviewDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(ProductReviewDao.class);
     protected final static String PRODUCT_REVIEW_SEQUENCE = "onlinestore_product_review_seq";
 
 
-    public ProductReviewDaoImpl(Connection connection) {
+    public ProductReviewDao(Connection connection) {
         super(connection);
     }
 

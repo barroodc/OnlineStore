@@ -1,7 +1,6 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IInvoiceDao;
-import com.solvd.onlineshop.model.checkout.ItemsInCart;
 import com.solvd.onlineshop.model.purchase.Invoice;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,13 +11,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class InvoiceDaoImpl extends BaseDaoImpl<Invoice> implements IInvoiceDao {
+public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
 
-    private static final Logger logger = LogManager.getLogger(InvoiceDaoImpl.class);
+    private static final Logger logger = LogManager.getLogger(InvoiceDao.class);
     protected final static String INVOICE_SEQUENCE = "onlinestore_invoice_seq";
 
 
-    public InvoiceDaoImpl(Connection connection) {
+    public InvoiceDao(Connection connection) {
         super(connection);
     }
 
