@@ -1,45 +1,80 @@
 package com.solvd.onlineshop.utils;
 
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 
 public class ConnectionPool {
 
-    private static final BasicDataSource source = new BasicDataSource();
+
+
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
 
-    static {
-        source.setDriverClassName("com.mysql.jbdc.Driver");
-        source.setUrl("jdbc:mysql://localhost:3306/onlinestoredb");
-        source.setUsername("user");
-        source.setPassword("password");
-    }
+    private static ConnectionPool connectionPool;
+    private List<Connection> connections = new CopyOnWriteArrayList<>();
 
-    public static void getConnection() throws SQLException {
+    private static final String url = "jdbc:mysql://localhost/mydatabase";
+    private static final String user = "root";
+    private static final String password = "devintern";
 
-        Connection toDatabase = source.getConnection();
-        Statement statement = toDatabase.createStatement();
-        //query would be entered into getResult set to select all columns(or a specific column from the table)
-        ResultSet queryResult = statement.getResultSet();
-        try {
-         //The while loop would then pull the value of the given data point in the column
-         while (queryResult.next()) {
-             logger.info(queryResult.getString("name"));
-             logger.info(queryResult.getString("email"));
-             logger.info(queryResult.getInt("user_id"));
-         }
-        } catch (SQLException e) {
-          logger.error(e);
+    public ConnectionPool() {
+        logger.info("Entering ConnectionPool constructor");
+        for (int i = 0; i < 15; i++) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection(url, user, password);
+                connections.add(con);
+            } catch (SQLException | ClassNotFoundException e) {
+                logger.error(e);
+            }
         }
-
-        queryResult.close();
-        statement.close();
-        toDatabase.close();
     }
+
+    public static ConnectionPool getPool() {
+        if (connectionPool == null) {
+            synchronized (ConnectionPool.class) {
+                connectionPool = new ConnectionPool();
+            }
+        }
+        return connectionPool;
+    }
+
+
+    private boolean isConnectionAvailable() {
+        if (connections.isEmpty()) {
+            try {
+                logger.info("connection is empty");
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                logger.error(e);
+            }
+            isConnectionAvailable();
+        }
+        return true;
+    }
+
+    public synchronized Connection getConnection() {
+        Connection connection = null;
+        if (isConnectionAvailable()) {
+            logger.info("Initial pool size" + connections.size());
+            connection = connections.get(0);
+            connections.remove(0);
+            logger.info("Resulting pool size = " + connections.size());
+        }
+        return connection;
+    }
+
+    public synchronized void releaseConnection(Connection connection) {
+        connections.add(connection);
+    }
+
+    //Access denied for user 'root @ localhost' (using password: YES)
+
+
 }

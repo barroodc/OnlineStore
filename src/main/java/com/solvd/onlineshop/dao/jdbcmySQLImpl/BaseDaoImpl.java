@@ -1,10 +1,8 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IBaseDao;
-import com.solvd.onlineshop.utils.DataTransferObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import sun.rmi.runtime.Log;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -2,7 +2,6 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.ICheckoutCartDao;
 import com.solvd.onlineshop.model.checkout.CheckoutCart;
-import com.solvd.onlineshop.model.labor.Employees;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

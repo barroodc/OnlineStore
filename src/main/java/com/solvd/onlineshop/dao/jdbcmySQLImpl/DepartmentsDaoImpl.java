@@ -2,7 +2,6 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IDepartmentsDao;
 import com.solvd.onlineshop.model.labor.Departments;
-import com.solvd.onlineshop.model.labor.Employees;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
