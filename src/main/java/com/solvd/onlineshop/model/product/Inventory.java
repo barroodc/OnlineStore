@@ -1,13 +1,37 @@
 package com.solvd.onlineshop.model.product;
 
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.DepartmentsDao;
 import com.solvd.onlineshop.utils.DataTransferObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class Inventory implements DataTransferObject {
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
+
+@XmlRootElement(name = "employee")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+
+public class Inventory implements DataTransferObject, Serializable {
+
+    @XmlAttribute(name = "id")
     private long id;
+
+    @XmlElement(name = "productName")
     private String productName;
+
+    @XmlElement(name = "description")
     private String description;
+
+    @XmlElement(name = "price")
     private float price;
+
+    @XmlElement(name = "amountInStock")
     private long amountInStock;
+
+    private static final Logger logger = LogManager.getLogger(Inventory.class);
+
+    private static final long serialVersionUID = 3L;
 
     public Inventory() {
 
@@ -74,6 +98,14 @@ public class Inventory implements DataTransferObject {
 
     public void setAmountInStock(Long amountInStock) {
         this.amountInStock = amountInStock;
+    }
+
+    void beforeUnmarshall(Unmarshaller unmarshaller, Object parent) {
+        logger.info("Before unmarshaller callback");
+    }
+
+    void afterUnmarshall(Unmarshaller unmarshaller, Object parent) {
+        logger.info("After unmarhshaller callback");
     }
 
     @Override

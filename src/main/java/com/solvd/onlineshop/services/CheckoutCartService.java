@@ -13,6 +13,8 @@ import java.sql.SQLException;
 
 public class CheckoutCartService implements ICheckoutCartService {
 
+    //Only construct work around was casting
+
     private ICheckoutCartService<CheckoutCart> checkoutDao = (ICheckoutCartService<CheckoutCart>) new CheckoutCartDao();
     private IUserService<User> userDao = (IUserService<User>) new UserDao();
 
