@@ -45,8 +45,6 @@ public class CredentialValues {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(value);
             if (inputStream != null) {
                 properties.load(inputStream);
-            } else {
-                throw new FileNotFoundException(value + " not found");
             }
             url = properties.getProperty("url");
             driverName = properties.getProperty("drivername");
