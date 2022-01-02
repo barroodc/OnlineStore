@@ -134,4 +134,5 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
     public void givenAsGift(byte[] isGift) {
 
     }
+
 }

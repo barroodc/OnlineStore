@@ -1,7 +1,14 @@
 package com.solvd.onlineshop;
 
+import com.solvd.onlineshop.utils.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Objects;
 
 public class Main {
 
@@ -9,6 +16,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+
 
         /*
         ICheckoutCartDao iCheckoutCartDao = new CheckoutCartDaoImpl();

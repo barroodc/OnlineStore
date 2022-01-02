@@ -1,6 +1,4 @@
 package com.solvd.onlineshop.utils;
-
-import com.solvd.onlineshop.dao.jdbcmySQLImpl.DepartmentsDao;
 import com.solvd.onlineshop.model.product.Inventory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
