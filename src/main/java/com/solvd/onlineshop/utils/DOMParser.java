@@ -47,4 +47,11 @@ public class DOMParser {
         }
 
     }
+
+   /* public static void main(String[] args) {
+        DOMParser parser = new DOMParser();
+        parser.parser();
+    }
+
+    */
 }

@@ -1,37 +1,35 @@
 package com.solvd.onlineshop.model.product;
 
-import com.solvd.onlineshop.dao.jdbcmySQLImpl.DepartmentsDao;
 import com.solvd.onlineshop.utils.DataTransferObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
 @XmlRootElement(name = "employee")
 @XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"productName","description","price", "amountInStock"},namespace="http://global.aon.bz/schema/cbs/archive/errorresource/0")
 
 public class Inventory implements DataTransferObject, Serializable {
 
-    @XmlAttribute(name = "id")
+
     private long id;
-
-    @XmlElement(name = "productName")
     private String productName;
-
-    @XmlElement(name = "description")
     private String description;
-
-    @XmlElement(name = "price")
     private float price;
-
-    @XmlElement(name = "amountInStock")
     private long amountInStock;
 
     private static final Logger logger = LogManager.getLogger(Inventory.class);
 
     private static final long serialVersionUID = 3L;
+
+    public static final String
+            ID="id",
+            PRODUCT_NAME="productName",
+            DESCRIPTION="description",
+            PRICE="price",
+            AMOUNT_IN_STOCK="amountInStock";
 
     public Inventory() {
 
@@ -60,6 +58,7 @@ public class Inventory implements DataTransferObject, Serializable {
         this.amountInStock = amountInStock;
     }
 
+    @XmlAttribute(name = "id")
     public long getId() {
         return id;
     }
@@ -68,6 +67,7 @@ public class Inventory implements DataTransferObject, Serializable {
         this.id = id;
     }
 
+    @XmlElement(name = "productName")
     public String getProductName() {
         return productName;
     }
@@ -76,6 +76,7 @@ public class Inventory implements DataTransferObject, Serializable {
         this.productName = productName;
     }
 
+    @XmlElement(name = "description")
     public String getDescription() {
         return description;
     }
@@ -84,6 +85,7 @@ public class Inventory implements DataTransferObject, Serializable {
         this.description = description;
     }
 
+    @XmlElement(name = "price")
     public float getPrice() {
         return price;
     }
@@ -92,6 +94,7 @@ public class Inventory implements DataTransferObject, Serializable {
         this.price = price;
     }
 
+    @XmlElement(name = "amountInStock")
     public Long getAmountInStock() {
         return amountInStock;
     }
@@ -100,11 +103,12 @@ public class Inventory implements DataTransferObject, Serializable {
         this.amountInStock = amountInStock;
     }
 
-    void beforeUnmarshall(Unmarshaller unmarshaller, Object parent) {
+    public void beforeUnmarshall(Object target, Object parent) {
+
         logger.info("Before unmarshaller callback");
     }
 
-    void afterUnmarshall(Unmarshaller unmarshaller, Object parent) {
+    public void afterUnmarshall(Object target, Object parent) {
         logger.info("After unmarhshaller callback");
     }
 
@@ -123,4 +127,6 @@ public class Inventory implements DataTransferObject, Serializable {
                 ", amountInStock=" + amountInStock +
                 '}';
     }
+
+
 }

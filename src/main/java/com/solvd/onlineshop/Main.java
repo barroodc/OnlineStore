@@ -1,6 +1,8 @@
 package com.solvd.onlineshop;
 
+import com.solvd.onlineshop.model.product.Inventory;
 import com.solvd.onlineshop.utils.ConnectionPool;
+import com.solvd.onlineshop.utils.JAXBHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
