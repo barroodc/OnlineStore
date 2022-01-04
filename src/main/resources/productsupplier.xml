@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ProductSupplier>
+    <prodSupplier id="1">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="2">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="3">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="4">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="5">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="6">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="7">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="8">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="9">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+    <prodSupplier id="10">
+        <productID></productID>
+        <supplierName></supplierName>
+        <categoryOfProducts></categoryOfProducts>
+    </prodSupplier>
+</ProductSupplier>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Invoice>
+    <invoice id="1">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="2">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="3">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="4">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="5">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="6">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="7">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="8">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="9">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+    <invoice id="10">
+        <transactionID></transactionID>
+        <inventoryID></inventoryID>
+        <isInStock></isInStock>
+        <price></price>
+        <discount></discount>
+        <preTax></preTax>
+        <tax></tax>
+        <subtotal></subtotal>
+    </invoice>
+</Invoice>

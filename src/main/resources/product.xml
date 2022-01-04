@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Product>
+    <prod id="1">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="2">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="3">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="4">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="5">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="6">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="7">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="8">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="9">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+    <prod id="10">
+        <inventoryID></inventoryID>
+        <productTypeID></productTypeID>
+        <categoryID></categoryID>
+        <marketID></marketID>
+        <shopID></shopID>
+        <productName></productName>
+    </prod>
+</Product>

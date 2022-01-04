@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<User>
+    <user id="1">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="2">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="3">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="4">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="5">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="6">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="7">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="8">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="9">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+    <user id="10">
+        <employeesID></employeesID>
+        <firstName></firstName>
+        <middleName></middleName>
+        <lastName></lastName>
+        <mobile></mobile>
+        <email></email>
+        <password></password>
+        <userName></userName>
+        <timeCreated></timeCreated>
+        <lastLogin></lastLogin>
+    </user>
+</User>

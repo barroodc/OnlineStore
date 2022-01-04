@@ -1,8 +1,6 @@
 package com.solvd.onlineshop.model.product;
 
 import com.solvd.onlineshop.utils.DataTransferObject;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;

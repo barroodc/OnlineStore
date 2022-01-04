@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Order>
+    <order id="1">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="2">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="3">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="4">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="5">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="6">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="7">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="8">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="9">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+    <order id="10">
+        <userID></userID>
+        <dateOfOrder></dateOfOrder>
+        <dateOfDelivery></dateOfDelivery>
+        <timeOfDelivery></timeOfDelivery>
+        <mobile></mobile>
+        <email></email>
+        <timeCreated></timeCreated>
+        <status></status>
+    </order>
+</Order>

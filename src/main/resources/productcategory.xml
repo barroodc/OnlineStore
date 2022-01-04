@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ProductCategory>
+    <prodCategory id="1">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="2">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="3">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="4">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="5">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="6">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="7">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="8">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="9">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+    <prodCategory id="10">
+        <productID></productID>
+        <title></title>
+        <metaTitle></metaTitle>
+        <productName></productName>
+    </prodCategory>
+</ProductCategory>
