@@ -1,7 +1,13 @@
 package com.solvd.onlineshop.model.product;
 import com.solvd.onlineshop.utils.DataTransferObject;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "ProductReview")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "productID", "overallRating", "title", "parentID", "timeCreated", "userReview"})
 
 public class ProductReview implements DataTransferObject {
     private long id;
@@ -41,6 +47,7 @@ public class ProductReview implements DataTransferObject {
         this.userReview = userReview;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -49,6 +56,7 @@ public class ProductReview implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getProductID() {
         return productID;
     }
@@ -57,6 +65,7 @@ public class ProductReview implements DataTransferObject {
         this.productID = productID;
     }
 
+    @XmlElement(name = "overallRating")
     public float getOverallRating() {
         return overallRating;
     }
@@ -65,6 +74,7 @@ public class ProductReview implements DataTransferObject {
         this.overallRating = overallRating;
     }
 
+    @XmlElement(name = "title")
     public String getTitle() {
         return title;
     }
@@ -73,6 +83,7 @@ public class ProductReview implements DataTransferObject {
         this.title = title;
     }
 
+    @XmlElement(name = "parentID")
     public long getParentID() {
         return parentID;
     }
@@ -81,6 +92,7 @@ public class ProductReview implements DataTransferObject {
         this.parentID = parentID;
     }
 
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -89,6 +101,7 @@ public class ProductReview implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlElement(name = "userReview")
     public String getUserReview() {
         return userReview;
     }

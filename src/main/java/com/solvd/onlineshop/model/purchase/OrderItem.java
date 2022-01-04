@@ -1,7 +1,13 @@
 package com.solvd.onlineshop.model.purchase;
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "OrderItem")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "orderID", "productID", "sku", "price", "discount", "quantity", "timeCreated"})
+
 
 public class OrderItem implements DataTransferObject {
     private long id;
@@ -41,6 +47,7 @@ public class OrderItem implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -49,6 +56,7 @@ public class OrderItem implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getOrderID() {
         return orderID;
     }
@@ -57,6 +65,7 @@ public class OrderItem implements DataTransferObject {
         this.orderID = orderID;
     }
 
+    @XmlAttribute
     public long getProductID() {
         return productID;
     }
@@ -65,6 +74,7 @@ public class OrderItem implements DataTransferObject {
         this.productID = productID;
     }
 
+    @XmlElement(name = "sku")
     public String getSku() {
         return sku;
     }
@@ -73,6 +83,7 @@ public class OrderItem implements DataTransferObject {
         this.sku = sku;
     }
 
+    @XmlElement(name = "price")
     public float getPrice() {
         return price;
     }
@@ -81,6 +92,7 @@ public class OrderItem implements DataTransferObject {
         this.price = price;
     }
 
+    @XmlElement(name = "discount")
     public float getDiscount() {
         return discount;
     }
@@ -89,6 +101,7 @@ public class OrderItem implements DataTransferObject {
         this.discount = discount;
     }
 
+    @XmlElement(name = "quantity")
     public Long getQuantity() {
         return quantity;
     }
@@ -97,6 +110,7 @@ public class OrderItem implements DataTransferObject {
         this.quantity = quantity;
     }
 
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }

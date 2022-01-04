@@ -2,6 +2,12 @@ package com.solvd.onlineshop.model.labor;
 
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "Departments")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "departmentName"})
+
 public class Departments implements DataTransferObject {
     private long id;
     private String departmentName;
@@ -19,6 +25,7 @@ public class Departments implements DataTransferObject {
         this.departmentName = departmentName;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -27,6 +34,7 @@ public class Departments implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlElement(name = "departmentName")
     public String getDepartmentName() {
         return departmentName;
     }

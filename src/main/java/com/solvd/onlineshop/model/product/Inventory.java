@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @XmlRootElement(name = "Inventory")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id","productName","description","price","amountInStock"})
+@XmlType(propOrder = {"id", "productName", "description", "price", "amountInStock"})
 
 public class Inventory implements DataTransferObject, Serializable {
 

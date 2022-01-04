@@ -1,8 +1,13 @@
 package com.solvd.onlineshop.model.user;
 import com.solvd.onlineshop.utils.DataTransferObject;
 
-import java.io.Serializable;
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "User")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "employeesID", "firstName", "middleName", "lastName", "mobile",
+"email", "password", "userName", "timeCreated", "lastLogin"})
 
 public class User implements DataTransferObject {
     private long id;
@@ -63,6 +68,7 @@ public class User implements DataTransferObject {
         this.lastLogin = lastLogin;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -71,6 +77,7 @@ public class User implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getEmployeesID() {
         return employeesID;
     }
@@ -79,6 +86,7 @@ public class User implements DataTransferObject {
         this.employeesID = employeesID;
     }
 
+    @XmlElement(name = "firstName")
     public String getFirstName() {
         return firstName;
     }
@@ -87,6 +95,7 @@ public class User implements DataTransferObject {
         this.firstName = firstName;
     }
 
+    @XmlElement(name = "middleName")
     public String getMiddleName() {
         return middleName;
     }
@@ -95,6 +104,7 @@ public class User implements DataTransferObject {
         this.middleName = middleName;
     }
 
+    @XmlElement(name = "lastName")
     public String getLastName() {
         return lastName;
     }
@@ -103,6 +113,7 @@ public class User implements DataTransferObject {
         this.lastName = lastName;
     }
 
+    @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
@@ -111,6 +122,7 @@ public class User implements DataTransferObject {
         this.mobile = mobile;
     }
 
+    @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
@@ -119,6 +131,7 @@ public class User implements DataTransferObject {
         this.email = email;
     }
 
+    @XmlElement(name = "password")
     public String getPassword() {
         return password;
     }
@@ -127,6 +140,7 @@ public class User implements DataTransferObject {
         this.password = password;
     }
 
+    @XmlElement(name = "userName")
     public String getUserName() {
         return userName;
     }
@@ -135,6 +149,7 @@ public class User implements DataTransferObject {
         this.userName = userName;
     }
 
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -143,6 +158,7 @@ public class User implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlElement(name = "lastLogin")
     public Date getLastLogin() {
         return lastLogin;
     }

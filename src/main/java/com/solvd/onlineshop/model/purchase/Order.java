@@ -1,7 +1,13 @@
 package com.solvd.onlineshop.model.purchase;
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "Order")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "userID", "dateOfOrder", "dateOfDelivery", "timeOfDelivery", "placeOfDelivery",
+"cityOfDelivery", "postalCode", "country", "mobile", "email", "timeCreated", "status"})
 
 public class Order implements DataTransferObject {
     private long id;
@@ -71,6 +77,7 @@ public class Order implements DataTransferObject {
         this.status = status;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -79,6 +86,7 @@ public class Order implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public Long getUserID() {
         return userID;
     }
@@ -87,6 +95,7 @@ public class Order implements DataTransferObject {
         this.userID = userID;
     }
 
+    @XmlElement(name = "dateOfOrder")
     public Date getDateOfOrder() {
         return dateOfOrder;
     }
@@ -95,6 +104,7 @@ public class Order implements DataTransferObject {
         this.dateOfOrder = dateOfOrder;
     }
 
+    @XmlElement(name = "dateOfDelivery")
     public Date getDateOfDelivery() {
         return dateOfDelivery;
     }
@@ -103,6 +113,7 @@ public class Order implements DataTransferObject {
         this.dateOfDelivery = dateOfDelivery;
     }
 
+    @XmlElement(name = "timeOfDelivery")
     public Date getTimeOfDelivery() {
         return timeOfDelivery;
     }
@@ -111,6 +122,7 @@ public class Order implements DataTransferObject {
         this.timeOfDelivery = timeOfDelivery;
     }
 
+    @XmlElement(name = "placeOfDelivery")
     public String getPlaceOfDelivery() {
         return placeOfDelivery;
     }
@@ -119,6 +131,7 @@ public class Order implements DataTransferObject {
         this.placeOfDelivery = placeOfDelivery;
     }
 
+    @XmlElement(name = "cityOfDelivery")
     public String getCityOfDelivery() {
         return cityOfDelivery;
     }
@@ -127,6 +140,7 @@ public class Order implements DataTransferObject {
         this.cityOfDelivery = cityOfDelivery;
     }
 
+    @XmlElement(name = "postalCode")
     public String getPostalCode() {
         return postalCode;
     }
@@ -135,6 +149,7 @@ public class Order implements DataTransferObject {
         this.postalCode = postalCode;
     }
 
+    @XmlElement(name = "country")
     public String getCountry() {
         return country;
     }
@@ -143,6 +158,7 @@ public class Order implements DataTransferObject {
         this.country = country;
     }
 
+    @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
@@ -151,6 +167,7 @@ public class Order implements DataTransferObject {
         this.mobile = mobile;
     }
 
+    @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
@@ -159,6 +176,7 @@ public class Order implements DataTransferObject {
         this.email = email;
     }
 
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -167,6 +185,7 @@ public class Order implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlElement(name = "status")
     public String getStatus() {
         return status;
     }

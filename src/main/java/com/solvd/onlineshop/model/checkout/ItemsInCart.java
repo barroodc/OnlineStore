@@ -1,6 +1,6 @@
 package com.solvd.onlineshop.model.checkout;
 import com.solvd.onlineshop.utils.DataTransferObject;
-import com.sun.xml.txw2.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
@@ -78,7 +78,7 @@ public class ItemsInCart implements DataTransferObject {
         this.productID = productID;
     }
 
-    @XmlElement
+    @XmlElement(name = "productName")
     public String getProductName() {
         return productName;
     }
@@ -87,7 +87,7 @@ public class ItemsInCart implements DataTransferObject {
         this.productName = productName;
     }
 
-    @XmlElement
+    @XmlElement(name = "sku")
     public String getSku() {
         return sku;
     }
@@ -96,7 +96,7 @@ public class ItemsInCart implements DataTransferObject {
         this.sku = sku;
     }
 
-    @XmlElement
+    @XmlElement(name = "float")
     public float getPrice() {
         return price;
     }
@@ -105,7 +105,7 @@ public class ItemsInCart implements DataTransferObject {
         this.price = price;
     }
 
-    @XmlElement
+    @XmlElement(name = "subtotalOfItems")
     public float getSubtotalOfItems() {
         return subtotalOfItems;
     }
@@ -114,7 +114,7 @@ public class ItemsInCart implements DataTransferObject {
         this.subtotalOfItems = subtotalOfItems;
     }
 
-    @XmlElement
+    @XmlElement(name = "discount")
     public float getDiscount() {
         return discount;
     }
@@ -123,7 +123,7 @@ public class ItemsInCart implements DataTransferObject {
         this.discount = discount;
     }
 
-    @XmlElement
+    @XmlElement(name = "quantity")
     public float getQuantity() {
         return quantity;
     }
@@ -132,7 +132,7 @@ public class ItemsInCart implements DataTransferObject {
         this.quantity = quantity;
     }
 
-    @XmlElement
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -141,7 +141,7 @@ public class ItemsInCart implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
-    @XmlElement
+    @XmlElement(name = "cartUpdated")
     public Date getCartUpdated() {
         return cartUpdated;
     }

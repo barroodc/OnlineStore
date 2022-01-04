@@ -2,6 +2,12 @@ package com.solvd.onlineshop.model.product;
 
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "ProductSupplier")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "productID", "supplierName", "categoryOfProducts"})
+
 public class ProductSupplier implements DataTransferObject {
     private long id;
     private long productID;
@@ -24,6 +30,7 @@ public class ProductSupplier implements DataTransferObject {
         this.categoryOfProducts = categoryOfProducts;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -32,6 +39,7 @@ public class ProductSupplier implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getProductID() {
         return productID;
     }
@@ -40,6 +48,7 @@ public class ProductSupplier implements DataTransferObject {
         this.productID = productID;
     }
 
+    @XmlElement(name = "supplierName")
     public String getSupplierName() {
         return supplierName;
     }
@@ -48,6 +57,7 @@ public class ProductSupplier implements DataTransferObject {
         this.supplierName = supplierName;
     }
 
+    @XmlElement(name = "categoryOfProducts")
     public String getCategoryOfProducts() {
         return categoryOfProducts;
     }

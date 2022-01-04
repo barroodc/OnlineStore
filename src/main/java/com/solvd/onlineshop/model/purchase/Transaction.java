@@ -1,7 +1,12 @@
 package com.solvd.onlineshop.model.purchase;
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "Transaction")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "userID", "status", "timeCreated", "approvalStatus"})
 
 public class Transaction implements DataTransferObject {
     private long id;
@@ -14,6 +19,7 @@ public class Transaction implements DataTransferObject {
 
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -22,6 +28,7 @@ public class Transaction implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getUserID() {
         return userID;
     }
@@ -30,6 +37,7 @@ public class Transaction implements DataTransferObject {
         this.userID = userID;
     }
 
+    @XmlElement(name = "status")
     public String getStatus() {
         return status;
     }
@@ -38,6 +46,7 @@ public class Transaction implements DataTransferObject {
         this.status = status;
     }
 
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -46,6 +55,7 @@ public class Transaction implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlElement(name = "approvalStatus")
     public String getApprovalStatus() {
         return approvalStatus;
     }

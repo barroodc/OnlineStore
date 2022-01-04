@@ -2,7 +2,13 @@ package com.solvd.onlineshop.model.purchase;
 
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
 import java.util.Arrays;
+
+@XmlRootElement(name = "Invoice")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "transactionID", "inventoryID", "isInStock", "price", "discount",
+"preTax", "tax", "subtotal"})
 
 public class Invoice implements DataTransferObject {
     private long id;
@@ -42,6 +48,7 @@ public class Invoice implements DataTransferObject {
         this.subtotal = subtotal;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -50,6 +57,7 @@ public class Invoice implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getTransactionID() {
         return transactionID;
     }
@@ -58,6 +66,7 @@ public class Invoice implements DataTransferObject {
         this.transactionID = transactionID;
     }
 
+    @XmlElement(name = "inventoryID")
     public long getInventoryID() {
         return inventoryID;
     }
@@ -66,6 +75,7 @@ public class Invoice implements DataTransferObject {
         this.inventoryID = inventoryID;
     }
 
+    @XmlElement(name = "isInStock")
     public byte[] getIsInStock() {
         return isInStock;
     }
@@ -74,6 +84,7 @@ public class Invoice implements DataTransferObject {
         this.isInStock = isInStock;
     }
 
+    @XmlElement(name = "price")
     public float getPrice() {
         return price;
     }
@@ -82,6 +93,7 @@ public class Invoice implements DataTransferObject {
         this.price = price;
     }
 
+    @XmlElement(name = "discount")
     public float getDiscount() {
         return discount;
     }
@@ -90,6 +102,7 @@ public class Invoice implements DataTransferObject {
         this.discount = discount;
     }
 
+    @XmlElement(name = "preTax")
     public float getPreTax() {
         return preTax;
     }
@@ -98,6 +111,7 @@ public class Invoice implements DataTransferObject {
         this.preTax = preTax;
     }
 
+    @XmlElement(name = "tax")
     public float getTax() {
         return tax;
     }
@@ -106,6 +120,7 @@ public class Invoice implements DataTransferObject {
         this.tax = tax;
     }
 
+    @XmlElement(name = "subtotal")
     public float getSubtotal() {
         return subtotal;
     }

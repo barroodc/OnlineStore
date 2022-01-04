@@ -1,7 +1,15 @@
 package com.solvd.onlineshop.model.labor;
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "Employees")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "jobs", "departmentsID", "mobile", "email", "hireDate",
+"jobsID", "salary", "managerID", "departmentID"})
+
+
 public class Employees implements DataTransferObject {
     private long id;
     private long jobsID;
@@ -46,7 +54,7 @@ public class Employees implements DataTransferObject {
         this.departmentID = departmentID;
     }
 
-
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -55,6 +63,7 @@ public class Employees implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getJobsID() {
         return jobsID;
     }
@@ -63,6 +72,7 @@ public class Employees implements DataTransferObject {
         this.jobsID = jobsID;
     }
 
+    @XmlAttribute
     public long getDepartmentsID() {
         return departmentsID;
     }
@@ -71,6 +81,7 @@ public class Employees implements DataTransferObject {
         this.departmentsID = departmentsID;
     }
 
+    @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
@@ -79,6 +90,7 @@ public class Employees implements DataTransferObject {
         this.mobile = mobile;
     }
 
+    @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
@@ -87,6 +99,7 @@ public class Employees implements DataTransferObject {
         this.email = email;
     }
 
+    @XmlElement(name = "hireDate")
     public Date getHireDate() {
         return hireDate;
     }
@@ -95,6 +108,7 @@ public class Employees implements DataTransferObject {
         this.hireDate = hireDate;
     }
 
+    @XmlElement(name = "jobID")
     public String getJobID() {
         return jobID;
     }
@@ -103,6 +117,7 @@ public class Employees implements DataTransferObject {
         this.jobID = jobID;
     }
 
+    @XmlElement(name = "salary")
     public float getSalary() {
         return salary;
     }
@@ -111,6 +126,7 @@ public class Employees implements DataTransferObject {
         this.salary = salary;
     }
 
+    @XmlElement(name = "managerID")
     public long getManagerID() {
         return managerID;
     }
@@ -119,6 +135,7 @@ public class Employees implements DataTransferObject {
         this.managerID = managerID;
     }
 
+    @XmlElement(name = "departmentID")
     public long getDepartmentID() {
         return departmentID;
     }

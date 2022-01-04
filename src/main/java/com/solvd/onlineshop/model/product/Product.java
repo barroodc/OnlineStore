@@ -2,6 +2,13 @@ package com.solvd.onlineshop.model.product;
 
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "Product")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "inventoryID", "productTypeID", "categoryID", "marketID",
+"shopID", "countryID", "productName"})
+
 public class Product implements DataTransferObject {
     private long id;
     private long inventoryID;
@@ -31,6 +38,7 @@ public class Product implements DataTransferObject {
         this.productName = productName;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -39,6 +47,7 @@ public class Product implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getInventoryID() {
         return inventoryID;
     }
@@ -47,6 +56,7 @@ public class Product implements DataTransferObject {
         this.inventoryID = inventoryID;
     }
 
+    @XmlElement(name = "productTypeID")
     public long getProductTypeID() {
         return productTypeID;
     }
@@ -55,6 +65,7 @@ public class Product implements DataTransferObject {
         this.productTypeID = productTypeID;
     }
 
+    @XmlElement(name = "categoryID")
     public long getCategoryID() {
         return categoryID;
     }
@@ -63,6 +74,7 @@ public class Product implements DataTransferObject {
         this.categoryID = categoryID;
     }
 
+    @XmlElement(name = "marketID")
     public long getMarketID() {
         return marketID;
     }
@@ -71,6 +83,7 @@ public class Product implements DataTransferObject {
         this.marketID = marketID;
     }
 
+    @XmlElement(name = "shopID")
     public long getShopID() {
         return shopID;
     }
@@ -79,6 +92,7 @@ public class Product implements DataTransferObject {
         this.shopID = shopID;
     }
 
+    @XmlElement(name = "countryID")
     public long getCountryID() {
         return countryID;
     }
@@ -87,6 +101,7 @@ public class Product implements DataTransferObject {
         this.countryID = countryID;
     }
 
+    @XmlElement(name = "productName")
     public String getProductName() {
         return productName;
     }

@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 @XmlRootElement(name = "CheckoutCart")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"userID", "numberOfItems", "mobile", "email", "country",
+@XmlType(propOrder = {"id", "userID", "numberOfItems", "mobile", "email", "country",
 "timeCreated","cartUpdated", "isGift"})
 
 public class CheckoutCart implements DataTransferObject {
@@ -120,7 +120,7 @@ public class CheckoutCart implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
-    @XmlElement
+    @XmlElement(name = "cartUpdated")
     public Date getCartUpdated() {
         return cartUpdated;
     }
@@ -129,7 +129,7 @@ public class CheckoutCart implements DataTransferObject {
         this.cartUpdated = cartUpdated;
     }
 
-    @XmlElement
+    @XmlElement(name = "isGift")
     public byte[] getIsGift() {
         return isGift;
     }

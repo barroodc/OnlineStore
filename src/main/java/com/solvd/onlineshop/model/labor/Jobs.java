@@ -2,6 +2,12 @@ package com.solvd.onlineshop.model.labor;
 
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "Jobs")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "jobTitle", "positionSalary", "minSalary", "maxSalary"})
+
 public class Jobs implements DataTransferObject {
     private long id;
     private String jobTitle;
@@ -30,6 +36,7 @@ public class Jobs implements DataTransferObject {
         this.maxSalary = maxSalary;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -38,6 +45,7 @@ public class Jobs implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public String getJobTitle() {
         return jobTitle;
     }
@@ -46,6 +54,7 @@ public class Jobs implements DataTransferObject {
         this.jobTitle = jobTitle;
     }
 
+    @XmlElement(name = "positionSalary")
     public float getPositionSalary() {
         return positionSalary;
     }
@@ -54,6 +63,7 @@ public class Jobs implements DataTransferObject {
         this.positionSalary = positionSalary;
     }
 
+    @XmlElement(name = "minSalary")
     public float getMinSalary() {
         return minSalary;
     }
@@ -62,6 +72,7 @@ public class Jobs implements DataTransferObject {
         this.minSalary = minSalary;
     }
 
+    @XmlElement(name = "maxSalary")
     public float getMaxSalary() {
         return maxSalary;
     }
