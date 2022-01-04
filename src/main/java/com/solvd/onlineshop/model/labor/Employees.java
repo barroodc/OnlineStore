@@ -11,9 +11,9 @@ import java.sql.Date;
 
 
 public class Employees implements DataTransferObject {
-    private long id;
-    private long jobsID;
-    private long departmentsID;
+    private Long id;
+    private Long jobsID;
+    private Long departmentsID;
     private String mobile;
     private String email;
     private Date hireDate;
@@ -41,7 +41,7 @@ public class Employees implements DataTransferObject {
     }
 
 
-    public Employees(long id, long jobsID, long departmentsID, String mobile, String email, Date hireDate, String jobID, float salary, long managerID, long departmentID) {
+    public Employees(Long id, Long jobsID, Long departmentsID, String mobile, String email, Date hireDate, String jobID, float salary, long managerID, long departmentID) {
         this.id = id;
         this.jobsID = jobsID;
         this.departmentsID = departmentsID;
@@ -55,29 +55,29 @@ public class Employees implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @XmlAttribute
-    public long getJobsID() {
+    public Long getJobsID() {
         return jobsID;
     }
 
-    public void setJobsID(long jobsID) {
+    public void setJobsID(Long jobsID) {
         this.jobsID = jobsID;
     }
 
     @XmlAttribute
-    public long getDepartmentsID() {
+    public Long getDepartmentsID() {
         return departmentsID;
     }
 
-    public void setDepartmentsID(long departmentsID) {
+    public void setDepartmentsID(Long departmentsID) {
         this.departmentsID = departmentsID;
     }
 

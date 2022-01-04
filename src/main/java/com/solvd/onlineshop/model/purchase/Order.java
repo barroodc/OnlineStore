@@ -10,8 +10,8 @@ import java.sql.Date;
 "cityOfDelivery", "postalCode", "country", "mobile", "email", "timeCreated", "status"})
 
 public class Order implements DataTransferObject {
-    private long id;
-    private long userID;
+    private Long id;
+    private Long userID;
     private Date dateOfOrder;
     private Date dateOfDelivery;
     private Date timeOfDelivery;
@@ -45,7 +45,7 @@ public class Order implements DataTransferObject {
       this.email = email;
     }
 
-    public Order(long id, long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email, Date timeCreated, String status) {
+    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country, String firstName, String lastName, String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
         this.dateOfOrder = dateOfOrder;
@@ -61,7 +61,7 @@ public class Order implements DataTransferObject {
         this.status = status;
     }
 
-    public Order(long id, long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country,  String mobile, String email, Date timeCreated, String status) {
+    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String placeOfDelivery, String cityOfDelivery, String postalCode, String country,  String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
         this.dateOfOrder = dateOfOrder;
@@ -78,11 +78,11 @@ public class Order implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

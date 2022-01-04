@@ -11,8 +11,8 @@ import java.util.Arrays;
 "preTax", "tax", "subtotal"})
 
 public class Invoice implements DataTransferObject {
-    private long id;
-    private long transactionID;
+    private Long id;
+    private Long transactionID;
     private long inventoryID;
     private byte[] isInStock;
     private float price;
@@ -36,7 +36,7 @@ public class Invoice implements DataTransferObject {
         this.subtotal = subtotal;
     }
 
-    public Invoice(long id, long transactionID, long inventoryID, byte[] isInStock, float price, float discount, float preTax, float tax, float subtotal) {
+    public Invoice(Long id, Long transactionID, long inventoryID, byte[] isInStock, float price, float discount, float preTax, float tax, float subtotal) {
         this.id = id;
         this.transactionID = transactionID;
         this.inventoryID = inventoryID;
@@ -49,20 +49,20 @@ public class Invoice implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @XmlAttribute
-    public long getTransactionID() {
+    public Long getTransactionID() {
         return transactionID;
     }
 
-    public void setTransactionID(long transactionID) {
+    public void setTransactionID(Long transactionID) {
         this.transactionID = transactionID;
     }
 

@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class Inventory implements DataTransferObject, Serializable {
 
 
-    private long id;
+    private Long id;
     private String productName;
     private String description;
     private float price;
@@ -33,12 +33,12 @@ public class Inventory implements DataTransferObject, Serializable {
         this.price = price;
     }
 
-    public Inventory(String productName, Long amountInStock) {
+    public Inventory(String productName, long amountInStock) {
        this.productName = productName;
        this.amountInStock = amountInStock;
     }
 
-    public Inventory(long id, String productName, String description, float price, Long amountInStock) {
+    public Inventory(Long id, String productName, String description, float price, long amountInStock) {
         this.id = id;
         this.productName = productName;
         this.description = description;
@@ -47,11 +47,11 @@ public class Inventory implements DataTransferObject, Serializable {
     }
 
     @XmlAttribute(name = "id")
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -83,11 +83,11 @@ public class Inventory implements DataTransferObject, Serializable {
     }
 
     @XmlElement(name = "amountInStock")
-    public Long getAmountInStock() {
+    public long getAmountInStock() {
         return amountInStock;
     }
 
-    public void setAmountInStock(Long amountInStock) {
+    public void setAmountInStock(long amountInStock) {
         this.amountInStock = amountInStock;
     }
 

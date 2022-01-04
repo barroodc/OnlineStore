@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(propOrder = {"id", "jobTitle", "positionSalary", "minSalary", "maxSalary"})
 
 public class Jobs implements DataTransferObject {
-    private long id;
+    private Long id;
     private String jobTitle;
     private float positionSalary;
     private float minSalary;
@@ -29,7 +29,7 @@ public class Jobs implements DataTransferObject {
         this.maxSalary = maxSalary;
     }
 
-    public Jobs(long id, String jobTitle, float positionSalary, float minSalary, float maxSalary) {
+    public Jobs(Long id, String jobTitle, float positionSalary, float minSalary, float maxSalary) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.minSalary = minSalary;

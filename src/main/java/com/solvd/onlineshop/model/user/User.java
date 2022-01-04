@@ -10,8 +10,8 @@ import java.sql.Date;
 "email", "password", "userName", "timeCreated", "lastLogin"})
 
 public class User implements DataTransferObject {
-    private long id;
-    private long employeesID;
+    private Long id;
+    private Long employeesID;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -41,7 +41,7 @@ public class User implements DataTransferObject {
         this.lastLogin = lastLogin;
     }
 
-    public User(long id, long employeesID, String firstName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
+    public User(Long id, Long employeesID, String firstName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
         this.id = id;
         this.employeesID = employeesID;
         this.firstName = firstName;
@@ -54,7 +54,7 @@ public class User implements DataTransferObject {
         this.lastLogin = lastLogin;
     }
 
-    public User(long id, long employeesID, String firstName, String middleName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
+    public User(Long id, Long employeesID, String firstName, String middleName, String lastName, String mobile, String email, String password, String userName, Date timeCreated, Date lastLogin) {
         this.id = id;
         this.employeesID = employeesID;
         this.firstName = firstName;
@@ -69,20 +69,20 @@ public class User implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @XmlAttribute
-    public long getEmployeesID() {
+    public Long getEmployeesID() {
         return employeesID;
     }
 
-    public void setEmployeesID(long employeesID) {
+    public void setEmployeesID(Long employeesID) {
         this.employeesID = employeesID;
     }
 

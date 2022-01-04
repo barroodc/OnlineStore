@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.*;
 "shopID", "countryID", "productName"})
 
 public class Product implements DataTransferObject {
-    private long id;
-    private long inventoryID;
+    private Long id;
+    private Long inventoryID;
     private long productTypeID;
     private long categoryID;
     private long marketID;
@@ -27,7 +27,7 @@ public class Product implements DataTransferObject {
         this.productName = productName;
     }
 
-    public Product(Long id, Long inventoryID, Long productTypeID, Long categoryID, Long marketID, Long shopID, Long countryID, String productName) {
+    public Product(Long id, Long inventoryID, long productTypeID, long categoryID, long marketID, long shopID, long countryID, String productName) {
         this.id = id;
         this.inventoryID = inventoryID;
         this.productTypeID = productTypeID;
@@ -39,20 +39,20 @@ public class Product implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @XmlAttribute
-    public long getInventoryID() {
+    public Long getInventoryID() {
         return inventoryID;
     }
 
-    public void setInventoryID(long inventoryID) {
+    public void setInventoryID(Long inventoryID) {
         this.inventoryID = inventoryID;
     }
 

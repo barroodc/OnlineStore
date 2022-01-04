@@ -10,13 +10,13 @@ import java.sql.Date;
 
 
 public class OrderItem implements DataTransferObject {
-    private long id;
-    private long orderID;
-    private long productID;
+    private Long id;
+    private Long orderID;
+    private Long productID;
     private String sku;
     private float price;
     private float discount;
-    private Long quantity;
+    private long quantity;
     private Date timeCreated;
 
     public OrderItem() {
@@ -36,7 +36,7 @@ public class OrderItem implements DataTransferObject {
         this.price = price;
     }
 
-    public OrderItem(long id, long orderID, long productID, String sku, float price, float discount, Long quantity, Date timeCreated) {
+    public OrderItem(Long id, Long orderID, Long productID, String sku, float price, float discount, long quantity, Date timeCreated) {
         this.id = id;
         this.orderID = orderID;
         this.productID = productID;
@@ -48,29 +48,29 @@ public class OrderItem implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @XmlAttribute
-    public long getOrderID() {
+    public Long getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(long orderID) {
+    public void setOrderID(Long orderID) {
         this.orderID = orderID;
     }
 
     @XmlAttribute
-    public long getProductID() {
+    public Long getProductID() {
         return productID;
     }
 
-    public void setProductID(long productID) {
+    public void setProductID(Long productID) {
         this.productID = productID;
     }
 
@@ -102,11 +102,11 @@ public class OrderItem implements DataTransferObject {
     }
 
     @XmlElement(name = "quantity")
-    public Long getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 

@@ -11,8 +11,8 @@ import java.util.Arrays;
 "timeCreated","cartUpdated", "isGift"})
 
 public class CheckoutCart implements DataTransferObject {
-    private long id;
-    private long userID;
+    private Long id;
+    private Long userID;
     private long numberOfItems;
     private String mobile;
     private String email;
@@ -45,7 +45,7 @@ public class CheckoutCart implements DataTransferObject {
       this.country = country;
     }
 
-    public CheckoutCart(long id, long userID, long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] isGift) {
+    public CheckoutCart(Long id, Long userID, long numberOfItems, String mobile, String email, String country, Date timeCreated, Date cartUpdated, byte[] isGift) {
         this.id = id;
         this.userID = userID;
         this.numberOfItems = numberOfItems;
@@ -58,11 +58,11 @@ public class CheckoutCart implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,7 +71,7 @@ public class CheckoutCart implements DataTransferObject {
         return userID;
     }
 
-    public void setUserID(long userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 

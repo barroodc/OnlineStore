@@ -10,8 +10,8 @@ import java.sql.Date;
 @XmlType(propOrder = {"id", "productID", "overallRating", "title", "parentID", "timeCreated", "userReview"})
 
 public class ProductReview implements DataTransferObject {
-    private long id;
-    private long productID;
+    private Long id;
+    private Long productID;
     private float overallRating;
     private String title;
     private long parentID;
@@ -37,7 +37,7 @@ public class ProductReview implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
-    public ProductReview(long id, long productID, float overallRating, String title, long parentID, Date timeCreated, String userReview) {
+    public ProductReview(Long id, Long productID, float overallRating, String title, long parentID, Date timeCreated, String userReview) {
         this.id = id;
         this.productID = productID;
         this.overallRating = overallRating;
@@ -48,20 +48,20 @@ public class ProductReview implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @XmlAttribute
-    public long getProductID() {
+    public Long getProductID() {
         return productID;
     }
 
-    public void setProductID(long productID) {
+    public void setProductID(Long productID) {
         this.productID = productID;
     }
 

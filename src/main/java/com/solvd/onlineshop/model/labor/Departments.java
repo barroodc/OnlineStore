@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(propOrder = {"id", "departmentName"})
 
 public class Departments implements DataTransferObject {
-    private long id;
+    private Long id;
     private String departmentName;
 
     public Departments() {
@@ -26,11 +26,11 @@ public class Departments implements DataTransferObject {
     }
 
     @XmlAttribute
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
