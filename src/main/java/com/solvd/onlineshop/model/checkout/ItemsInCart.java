@@ -1,7 +1,14 @@
 package com.solvd.onlineshop.model.checkout;
 import com.solvd.onlineshop.utils.DataTransferObject;
+import com.sun.xml.txw2.annotation.XmlElement;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
+
+@XmlRootElement(name = "ItemsInCart")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"id", "productID", "productName", "sku", "price",
+"subtotalOfItems", "discount", "quantity", "timeCreated", "cartUpdated"})
 
 public class ItemsInCart implements DataTransferObject {
     private long id;
@@ -53,6 +60,7 @@ public class ItemsInCart implements DataTransferObject {
         this.cartUpdated = cartUpdated;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -61,6 +69,7 @@ public class ItemsInCart implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public long getProductID() {
         return productID;
     }
@@ -69,6 +78,7 @@ public class ItemsInCart implements DataTransferObject {
         this.productID = productID;
     }
 
+    @XmlElement
     public String getProductName() {
         return productName;
     }
@@ -77,6 +87,7 @@ public class ItemsInCart implements DataTransferObject {
         this.productName = productName;
     }
 
+    @XmlElement
     public String getSku() {
         return sku;
     }
@@ -85,6 +96,7 @@ public class ItemsInCart implements DataTransferObject {
         this.sku = sku;
     }
 
+    @XmlElement
     public float getPrice() {
         return price;
     }
@@ -93,6 +105,7 @@ public class ItemsInCart implements DataTransferObject {
         this.price = price;
     }
 
+    @XmlElement
     public float getSubtotalOfItems() {
         return subtotalOfItems;
     }
@@ -101,6 +114,7 @@ public class ItemsInCart implements DataTransferObject {
         this.subtotalOfItems = subtotalOfItems;
     }
 
+    @XmlElement
     public float getDiscount() {
         return discount;
     }
@@ -109,6 +123,7 @@ public class ItemsInCart implements DataTransferObject {
         this.discount = discount;
     }
 
+    @XmlElement
     public float getQuantity() {
         return quantity;
     }
@@ -117,6 +132,7 @@ public class ItemsInCart implements DataTransferObject {
         this.quantity = quantity;
     }
 
+    @XmlElement
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -125,6 +141,7 @@ public class ItemsInCart implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlElement
     public Date getCartUpdated() {
         return cartUpdated;
     }

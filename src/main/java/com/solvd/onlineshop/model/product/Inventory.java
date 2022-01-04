@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @XmlRootElement(name = "Inventory")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"productName","description","price", "amountInStock"})
+@XmlType(propOrder = {"id","productName","description","price","amountInStock"})
 
 public class Inventory implements DataTransferObject, Serializable {
 
@@ -20,16 +20,6 @@ public class Inventory implements DataTransferObject, Serializable {
     private float price;
     private long amountInStock;
 
-    private static final Logger logger = LogManager.getLogger(Inventory.class);
-
-    private static final long serialVersionUID = 3L;
-
-    public static final String
-            ID="id",
-            PRODUCT_NAME="productName",
-            DESCRIPTION="description",
-            PRICE="price",
-            AMOUNT_IN_STOCK="amountInStock";
 
     public Inventory() {
 
@@ -101,15 +91,6 @@ public class Inventory implements DataTransferObject, Serializable {
 
     public void setAmountInStock(Long amountInStock) {
         this.amountInStock = amountInStock;
-    }
-
-    public void beforeUnmarshall(Object target, Object parent) {
-
-        logger.info("Before unmarshaller callback");
-    }
-
-    public void afterUnmarshall(Object target, Object parent) {
-        logger.info("After unmarhshaller callback");
     }
 
     @Override

@@ -1,8 +1,14 @@
 package com.solvd.onlineshop.model.checkout;
 import com.solvd.onlineshop.utils.DataTransferObject;
 
+import javax.xml.bind.annotation.*;
 import java.sql.Date;
 import java.util.Arrays;
+
+@XmlRootElement(name = "CheckoutCart")
+@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlType(propOrder = {"userID", "numberOfItems", "mobile", "email", "country",
+"timeCreated","cartUpdated", "isGift"})
 
 public class CheckoutCart implements DataTransferObject {
     private long id;
@@ -14,6 +20,7 @@ public class CheckoutCart implements DataTransferObject {
     private Date timeCreated;
     private Date cartUpdated;
     private byte[] isGift;
+
 
     public CheckoutCart() {
 
@@ -50,6 +57,7 @@ public class CheckoutCart implements DataTransferObject {
         this.isGift = isGift;
     }
 
+    @XmlAttribute
     public long getId() {
         return id;
     }
@@ -58,6 +66,7 @@ public class CheckoutCart implements DataTransferObject {
         this.id = id;
     }
 
+    @XmlAttribute
     public Long getUserID() {
         return userID;
     }
@@ -66,6 +75,7 @@ public class CheckoutCart implements DataTransferObject {
         this.userID = userID;
     }
 
+    @XmlElement(name = "numberOfItems")
     public long getNumberOfItems() {
         return numberOfItems;
     }
@@ -74,6 +84,7 @@ public class CheckoutCart implements DataTransferObject {
         this.numberOfItems = numberOfItems;
     }
 
+    @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
@@ -82,6 +93,7 @@ public class CheckoutCart implements DataTransferObject {
         this.mobile = mobile;
     }
 
+    @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
@@ -90,6 +102,7 @@ public class CheckoutCart implements DataTransferObject {
         this.email = email;
     }
 
+    @XmlElement(name = "country")
     public String getCountry() {
         return country;
     }
@@ -98,6 +111,7 @@ public class CheckoutCart implements DataTransferObject {
         this.country = country;
     }
 
+    @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
@@ -106,6 +120,7 @@ public class CheckoutCart implements DataTransferObject {
         this.timeCreated = timeCreated;
     }
 
+    @XmlElement
     public Date getCartUpdated() {
         return cartUpdated;
     }
@@ -114,6 +129,7 @@ public class CheckoutCart implements DataTransferObject {
         this.cartUpdated = cartUpdated;
     }
 
+    @XmlElement
     public byte[] getIsGift() {
         return isGift;
     }
