@@ -7,52 +7,34 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 
 public class JAXBHandler {
 
 
     private static final Logger logger = LogManager.getLogger(JAXBHandler.class);
 
-
-     /*private static void jaxbXMLFileConversion(String fileName){
+    private void xmlParsingUsingJaxB(String fileName){
         File xmlFile = new File(fileName);
-        JAXBContext jaxbContext;
-
+        JAXBContext jaxbContext = null;
         try {
             jaxbContext = JAXBContext.newInstance(Inventory.class);
-            Unmarshaller jaxUnmarshaller = jaxbContext.createUnmarshaller();
-            Inventory inventory = (Inventory) jaxUnmarshaller.unmarshal(xmlFile);
-            logger.info(inventory);
-        } catch (JAXBException e){
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            InputStream inputStream = new FileInputStream(xmlFile);
+            Inventory inv = (Inventory) jaxbUnmarshaller.unmarshal(inputStream);
+            logger.info(inv);
+        } catch (JAXBException | FileNotFoundException e) {
             logger.error(e);
         }
 
     }
 
-      */
-
-    private static void jaxbXMLFileConversion() {
-        try {
-            File file = new File("src/main/resources/inventory.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(Inventory.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            Inventory inventory = (Inventory) unmarshaller.unmarshal(file);
-            logger.info(inventory);
-        } catch (Exception e) {
-            logger.error(e);
-        }
+    public static void main(String[] args) {
+          JAXBHandler example = new JAXBHandler();
+          example.xmlParsingUsingJaxB("src/main/resources/inventory.xml");
     }
-
-
-
-
-
-
-   /* public static void main(String[] args) {
-        JAXBHandler.jaxbXMLFileConversion();
-    }
-
-    */
 
 }

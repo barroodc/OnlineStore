@@ -7,9 +7,9 @@ import org.apache.logging.log4j.Logger;
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
-@XmlRootElement(name = "employee")
+@XmlRootElement(name = "Inventory")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"productName","description","price", "amountInStock"},namespace="http://global.aon.bz/schema/cbs/archive/errorresource/0")
+@XmlType(propOrder = {"productName","description","price", "amountInStock"})
 
 public class Inventory implements DataTransferObject, Serializable {
 
