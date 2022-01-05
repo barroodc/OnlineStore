@@ -23,20 +23,20 @@ public class OrderItemDao extends BaseDao<OrderItem> implements IOrderItemDao {
 
     private static final String INSERT = "INSERT INTO order_item (order_id, product_id, sku, price, discount, quantity, time_created) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT order_item_id, order_id, product_id, sku, price, discount, quantity, time_created FROM order_item WHERE order_item_id = ?";
+    private static final String GET_ONE = "SELECT id, order_id, product_id, sku, price, discount, quantity, time_created FROM order_item WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE order_item SET order_id = ?, product_id = ?, sku = ?, price = ?, discount = ?, quantity = ?, time_created = ? WHERE order_item_id = ?";
+    private static final String UPDATE = "UPDATE order_item SET order_id = ?, product_id = ?, sku = ?, price = ?, discount = ?, quantity = ?, time_created = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM order_item WHERE order_item_id = ?";
+    private static final String DELETE = "DELETE FROM order_item WHERE id = ?";
 
     @Override
     public OrderItem findById(long id) {
         OrderItem orderItem = new OrderItem();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                orderItem.setId(rs.getLong("order_item_id"));
+                orderItem.setId(rs.getLong("id"));
                 orderItem.setOrderID(rs.getLong("order_id"));
                 orderItem.setProductID(rs.getLong("product_id"));
                 orderItem.setSku(rs.getString("sku"));

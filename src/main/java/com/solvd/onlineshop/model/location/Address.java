@@ -65,8 +65,8 @@ public class Address {
     }
 
     @XmlElement(name = "streetAddress")
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getStreetAddress(){
+        return this.streetAddress;
     }
 
     public void setStreetAddress(String streetAddress) {

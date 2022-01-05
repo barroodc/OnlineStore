@@ -22,22 +22,22 @@ public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
         super(connection);
     }
 
-    private static final String INSERT = "INSERT INTO inventory (product_name, description, price, amount_in_stock VALUES (?, ?, ?, ?);";
+    private static final String INSERT = "INSERT INTO inventory (product_name, description, price, amount_in_stock VALUES (?, ?, ?, ?, ?);";
 
-    private static final String FINDBYID = "SELECT inventory_id, product_name, description, price, amount_in_stock subtotal FROM inventory WHERE inventory_id = ?";
+    private static final String GET_ONE = "SELECT id, product_name, description, price, amount_in_stock subtotal FROM inventory WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE inventory SET product_name = ?, description = ?, price = ?, amount_in_stock = ? FROM inventory WHERE inventory_id = ?";
+    private static final String UPDATE = "UPDATE inventory SET product_name = ?, description = ?, price = ?, amount_in_stock = ? FROM inventory WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM inventory WHERE inventory_id = ?";
+    private static final String DELETE = "DELETE FROM inventory WHERE id = ?";
 
     @Override
     public Inventory findById(long id) {
         Inventory inventory = new Inventory();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                inventory.setId(rs.getLong("inventory_id"));
+                inventory.setId(rs.getLong("id"));
                 inventory.setProductName(rs.getString("product_name"));
                 inventory.setDescription(rs.getString("description"));
                 inventory.setPrice(rs.getFloat("price"));

@@ -21,20 +21,20 @@ public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IPro
 
     private static final String INSERT = "INSERT INTO product_supplier (supplier_name, category_of_products) VALUES (?, ?)";
 
-    private static final String FINDBYID = "SELECT product_supplier_id, supplier_name, category_of_products FROM product_supplier WHERE product_supplier_id = ?";
+    private static final String GET_ONE = "SELECT id, supplier_name, category_of_products FROM product_supplier WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE product_supplier_id SET supplier_name = ?, category_of_products = ? WHERE product_supplier_id = ?";
+    private static final String UPDATE = "UPDATE id SET supplier_name = ?, category_of_products = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM product_supplier WHERE product_supplier_id = ?";
+    private static final String DELETE = "DELETE FROM product_supplier WHERE id = ?";
 
     @Override
     public ProductSupplier findById(long id) {
         ProductSupplier productSupplier = new ProductSupplier();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                productSupplier.setId(rs.getLong("product_supplier_id"));
+                productSupplier.setId(rs.getLong("id"));
                 productSupplier.setSupplierName(rs.getString("supplier_name"));
                 productSupplier.setCategoryOfProducts("category_of_products");
             }

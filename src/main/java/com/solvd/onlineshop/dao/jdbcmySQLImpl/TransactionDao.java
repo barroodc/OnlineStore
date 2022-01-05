@@ -21,22 +21,22 @@ public class TransactionDao extends BaseDao<Transaction> implements ITransaction
     private static final String INSERT = "INSERT INTO transaction (status, time_created," +
             "approval status) VALUES (?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT transaction_id, status, time_created, " +
-            "approval status FROM transaction WHERE transaction_id = ?";
+    private static final String GET_ONE = "SELECT id, status, time_created, " +
+            "approval status FROM transaction WHERE id = ?";
 
     private static final String UPDATE = "UPDATE transaction SET status = ?, time_created = ?, " +
-            "approval_status = ? WHERE transaction_id = ?";
+            "approval_status = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM transaction WHERE transaction_id = ?";
+    private static final String DELETE = "DELETE FROM transaction WHERE id = ?";
 
     @Override
     public Transaction findById(long id) {
         Transaction transaction = new Transaction();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                transaction.setId(rs.getLong("transaction_id"));
+                transaction.setId(rs.getLong("id"));
                 transaction.setStatus(rs.getString("status"));
                 transaction.setTimeCreated(rs.getDate("time_created"));
                 transaction.setApprovalStatus(rs.getString("approval_status"));

@@ -22,19 +22,19 @@ public class ItemsInCartDao extends BaseDao<ItemsInCart> implements IItemsInCart
     private static final String INSERT = "INSERT INTO items_in_Cart (product_id, product_name, sku, " +
             "price, subtotalOfItems, discount, quantity, time_created, cart_updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String FINDBYID = "SELECT items_in_cart_id, product_id, product_name, sku, " +
+    private static final String GET_ONE = "SELECT id, product_id, product_name, sku, " +
             "price, subtotalOfItems, discount, quantity, time_created, cart_updated FROM items_in_cart WHERE items_in_cart_id = ?";
 
     private static final String UPDATE = "UPDATE items_in_cart SET product_id = ?, product_name = ?, " +
             "sku = ?, price = ?, subtotalOfItems = ?, discount = ?, quantity = ?, time_created = ?, cart_updated = ? FROM " +
-            "items_in_cart  WHERE items_in_cart_id = ?";
+            "items_in_cart  WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM items_in_cart WHERE items_in_cart_id = ?";
+    private static final String DELETE = "DELETE FROM items_in_cart WHERE id = ?";
 
     @Override
     public ItemsInCart findById(long id) {
         ItemsInCart itemsInCart = new ItemsInCart();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){

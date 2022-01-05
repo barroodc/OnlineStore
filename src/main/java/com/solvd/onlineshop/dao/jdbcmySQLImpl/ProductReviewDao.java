@@ -21,20 +21,20 @@ public class ProductReviewDao extends BaseDao<ProductReview> implements IProduct
 
     private static final String INSERT = "INSERT INTO product_review (product_id, overall_rating, title, parent_id, time_created, user_review) VALUES (?, ?, ?, ?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT product_review_id, product_id, overall_rating, title, parent_id, time_created, user_review FROM product_review WHERE product_review_id = ?";
+    private static final String GET_ONE = "SELECT id, product_id, overall_rating, title, parent_id, time_created, user_review FROM product_review WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE product_review SET product_id = ?, overall_rating = ?, title = ?, parent_id = ?, time_created = ? user_review = ? WHERE product_supplier_id = ?";
+    private static final String UPDATE = "UPDATE product_review SET product_id = ?, overall_rating = ?, title = ?, parent_id = ?, time_created = ? user_review = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM product_review WHERE product_review_id = ?";
+    private static final String DELETE = "DELETE FROM product_review WHERE id = ?";
 
     @Override
     public ProductReview findById(long id) {
         ProductReview productReview = new ProductReview();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                productReview.setId(rs.getLong("product_review_id"));
+                productReview.setId(rs.getLong("id"));
                 productReview.setOverallRating(rs.getFloat("overall_rating"));
                 productReview.setTitle(rs.getString("title"));
                 productReview.setParentID(rs.getLong("parent_id"));

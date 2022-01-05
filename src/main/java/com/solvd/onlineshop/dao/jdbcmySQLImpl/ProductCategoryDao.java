@@ -21,22 +21,22 @@ public class ProductCategoryDao extends BaseDao<ProductCategory> implements IPro
         super(connection);
     }
 
-    private static final String INSERT = "INSERT INTO product_category (product_category_id, product_id, title, meta_title, product_name) VALUES (?, ?, ?, ?, ?)";
+    private static final String INSERT = "INSERT INTO product_category (product_id, title, meta_title, product_name) VALUES (?, ?, ?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT product_category_id, product_id, title, meta_title, product_name FROM product_category WHERE product_category_id = ?";
+    private static final String GET_ONE = "SELECT id, product_id, title, meta_title, product_name FROM product_category WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE product_category_id SET product_id = ?, title = ?, meta_title = ?, product_name = ? WHERE product_category_id = ?";
+    private static final String UPDATE = "UPDATE id SET product_id = ?, title = ?, meta_title = ?, product_name = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM product_category WHERE product_category_id = ?";
+    private static final String DELETE = "DELETE FROM product_category WHERE id = ?";
 
     @Override
     public ProductCategory findById(long id) {
         ProductCategory productCategory = new ProductCategory();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                productCategory.setId(rs.getLong("product_category_id"));
+                productCategory.setId(rs.getLong("id"));
                 productCategory.setProductID(rs.getLong("product_id"));
                 productCategory.setTitle(rs.getString("title"));
                 productCategory.setMetaTitle(rs.getString("meta_title"));

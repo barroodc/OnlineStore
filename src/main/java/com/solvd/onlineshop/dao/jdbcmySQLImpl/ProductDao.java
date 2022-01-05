@@ -23,20 +23,20 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
 
     private static final String INSERT = "INSERT INTO product (inventory_id, product_type_id, category_id, market_id, shop_id, country_id, product_name) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT product_id, inventory_id, product_type_id, category_id, market_id, shop_id, country_id, product_name FROM product_review WHERE product_id = ?";
+    private static final String GET_ONE = "SELECT id, inventory_id, product_type_id, category_id, market_id, shop_id, country_id, product_name FROM product_review WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE product_id SET inventory_id = ?, product_type_id = ?, category_id = ?, market_id = ?, shop_id = ?, country_id = ?, product_name = ? WHERE product_supplier_id = ?";
+    private static final String UPDATE = "UPDATE id SET inventory_id = ?, product_type_id = ?, category_id = ?, market_id = ?, shop_id = ?, country_id = ?, product_name = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM product WHERE product_id = ?";
+    private static final String DELETE = "DELETE FROM product WHERE id = ?";
 
     @Override
     public Product findById(long id) {
         Product product = new Product();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                product.setId(rs.getLong("product_id"));
+                product.setId(rs.getLong("id"));
                 product.setInventoryID(rs.getLong("inventory_id"));
                 product.setProductTypeID(rs.getLong("productType_id"));
                 product.setCategoryID(rs.getLong("category_id"));

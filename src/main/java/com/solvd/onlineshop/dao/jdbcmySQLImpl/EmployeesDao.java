@@ -19,25 +19,25 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
         super(connection);
     }
 
-    private static final String INSERT = "INSERT INTO employees (jobs_id, departments_id, mobile, email," +
+    private static final String INSERT = "INSERT INTO employees (departments_id, mobile, email," +
             "hire_date, job_id, salary, manager_id, department_id VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String FINDBYID = "SELECT employees_id, jobs_id, departments_id, mobile, email," +
-            "hire_date, job_id, salary, manager_id, department_id FROM employees WHERE employee_id = ?";
+    private static final String GET_ONE = "SELECT id, jobs_id, departments_id, mobile, email," +
+            "hire_date, job_id, salary, manager_id, department_id FROM employees WHERE id = ?";
 
     private static final String UPDATE = "UPDATE employees SET jobs_id = ?, departments_id = ?, mobile = ?, " +
-            "email = ?, hire_date = ?, job_id = ?, salary = ?, manager_id = ?, department_id = ? FROM employees WHERE employee_id = ?";
+            "email = ?, hire_date = ?, job_id = ?, salary = ?, manager_id = ?, department_id = ? FROM employees WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM employees WHERE employee_id = ?";
+    private static final String DELETE = "DELETE FROM employees WHERE id = ?";
 
     @Override
     public Employees findById(long id) {
         Employees employees = new Employees();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                employees.setId(rs.getLong("employees_id"));
+                employees.setId(rs.getLong("id"));
                 employees.setJobsID(rs.getLong("jobs_id"));
                 employees.setDepartmentID(rs.getLong("departments_id"));
                 employees.setMobile(rs.getString("mobile"));

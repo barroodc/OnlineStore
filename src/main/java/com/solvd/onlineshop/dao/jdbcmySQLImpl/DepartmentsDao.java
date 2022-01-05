@@ -23,20 +23,20 @@ public class DepartmentsDao extends BaseDao<Departments> implements IDepartments
 
     private static final String INSERT = "INSERT INTO departments (department_name) VALUES (?)";
 
-    private static final String FINDBYID = "SELECT departments_id, department_name FROM departments WHERE departments_id = ?";
+    private static final String GET_ONE = "SELECT id, department_name FROM departments WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE departments SET department_name = ? FROM employees WHERE departments_id = ?";
+    private static final String UPDATE = "UPDATE departments SET department_name = ? FROM employees WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM departments WHERE departments_id = ?";
+    private static final String DELETE = "DELETE FROM departments WHERE id = ?";
 
     @Override
     public Departments findById(long id) {
         Departments departments = new Departments();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                departments.setId(rs.getLong("departments_id"));
+                departments.setId(rs.getLong("id"));
                 departments.setDepartmentName(rs.getString("department_name"));
             }
         }catch (SQLException e){

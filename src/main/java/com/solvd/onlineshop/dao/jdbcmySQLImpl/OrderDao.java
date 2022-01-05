@@ -22,22 +22,22 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
     private static final String INSERT = "INSERT INTO order (user_id, date_of_order, date_of_delivery, time_of_delivery, " +
             "mobile, email, time_created, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT order_id, user_id, date_of_order, date_of_delivery, time_of_delivery, " +
-            "mobile, email, time_created, status FROM order WHERE order_id = ?";
+    private static final String GET_ONE = "SELECT id, user_id, date_of_order, date_of_delivery, time_of_delivery, " +
+            "mobile, email, time_created, status FROM order WHERE id = ?";
 
     private static final String UPDATE = "UPDATE order SET user_id = ?, date_of_order = ?, date_of_delivery = ?, time_of_delivery = ?, " +
-            "mobile = ?, email = ?, time_created = ?, status = ? WHERE order_id = ?";
+            "mobile = ?, email = ?, time_created = ?, status = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM order WHERE order_id = ?";
+    private static final String DELETE = "DELETE FROM order WHERE id = ?";
 
     @Override
     public Order findById(long id) {
         Order order = new Order();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                order.setId(rs.getLong("order_id"));
+                order.setId(rs.getLong("id"));
                 order.setUserID(rs.getLong("user_id"));
                 order.setDateOfOrder(rs.getDate("date_of_order"));
                 order.setDateOfDelivery(rs.getDate("date_of_delivery"));

@@ -20,13 +20,13 @@ public class UserDao extends BaseDao<User> implements IUserDao {
     private static final String INSERT = "INSERT INTO user (first_name, middle_name," +
             "last_name, mobile, email, password, user_name, time_created, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String FINDBYID = "SELECT user_id, first_name, middle_name, " +
-            "last_name, mobile, email, password, user_name, time_created, last_login FROM customer WHERE user_id = ?";
+    private static final String GET_ONE = "SELECT id, first_name, middle_name, " +
+            "last_name, mobile, email, password, user_name, time_created, last_login FROM customer WHERE id = ?";
 
     private static final String UPDATE = "UPDATE user SET first_name = ?, middle_name = ?, " +
-            "last_name = ?, mobile = ?, email = ?, password = ?, user_name = ?, time_created = ?, last_login WHERE user_id = ?";
+            "last_name = ?, mobile = ?, email = ?, password = ?, user_name = ?, time_created = ?, last_login WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM user WHERE user_id = ?";
+    private static final String DELETE = "DELETE FROM user WHERE id = ?";
 
     public UserDao() {
         super();
@@ -35,11 +35,11 @@ public class UserDao extends BaseDao<User> implements IUserDao {
     @Override
     public User findById(long id) {
         User user = new User();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                user.setId(rs.getLong("user_id"));
+                user.setId(rs.getLong("id"));
                 user.setFirstName(rs.getString("first_name"));
                 user.setMiddleName(rs.getString("middle_name"));
                 user.setLastName(rs.getString("last_name"));

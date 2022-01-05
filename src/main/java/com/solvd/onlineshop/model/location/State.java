@@ -5,28 +5,28 @@ import java.sql.Timestamp;
 
 @XmlRootElement(name = "State")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "countryID", "state", "lastUpdate"})
+@XmlType(propOrder = {"id", "countryID", "stateName", "lastUpdate"})
 
 public class State {
     private Long id;
     private Long countryID;
-    private String state;
+    private String stateName;
     private Timestamp lastUpdate;
 
     public State() {
 
     }
 
-    public State(Long id, Long countryID, String state) {
+    public State(Long id, Long countryID, String stateName) {
         this.id = id;
         this.countryID = countryID;
-        this.state = state;
+        this.stateName = stateName;
     }
 
-    public State(Long id, Long countryID, String state, Timestamp lastUpdate) {
+    public State(Long id, Long countryID, String stateName, Timestamp lastUpdate) {
         this.id = id;
         this.countryID = countryID;
-        this.state = state;
+        this.stateName = stateName;
         this.lastUpdate = lastUpdate;
     }
 
@@ -48,13 +48,13 @@ public class State {
         this.countryID = countryID;
     }
 
-    @XmlElement(name = "state")
-    public String getState() {
-        return state;
+    @XmlElement(name = "stateName")
+    public String getStateName() {
+        return stateName;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
     @XmlElement(name = "lastUpdate")
@@ -64,5 +64,15 @@ public class State {
 
     public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "id=" + id +
+                ", countryID=" + countryID +
+                ", state='" + stateName + '\'' +
+                ", lastUpdate=" + lastUpdate +
+                '}';
     }
 }

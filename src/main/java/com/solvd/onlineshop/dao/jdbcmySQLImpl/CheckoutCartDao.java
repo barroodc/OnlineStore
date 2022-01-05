@@ -11,7 +11,11 @@ import java.util.List;
 public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutCartDao {
 
     private static final Logger logger = LogManager.getLogger(CheckoutCartDao.class);
-    protected final static String EMPLOYEES_SEQUENCE = "onlinestore_checkout_cart_seq";
+    protected final static String CHECKOUT_CART_SEQUENCE = "onlinestore_checkout_cart_seq";
+
+    public CheckoutCartDao() {
+
+    }
 
     public CheckoutCartDao(Connection connection) {
         super(connection);
@@ -20,27 +24,23 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
     private static final String INSERT = "INSERT INTO checkout_cart (user_id, number_of_items, mobile, email," +
             "country, time_created, cart_updated, is_gift VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String FINDBYID = "SELECT checkout_cart_id, user_id, number_of_items, mobile, email," +
-            "country, time_created, cart_updated, is_gift FROM checkout_cart WHERE checkout_cart_id = ?";
+    private static final String GET_ONE = "SELECT id, user_id, number_of_items, mobile, email," +
+            "country, time_created, cart_updated, is_gift FROM checkout_cart WHERE id = ?";
 
     private static final String UPDATE = "UPDATE checkout_cart SET user_id = ?, number_of_items = ?, mobile = ?, " +
-            "email = ?, country = ?, time_created = ?, cart_updated = ?, is_gift = ? FROM checkout_cart WHERE checkout_cart_id = ?";
+            "email = ?, country = ?, time_created = ?, cart_updated = ?, is_gift = ? FROM checkout_cart WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM checkout_cart WHERE checkout_cart_id = ?";
-
-    public CheckoutCartDao() {
-
-    }
+    private static final String DELETE = "DELETE FROM checkout_cart WHERE id = ?";
 
 
     @Override
     public CheckoutCart findById(long id) {
         CheckoutCart checkoutCart = new CheckoutCart();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                checkoutCart.setId(rs.getLong("checkout_cart_id"));
+                checkoutCart.setId(rs.getLong("id"));
                 checkoutCart.setUserID(rs.getLong("user_id"));
                 checkoutCart.setNumberOfItems(rs.getLong("number_of_items"));
                 checkoutCart.setMobile(rs.getString("mobile"));
@@ -96,7 +96,7 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
             statement.setDate(7, dto.getCartUpdated());
             statement.setBytes(8, dto.getIsGift());
             statement.execute();
-            int id = this.getLastVal(EMPLOYEES_SEQUENCE);
+            int id = this.getLastVal(CHECKOUT_CART_SEQUENCE);
             return this.findById(id);
         }catch(SQLException e){
             logger.error(e);

@@ -24,20 +24,20 @@ public class JobsDao extends BaseDao<Jobs> implements IJobsDao {
 
     private static final String INSERT = "INSERT INTO jobs (job_title, position_salary, min_salary, max_salary) VALUES (?, ?, ?, ?);";
 
-    private static final String FINDBYID = "SELECT jobs_id, job_title, position_salary, min_salary, max_salary FROM jobs WHERE jobs_id = ?";
+    private static final String GET_ONE = "SELECT id, job_title, position_salary, min_salary, max_salary FROM jobs WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE jobs SET position_salary = ?, min_salary = ?, max_salary = ? WHERE jobs_id = ?";
+    private static final String UPDATE = "UPDATE jobs SET position_salary = ?, min_salary = ?, max_salary = ? WHERE id = ?";
 
-    private static final String DELETE = "DELETE FROM jobs WHERE jobs_id = ?";
+    private static final String DELETE = "DELETE FROM jobs WHERE id = ?";
 
     @Override
     public Jobs findById(long id) {
         Jobs jobs = new Jobs();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                jobs.setId(rs.getLong("jobs_id"));
+                jobs.setId(rs.getLong("id"));
                 jobs.setJobTitle(rs.getString("job_title"));
                 jobs.setPositionSalary(rs.getFloat("position_salary"));
                 jobs.setMinSalary(rs.getFloat("min_salary"));

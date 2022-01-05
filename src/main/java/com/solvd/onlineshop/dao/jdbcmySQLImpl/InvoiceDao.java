@@ -24,23 +24,23 @@ public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
     private static final String INSERT = "INSERT INTO invoice (transaction_id, inventory_id, is_in_stock, " +
             "price, discount, pre_tax, tax, subtotal) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private static final String FINDBYID = "SELECT invoice_id, transaction_id, inventory_id, is_in_stock, " +
+    private static final String GET_ONE = "SELECT id, transaction_id, inventory_id, is_in_stock, " +
             "price, discount, pre_tax, tax, subtotal FROM invoice WHERE invoice_id = ?";
 
     private static final String UPDATE = "UPDATE invoice SET transaction_id = ?, inventory_id = ?, is_in_stock = ?, " +
-            "price = ?, discount = ?, pre_tax = ?, tax = ?, subtotal = ? FROM invoice  WHERE invoice_id = ?";
+            "price = ?, discount = ?, pre_tax = ?, tax = ?, subtotal = ? FROM invoice  WHERE id = ?";
 
 
-    private static final String DELETE = "DELETE FROM invoice WHERE invoice_id = ?";
+    private static final String DELETE = "DELETE FROM invoice WHERE id = ?";
 
     @Override
     public Invoice findById(long id) {
         Invoice invoice = new Invoice();
-        try(PreparedStatement statement = this.connection.prepareStatement(FINDBYID);) {
+        try(PreparedStatement statement = this.connection.prepareStatement(GET_ONE);) {
             statement.setLong(1, id);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                invoice.setId(rs.getLong("invoice_id"));
+                invoice.setId(rs.getLong("id"));
                 invoice.setTransactionID(rs.getLong("transaction_id"));
                 invoice.setInventoryID(rs.getLong("inventory_id"));
                 invoice.setIsInStock(rs.getBytes("is_in_stock"));

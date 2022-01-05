@@ -5,11 +5,11 @@ import java.sql.Timestamp;
 
 @XmlRootElement(name = "Country")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "country", "currencyName", "phoneCode", "lastUpdate"})
+@XmlType(propOrder = {"id", "countryName", "currencyName", "phoneCode", "lastUpdate"})
 
 public class Country {
     private Long id;
-    private String country;
+    private String countryName;
     private String currencyName;
     private String phoneCode;
     private Timestamp lastUpdate;
@@ -18,27 +18,27 @@ public class Country {
 
     }
 
-    public Country(Long id, String country) {
+    public Country(Long id, String countryName) {
         this.id = id;
-        this.country = country;
+        this.countryName = countryName;
     }
 
-    public Country(Long id, String country, String currencyName) {
+    public Country(Long id, String countryName, String currencyName) {
         this.id = id;
-        this.country = country;
+        this.countryName = countryName;
         this.currencyName = currencyName;
     }
 
-    public Country (Long id, String country, String currencyName, String phoneCode) {
+    public Country (Long id, String countryName, String currencyName, String phoneCode) {
         this.id = id;
-        this.country = country;
+        this.countryName = countryName;
         this.currencyName = currencyName;
         this.phoneCode = phoneCode;
     }
 
-    public Country(Long id, String country, String currencyName, String phoneCode, Timestamp lastUpdate) {
+    public Country(Long id, String countryName, String currencyName, String phoneCode, Timestamp lastUpdate) {
         this.id = id;
-        this.country = country;
+        this.countryName = countryName;
         this.currencyName = currencyName;
         this.phoneCode = phoneCode;
         this.lastUpdate = lastUpdate;
@@ -53,13 +53,13 @@ public class Country {
         this.id = id;
     }
 
-    @XmlElement(name = "Country")
-    public String getCountry() {
-        return country;
+    @XmlElement(name = "countryName")
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
     @XmlElement(name = "currencyName")
@@ -93,7 +93,7 @@ public class Country {
     public String toString() {
         return "Country{" +
                 "id=" + id +
-                ", country='" + country + '\'' +
+                ", country='" + countryName + '\'' +
                 ", currencyName='" + currencyName + '\'' +
                 ", phoneCode='" + phoneCode + '\'' +
                 ", lastUpdate=" + lastUpdate +
