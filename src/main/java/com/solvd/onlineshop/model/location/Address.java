@@ -4,10 +4,11 @@ import java.sql.Timestamp;
 
 @XmlRootElement(name = "Address")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "streetAddress", "buildingNumber", "lastUpdate"})
+@XmlType(propOrder = {"id", "cityID", "streetAddress", "buildingNumber", "lastUpdate"})
 
 public class Address {
     private Long id;
+    private Long cityID;
     private String streetAddress;
     private String buildingNumber;
     private Timestamp lastUpdate;
@@ -30,6 +31,21 @@ public class Address {
         this.lastUpdate = lastUpdate;
     }
 
+    public Address(Long id, Long cityID, String streetAddress, String buildingNumber) {
+        this.id = id;
+        this.cityID = cityID;
+        this.streetAddress = streetAddress;
+        this.buildingNumber = buildingNumber;
+    }
+
+    public Address(Long id, Long cityID, String streetAddress, String buildingNumber, Timestamp lastUpdate) {
+        this.id = id;
+        this.cityID = cityID;
+        this.streetAddress = streetAddress;
+        this.buildingNumber = buildingNumber;
+        this.lastUpdate = lastUpdate;
+    }
+
     @XmlAttribute
     public Long getId() {
         return id;
@@ -37,6 +53,15 @@ public class Address {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @XmlAttribute
+    public Long getCityID() {
+        return cityID;
+    }
+
+    public void setCityID(Long cityID) {
+        this.cityID = cityID;
     }
 
     @XmlElement(name = "streetAddress")
@@ -70,8 +95,9 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
+                ", cityID=" + cityID +
                 ", streetAddress='" + streetAddress + '\'' +
-                ", buildingNumber=" + buildingNumber +
+                ", buildingNumber='" + buildingNumber + '\'' +
                 ", lastUpdate=" + lastUpdate +
                 '}';
     }
