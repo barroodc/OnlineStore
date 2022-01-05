@@ -6,12 +6,12 @@ import java.util.Arrays;
 
 @XmlRootElement(name = "City")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "countryID", "city", "location", "postalCode", "lastUpdate"})
+@XmlType(propOrder = {"id", "countryID", "cityName", "location", "postalCode", "lastUpdate"})
 
 public class City {
     private Long id;
     private Long countryID;
-    private String city;
+    private String cityName;
     private byte[] location;
     private String postalCode;
     private Timestamp lastUpdate;
@@ -25,18 +25,18 @@ public class City {
         this.countryID = countryID;
     }
 
-    public City(Long id, Long countryID, String city, byte[] location, String postalCode) {
+    public City(Long id, Long countryID, String cityName, byte[] location, String postalCode) {
         this.id = id;
         this.countryID = countryID;
-        this.city = city;
+        this.cityName = cityName;
         this.location = location;
         this.postalCode = postalCode;
     }
 
-    public City(Long id, Long countryID, String city, byte[] location, String postalCode, Timestamp lastUpdate) {
+    public City(Long id, Long countryID, String cityName, byte[] location, String postalCode, Timestamp lastUpdate) {
         this.id = id;
         this.countryID = countryID;
-        this.city = city;
+        this.cityName = cityName;
         this.location = location;
         this.postalCode = postalCode;
         this.lastUpdate = lastUpdate;
@@ -60,16 +60,16 @@ public class City {
         this.countryID = countryID;
     }
 
-    @XmlElement(name = "getCity")
-    public String getCity() {
-        return city;
+    @XmlElement(name = "cityName")
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCity(String cityName) {
+        this.cityName = cityName;
     }
 
-    @XmlElement(name = "getLocation")
+    @XmlElement(name = "location")
     public byte[] getLocation() {
         return location;
     }
@@ -78,7 +78,7 @@ public class City {
         this.location = location;
     }
 
-    @XmlElement(name = "getPostalCode")
+    @XmlElement(name = "postalCode")
     public String getPostalCode() {
         return postalCode;
     }
@@ -87,7 +87,7 @@ public class City {
         this.postalCode = postalCode;
     }
 
-    @XmlElement(name = "getLastUpdate")
+    @XmlElement(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -101,7 +101,7 @@ public class City {
         return "City{" +
                 "id=" + id +
                 ", countryID=" + countryID +
-                ", city='" + city + '\'' +
+                ", city='" + cityName + '\'' +
                 ", location=" + Arrays.toString(location) +
                 ", postalCode='" + postalCode + '\'' +
                 ", lastUpdate=" + lastUpdate +

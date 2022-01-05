@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Address>
+    <addr id="1">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="2">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="3">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="4">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="5">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="6">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="7">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="8">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="9">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+    <addr id="10">
+        <cityID></cityID>
+        <streetAddress></streetAddress>
+        <buildingNumber></buildingNumber>
+        <lastUpdate></lastUpdate>
+    </addr>
+</Address>

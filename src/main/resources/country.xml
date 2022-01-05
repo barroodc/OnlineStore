@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Country>
+    <country id="1">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="2">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="3">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="4">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="5">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="6">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="7">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="8">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="9">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+    <country id="10">
+        <countryName></countryName>
+        <currencyName></currencyName>
+        <phoneCode></phoneCode>
+        <lastUpdate></lastUpdate>
+    </country>
+</Country>

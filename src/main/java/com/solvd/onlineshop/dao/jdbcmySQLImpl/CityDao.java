@@ -24,13 +24,13 @@ public class CityDao extends BaseDao<City> implements ICity {
         super(connection);
     }
 
-    private static final String INSERT = "INSERT INTO city (country_id, city, location, " +
+    private static final String INSERT = "INSERT INTO city (country_id, city_name, location, " +
             "postal_code, last_update) VALUES (?, ?, ?, ?, ?)";
 
-    private static final String GET_ONE = "SELECT id, country_id, city, location, postal_code," +
+    private static final String GET_ONE = "SELECT id, country_id, city_name, location, postal_code," +
             "last_update FROM city WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE city SET country_id = ?, city = ?, location = ?, " +
+    private static final String UPDATE = "UPDATE city SET country_id = ?, city_name = ?, location = ?, " +
             "postal_code = ?, last_update FROM city WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM city WHERE id = ?";
@@ -44,7 +44,7 @@ public class CityDao extends BaseDao<City> implements ICity {
             while(rs.next()){
                 city.setId(rs.getLong("id"));
                 city.setCountryID(rs.getLong("country_id"));
-                city.setCity(rs.getString("city"));
+                city.setCity(rs.getString("city_name"));
                 city.setLocation(rs.getBytes("location"));
                 city.setPostalCode(rs.getString("postal_code"));
                 city.setLastUpdate(rs.getTimestamp("last_update"));
@@ -66,7 +66,7 @@ public class CityDao extends BaseDao<City> implements ICity {
         City city = null;
         try(PreparedStatement statement = this.connection.prepareStatement(UPDATE);) {
             statement.setLong(1, dto.getCountryID());
-            statement.setString(2, dto.getCity());
+            statement.setString(2, dto.getCityName());
             statement.setBytes(3, dto.getLocation());
             statement.setString(4,dto.getPostalCode());
             statement.setTimestamp(5, dto.getLastUpdate());
@@ -84,7 +84,7 @@ public class CityDao extends BaseDao<City> implements ICity {
     public City create(City dto) {
         try(PreparedStatement statement = this.connection.prepareStatement(INSERT);) {
             statement.setLong(1, dto.getCountryID());
-            statement.setString(2, dto.getCity());
+            statement.setString(2, dto.getCityName());
             statement.setBytes(3, dto.getLocation());
             statement.setString(4,dto.getPostalCode());
             statement.setTimestamp(5, dto.getLastUpdate());

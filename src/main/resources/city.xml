@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<City>
+    <city id="1">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="2">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="3">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="4">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="5">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="6">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="7">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="8">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="9">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+    <city id="10">
+        <countryID></countryID>
+        <cityName></cityName>
+        <location></location>
+        <postalCode></postalCode>
+        <lastUpdate></lastUpdate>
+    </city>
+</City>

@@ -80,7 +80,7 @@ public class Country {
         this.phoneCode = phoneCode;
     }
 
-    @XmlElement(name = "getLastUpdate")
+    @XmlElement(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
