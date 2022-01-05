@@ -20,13 +20,13 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
     }
 
     private static final String INSERT = "INSERT INTO order (user_id, date_of_order, date_of_delivery, time_of_delivery, " +
-            "place_of_delivery, city_of_delivery, postal_code, country, mobile, email, time_created, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "mobile, email, time_created, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String FINDBYID = "SELECT order_id, user_id, date_of_order, date_of_delivery, time_of_delivery, " +
-            "place_of_delivery, city_of_delivery, postal_code, country, mobile, email, time_created, status FROM order WHERE order_id = ?";
+            "mobile, email, time_created, status FROM order WHERE order_id = ?";
 
     private static final String UPDATE = "UPDATE order SET user_id = ?, date_of_order = ?, date_of_delivery = ?, time_of_delivery = ?, " +
-            "place_of_delivery = ?, city_of_delivery = ?, postal_code = ?, country = ?, mobile = ?, email = ?, time_created = ?, status = ? WHERE order_id = ?";
+            "mobile = ?, email = ?, time_created = ?, status = ? WHERE order_id = ?";
 
     private static final String DELETE = "DELETE FROM order WHERE order_id = ?";
 
@@ -42,10 +42,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
                 order.setDateOfOrder(rs.getDate("date_of_order"));
                 order.setDateOfDelivery(rs.getDate("date_of_delivery"));
                 order.setTimeOfDelivery(rs.getDate("time_of_delivery"));
-                order.setPlaceOfDelivery(rs.getString("place_of_delivery"));
-                order.setCityOfDelivery(rs.getString("city_of_delivery"));
                 order.setTimeCreated(rs.getDate("postal_code"));
-                order.setCountry(rs.getString("country"));
                 order.setMobile(rs.getString("mobile"));
                 order.setEmail(rs.getString("email"));
                 order.setTimeCreated(rs.getDate("time_created"));
@@ -71,15 +68,11 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
             statement.setDate(2, dto.getDateOfOrder());
             statement.setDate(3, dto.getDateOfDelivery());
             statement.setDate(4, dto.getTimeOfDelivery());
-            statement.setString(5, dto.getPlaceOfDelivery());
-            statement.setString(6, dto.getCityOfDelivery());
-            statement.setString(7, dto.getPostalCode());
-            statement.setString(8, dto.getCountry());
-            statement.setString(9, dto.getMobile());
-            statement.setString(10, dto.getEmail());
-            statement.setDate(11, dto.getTimeCreated());
-            statement.setString(12, dto.getStatus());
-            statement.setLong(13, dto.getId());
+            statement.setString(5, dto.getMobile());
+            statement.setString(6, dto.getEmail());
+            statement.setDate(7, dto.getTimeCreated());
+            statement.setString(8, dto.getStatus());
+            statement.setLong(9, dto.getId());
             statement.execute();
             order = this.findById(dto.getId());
         }catch(SQLException e){
@@ -96,14 +89,10 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
             statement.setDate(2, dto.getDateOfOrder());
             statement.setDate(3, dto.getDateOfDelivery());
             statement.setDate(4, dto.getTimeOfDelivery());
-            statement.setString(5, dto.getPlaceOfDelivery());
-            statement.setString(6, dto.getCityOfDelivery());
-            statement.setString(7, dto.getPostalCode());
-            statement.setString(8, dto.getCountry());
-            statement.setString(9, dto.getMobile());
-            statement.setString(10, dto.getEmail());
-            statement.setDate(11, dto.getTimeCreated());
-            statement.setString(12, dto.getStatus());
+            statement.setString(5, dto.getMobile());
+            statement.setString(6, dto.getEmail());
+            statement.setDate(7, dto.getTimeCreated());
+            statement.setString(8, dto.getStatus());
             statement.execute();
             int id = this.getLastVal(ORDER_ITEM_SEQUENCE);
             return this.findById(id);

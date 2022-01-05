@@ -20,7 +20,7 @@ public class Departments implements DataTransferObject {
        this.departmentName = departmentName;
     }
 
-    public Departments(long id, String departmentName) {
+    public Departments(Long id, String departmentName) {
         this.id = id;
         this.departmentName = departmentName;
     }
