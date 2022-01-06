@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.location;
 
+import com.solvd.onlineshop.utils.DataTransferObject;
+
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 import java.util.Arrays;
@@ -8,7 +10,7 @@ import java.util.Arrays;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "countryID", "cityName", "location", "postalCode", "lastUpdate"})
 
-public class City {
+public class City implements DataTransferObject {
     private Long id;
     private Long countryID;
     private String cityName;
@@ -106,5 +108,10 @@ public class City {
                 ", postalCode='" + postalCode + '\'' +
                 ", lastUpdate=" + lastUpdate +
                 '}';
+    }
+
+    @Override
+    public long id() {
+        return 0;
     }
 }

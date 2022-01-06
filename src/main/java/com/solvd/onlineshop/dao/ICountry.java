@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ICountry extends IBaseDao<Country>{
     List<Country> getCountryByID(long id);
+
 }
