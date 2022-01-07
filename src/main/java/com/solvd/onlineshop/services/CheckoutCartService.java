@@ -16,12 +16,12 @@ public class CheckoutCartService implements ICheckoutCartService<CheckoutCart> {
     private static PreparedStatement preparedStatement;
 
 
-
     @Override
     public CheckoutCart getCheckoutCartById(long id) {
         CheckoutCart checkoutCart = null;
         AtomicReference<String> select = new AtomicReference<>("select * from checkout_cart where id = ?");
-        try (Connection connection = ConnectionPool.getConnection()) {
+        try {
+            Connection connection = ConnectionPool.getConnection();
             preparedStatement = connection.prepareStatement(select.get());
             preparedStatement.setString(1, String.valueOf(id));
         } catch (Exception e) {
