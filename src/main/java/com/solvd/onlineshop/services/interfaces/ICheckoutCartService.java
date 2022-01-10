@@ -4,5 +4,5 @@ import com.solvd.onlineshop.model.checkout.CheckoutCart;
 
 public interface ICheckoutCartService<T> {
 
-    CheckoutCart getCheckoutCartById(long id);
+    CheckoutCart getCheckoutCartById(long id) throws Exception;
 }

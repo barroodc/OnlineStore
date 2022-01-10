@@ -1,6 +1,6 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
-import com.solvd.onlineshop.dao.IAddress;
+import com.solvd.onlineshop.dao.IAddressDao;
 import com.solvd.onlineshop.model.location.Address;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class AddressDao extends BaseDao<Address> implements IAddress {
+public class AddressDao extends BaseDao<Address> implements IAddressDao {
 
     private static final Logger logger = LogManager.getLogger(AddressDao.class);
     protected final static String ADDRESS_SEQUENCE = "onlinestore_address_seq";

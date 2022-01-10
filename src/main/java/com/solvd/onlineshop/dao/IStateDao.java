@@ -4,6 +4,6 @@ import com.solvd.onlineshop.model.location.State;
 
 import java.util.List;
 
-public interface IState extends IBaseDao<State> {
+public interface IStateDao extends IBaseDao<State> {
     List<State> getStateByID(long id);
 }

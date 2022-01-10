@@ -1,6 +1,6 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
-import com.solvd.onlineshop.dao.ICity;
+import com.solvd.onlineshop.dao.ICityDao;
 import com.solvd.onlineshop.model.location.City;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CityDao extends BaseDao<City> implements ICity {
+public class CityDao extends BaseDao<City> implements ICityDao {
 
     private static final Logger logger = LogManager.getLogger(CityDao.class);
     protected final static String CITY_SEQUENCE = "onlinestore_city_seq";

@@ -1,6 +1,6 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
-import com.solvd.onlineshop.dao.ICountry;
+import com.solvd.onlineshop.dao.ICountryDao;
 import com.solvd.onlineshop.model.location.Country;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CountryDao extends BaseDao<Country>implements ICountry {
+public class CountryDao extends BaseDao<Country>implements ICountryDao {
 
     private static final Logger logger = LogManager.getLogger(CountryDao.class);
     protected final static String COUNTRY_SEQUENCE = "onlinestore_country_seq";

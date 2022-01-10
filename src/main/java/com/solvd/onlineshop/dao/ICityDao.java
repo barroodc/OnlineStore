@@ -4,6 +4,6 @@ import com.solvd.onlineshop.model.location.City;
 
 import java.util.List;
 
-public interface ICity extends IBaseDao<City> {
+public interface ICityDao extends IBaseDao<City> {
     List<City> getCityByID(long id);
 }

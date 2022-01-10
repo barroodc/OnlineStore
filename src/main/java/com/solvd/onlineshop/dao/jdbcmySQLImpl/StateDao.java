@@ -1,6 +1,6 @@
 package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
-import com.solvd.onlineshop.dao.IState;
+import com.solvd.onlineshop.dao.IStateDao;
 import com.solvd.onlineshop.model.location.State;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class StateDao extends BaseDao<State> implements IState {
+public class StateDao extends BaseDao<State> implements IStateDao {
 
     private static final Logger logger = LogManager.getLogger(StateDao.class);
     protected final static String STATE_SEQUENCE = "onlinestore_state_seq";

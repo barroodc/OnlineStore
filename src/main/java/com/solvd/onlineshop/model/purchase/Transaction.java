@@ -19,6 +19,14 @@ public class Transaction implements DataTransferObject {
 
     }
 
+    public Transaction(long id, Long userID, String status, Date timeCreated, String approvalStatus) {
+        this.id = id;
+        this.userID = userID;
+        this.status = status;
+        this.timeCreated = timeCreated;
+        this.approvalStatus = approvalStatus;
+    }
+
     @XmlAttribute
     public Long getId() {
         return id;

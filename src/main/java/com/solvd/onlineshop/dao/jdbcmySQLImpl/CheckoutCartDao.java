@@ -135,4 +135,8 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
 
     }
 
+    public static void main(String[] args) {
+        CheckoutCartDao example = new CheckoutCartDao();
+        System.out.println(example);
+    }
 }

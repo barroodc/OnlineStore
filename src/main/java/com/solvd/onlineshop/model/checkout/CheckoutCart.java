@@ -4,13 +4,13 @@ import com.solvd.onlineshop.utils.DataTransferObject;
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 import java.util.Arrays;
-
+import java.util.Vector;
 @XmlRootElement(name = "CheckoutCart")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "userID", "numberOfItems", "mobile", "email", "country",
 "timeCreated","cartUpdated", "isGift"})
 
-public class CheckoutCart implements DataTransferObject {
+public class CheckoutCart  implements DataTransferObject {
     private Long id;
     private Long userID;
     private long numberOfItems;
@@ -22,9 +22,12 @@ public class CheckoutCart implements DataTransferObject {
     private byte[] isGift;
 
 
+
+
     public CheckoutCart() {
 
     }
+
 
     public CheckoutCart(byte[] gift) {
         this.isGift = gift;
@@ -143,6 +146,8 @@ public class CheckoutCart implements DataTransferObject {
         return 0;
     }
 
+
+
     @Override
     public String toString() {
         return "CheckoutCart{" +
@@ -157,4 +162,5 @@ public class CheckoutCart implements DataTransferObject {
                 ", isGift=" + Arrays.toString(isGift) +
                 '}';
     }
+
 }

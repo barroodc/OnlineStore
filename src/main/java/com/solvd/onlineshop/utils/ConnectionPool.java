@@ -21,6 +21,7 @@ public class ConnectionPool {
     private static String password;
     private static CredentialValues values;
     private static Properties properties;
+    private static Connection con;
     private static final AtomicInteger counter = new AtomicInteger(0);
 
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
@@ -77,7 +78,7 @@ public class ConnectionPool {
     public static synchronized Connection getConnection() throws Exception{
 
         currentConnections = counter.getAndIncrement();
-        Connection con = null;
+        //Connection con = null;
         if (currentConnections < maximumConnections){
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -87,12 +88,11 @@ public class ConnectionPool {
                 con = DriverManager.getConnection(url,userName,password);
                 currentConnections++;
                 logger.info("Connection Created");
-                con.close();
-                logger.info("Connection Closed");
+                //con.close();  in order to get service classes to work without an error I needed to silence this
+                //logger.info("Connection Closed");
             } catch (Exception e) {
                 logger.error(e);
             }
-
         }
         return con;
     }

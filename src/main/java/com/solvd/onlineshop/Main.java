@@ -1,23 +1,48 @@
 package com.solvd.onlineshop;
 
-import com.solvd.onlineshop.model.product.Inventory;
-import com.solvd.onlineshop.utils.ConnectionPool;
-import com.solvd.onlineshop.utils.JAXBHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Objects;
 
 public class Main {
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+
+
+         /*DatabaseMetaData md = conn.getMetaData();
+        ResultSet rs = md.getTables(null, null, "%", null);
+        while (rs.next()) {
+            System.out.println(rs.getString(3));
+        }  }
+
+    static Connection conn;
+
+    static Statement st;
+
+    static {
+        try {
+            // Step 1: Load the JDBC driver.
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded.");
+            // Step 2: Establish the connection to the database.
+            String url = "jdbc:mysql://52.59.193.212:3306/onlinestoredb";
+
+            conn = DriverManager.getConnection(url, "root", "devintern");
+            System.out.println("Got Connection.");
+
+            st = conn.createStatement();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            e.printStackTrace();
+            System.exit(0);
+        }
+    }
+    
+          */
+
 
 
         /*
@@ -35,3 +60,5 @@ public class Main {
          */
     }
 }
+
+

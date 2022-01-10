@@ -1,8 +1,6 @@
 package com.solvd.onlineshop.services;
-
-import com.solvd.onlineshop.model.labor.Departments;
 import com.solvd.onlineshop.model.location.Country;
-import com.solvd.onlineshop.services.interfaces.IDepartmentsService;
+import com.solvd.onlineshop.services.interfaces.ICountryService;
 import com.solvd.onlineshop.utils.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,26 +12,28 @@ import java.sql.Timestamp;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class DepartmentsService implements IDepartmentsService<Departments> {
+public class CountryService implements ICountryService<Country> {
 
-    private static final Logger logger = LogManager.getLogger(DepartmentsService.class);
+    private static final Logger logger = LogManager.getLogger(CountryService.class);
     private static PreparedStatement preparedStatement;
-    private static CopyOnWriteArrayList<Departments> departmentsList;
-
+    private static CopyOnWriteArrayList<Country> countryList;
 
     @Override
-    public Departments getDepartmentById(long id) {
-        Departments departments = null;
-        AtomicReference<String> select = new AtomicReference<>("select * from departments where id = ?");
+    public Country getCountryByID(long id) {
+        Country country = null;
+        AtomicReference<String> select = new AtomicReference<>("select * from country where id = ?");
         try(Connection c = ConnectionPool.getConnection()) {
             preparedStatement = c.prepareStatement(select.get());
             preparedStatement.setString(1, String.valueOf(id));
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     id = resultSet.getLong("id");
-                    String departmentName = resultSet.getString("department_name");
-                    departments = new Departments(id, departmentName);
-                    departmentsList.add(departments);
+                    String countryName = resultSet.getString("country_name");
+                    String currencyName = resultSet.getString("currency_name");
+                    String phoneCode = resultSet.getString("phone_code");
+                    Timestamp lastUpdate = resultSet.getTimestamp("last_update");
+                    country = new Country(id, countryName, currencyName, phoneCode, lastUpdate);
+                    countryList.add(country);
                 }
 
             } catch (Exception e) {
@@ -44,6 +44,6 @@ public class DepartmentsService implements IDepartmentsService<Departments> {
             logger.error(e);
         }
 
-        return departments;
+       return country;
     }
 }
