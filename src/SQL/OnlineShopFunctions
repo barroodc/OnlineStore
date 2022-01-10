@@ -125,10 +125,17 @@ WHERE category_of_products = '1944 Chess Board Collection';
 
 Topic #4: BIG JOIN
 
-SELECT users.email
-FROM users
-FULL OUTER JOIN Employees ON users.email
-ORDER BY users.email
+SELECT id, first_name, last name, salary
+FROM employees e
+LEFT JOIN jobs j
+ON e.id = j.id
+
+UNION
+
+SELECT id, first_name, last name, salary
+FROM employees e
+LEFT JOIN jobs j
+ON e.id = j.id
 
 
 Topic #5: 7 Statements with aggregation functions without GROUP BY clause
