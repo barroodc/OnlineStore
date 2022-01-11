@@ -1,0 +1,1 @@
+{Java=1, superior=1, learn=1, about=1, wants=1, is=1, snakes=1, clearly=1, to=2, Python=1, Who=1, anyway=1}
