@@ -1,5 +1,9 @@
 package com.solvd.onlineshop.enums;
 
+import com.solvd.onlineshop.utils.ApacheWordCount;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum Currencies {
     ABKHAZIANAPSAR("ABK"), AFGHANISTANAFGHANI("AFN"), ALBANIANLEK("ALL"), ALDERNEYPOUND("NONE"), ALGERIANDINAR("DZD"),
     ANDORRANFRANC("ADF"), ANDORRANPESETA("ADP"), ANGOLANKWANZA("AOA"), ANGOLANOLDKWANZA("AON"), ARGENTINEPESO("ARS"), ARMENIANDRAM("AMD"),
@@ -41,9 +45,31 @@ public enum Currencies {
     TURKMENISTANMANAT("TMM"), TURKMENISTANNEWMANAT("TMT"), TUVALUANDOLLAR("TVD"), UGANDANSHILLING("UGX"), UGANDAOLDSHILLING("UGS"),
     UKRAINIANHRYVNIA("UAH"), UNITEDARABEMIRATESDIRHAM("AED"), UNITEDSTATESDOLLAR("USD"), URUGUAYANOLDPESO("UYP"), URUGUAYANPESO("UYU"),
     UZBEKISTANSOM("UZS"), VANUATUVATU("VUV"), VENEZUELANBOLIVAR("VEB"), VENEZUELANBOLIVARFUERTE("VEF"), VENEZUELANBOLIVARSOBERANO("VES"),
-    VIETNAMESEDONG("VND"), WESTAFRICANCFAFRANC("XOF"), YEMENIRIAL("YER"), YUGOSLAVDINAR("YUN"), ZAMBIANKWACHA("ZMW"), ZIMBABWEDOLLAR("ZWL");
+    VIETNAMESEDONG("VND"), WESTAFRICANCFAFRANC("XOF"), YEMENIRIAL("YER"), YUGOSLAVDINAR("YUN"), ZAMBIANKWACHA("ZMW"), ZIMBABWEDOLLAR("ZWL"), NOTHINGFOUND("Nothing Found");
 
+    private static final Logger logger = LogManager.getLogger(Currencies.class);
+
+
+    private String name;
 
     Currencies(String names) {
+        this.setName(name);
+    }
+
+    public static Currencies valueOfName(final String name) {
+        final String enumName = name.toUpperCase().replaceAll(" ", "_");
+        try {
+            return valueOf(enumName);
+        } catch (final IllegalArgumentException e) {
+            return Currencies.NOTHINGFOUND;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
