@@ -2,33 +2,21 @@
 
 <Departments>
     <dept id="1">
-        <departmentsName></departmentsName>
+        <departmentsName>Chess Materials</departmentsName>
     </dept>
     <dept id="2">
-        <departmentsName></departmentsName>
+        <departmentsName>Events</departmentsName>
     </dept>
     <dept id="3">
-        <departmentsName></departmentsName>
+        <departmentsName>Continuing Education</departmentsName>
     </dept>
     <dept id="4">
-        <departmentsName></departmentsName>
+        <departmentsName>Clothing</departmentsName>
     </dept>
     <dept id="5">
-        <departmentsName></departmentsName>
+        <departmentsName>Traveling</departmentsName>
     </dept>
     <dept id="6">
-        <departmentsName></departmentsName>
-    </dept>
-    <dept id="7">
-        <departmentsName></departmentsName>
-    </dept>
-    <dept id="8">
-        <departmentsName></departmentsName>
-    </dept>
-    <dept id="9">
-        <departmentsName></departmentsName>
-    </dept>
-    <dept id="10">
-        <departmentsName></departmentsName>
+        <departmentsName>Service</departmentsName>
     </dept>
 </Departments>

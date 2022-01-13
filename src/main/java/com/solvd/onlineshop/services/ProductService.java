@@ -37,7 +37,7 @@ public class ProductService implements IProductService<Product> {
                     long shopID = resultSet.getLong("shop_id");
                     long countryID = resultSet.getLong("country_id");
                     String productName = resultSet.getString("product_name");
-                    product = new Product(id, inventoryID, productTypeID, categoryID, marketID, shopID,
+                    product = new Product(id, inventoryID, productTypeID, categoryID, shopID,
                                           countryID, productName);
                     productList.add(product);
                 }

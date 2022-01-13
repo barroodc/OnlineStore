@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "Product")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "inventoryID", "productTypeID", "categoryID", "marketID",
+@XmlType(propOrder = {"id", "inventoryID", "productTypeID", "categoryID",
 "shopID", "countryID", "productName"})
 
 public class Product implements DataTransferObject {
@@ -14,7 +14,6 @@ public class Product implements DataTransferObject {
     private Long inventoryID;
     private long productTypeID;
     private long categoryID;
-    private long marketID;
     private long shopID;
     private long countryID;
     private String productName;
@@ -27,12 +26,11 @@ public class Product implements DataTransferObject {
         this.productName = productName;
     }
 
-    public Product(Long id, Long inventoryID, long productTypeID, long categoryID, long marketID, long shopID, long countryID, String productName) {
+    public Product(Long id, Long inventoryID, long productTypeID, long categoryID, long shopID, long countryID, String productName) {
         this.id = id;
         this.inventoryID = inventoryID;
         this.productTypeID = productTypeID;
         this.categoryID = categoryID;
-        this.marketID = marketID;
         this.shopID = shopID;
         this.countryID = countryID;
         this.productName = productName;
@@ -74,15 +72,6 @@ public class Product implements DataTransferObject {
         this.categoryID = categoryID;
     }
 
-    @XmlElement(name = "marketID")
-    public long getMarketID() {
-        return marketID;
-    }
-
-    public void setMarketID(long marketID) {
-        this.marketID = marketID;
-    }
-
     @XmlElement(name = "shopID")
     public long getShopID() {
         return shopID;
@@ -122,7 +111,6 @@ public class Product implements DataTransferObject {
                 ", inventoryID=" + inventoryID +
                 ", productTypeID=" + productTypeID +
                 ", categoryID=" + categoryID +
-                ", marketID=" + marketID +
                 ", shopID=" + shopID +
                 ", countryID=" + countryID +
                 ", productName='" + productName + '\'' +

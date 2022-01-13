@@ -2,61 +2,61 @@
 
 <ProductCategory>
     <prodCategory id="1">
-        <productID></productID>
+        <productID>1</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="2">
-        <productID></productID>
+        <productID>2</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="3">
-        <productID></productID>
+        <productID>3</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="4">
-        <productID></productID>
+        <productID>4</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="5">
-        <productID></productID>
+        <productID>5</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="6">
-        <productID></productID>
+        <productID>6</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="7">
-        <productID></productID>
+        <productID>7</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="8">
-        <productID></productID>
+        <productID>8</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="9">
-        <productID></productID>
+        <productID>9</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>
     </prodCategory>
     <prodCategory id="10">
-        <productID></productID>
+        <productID>10</productID>
         <title></title>
         <metaTitle></metaTitle>
         <productName></productName>

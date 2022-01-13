@@ -21,11 +21,11 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
         super(connection);
     }
 
-    private static final String INSERT = "INSERT INTO product (inventory_id, product_type_id, category_id, market_id, shop_id, country_id, product_name) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT = "INSERT INTO product (inventory_id, product_type_id, category_id, shop_id, country_id, product_name) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String GET_ONE = "SELECT id, inventory_id, product_type_id, category_id, market_id, shop_id, country_id, product_name FROM product_review WHERE id = ?";
+    private static final String GET_ONE = "SELECT id, inventory_id, product_type_id, category_id, shop_id, country_id, product_name FROM product_review WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE id SET inventory_id = ?, product_type_id = ?, category_id = ?, market_id = ?, shop_id = ?, country_id = ?, product_name = ? WHERE id = ?";
+    private static final String UPDATE = "UPDATE id SET inventory_id = ?, product_type_id = ?, category_id = ?, shop_id = ?, country_id = ?, product_name = ? WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM product WHERE id = ?";
 
@@ -40,7 +40,6 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
                 product.setInventoryID(rs.getLong("inventory_id"));
                 product.setProductTypeID(rs.getLong("productType_id"));
                 product.setCategoryID(rs.getLong("category_id"));
-                product.setMarketID(rs.getLong("market_id"));
                 product.setShopID(rs.getLong("shop_id"));
                 product.setCountryID(rs.getLong("country_id"));
                 product.setProductName(rs.getString("product_name"));
@@ -64,7 +63,6 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
             statement.setLong(1, dto.getInventoryID());
             statement.setLong(2, dto.getProductTypeID());
             statement.setLong(3, dto.getCategoryID());
-            statement.setLong(4, dto.getMarketID());
             statement.setLong(5, dto.getShopID());
             statement.setLong(6, dto.getCountryID());
             statement.setString(7, dto.getProductName());
@@ -84,7 +82,6 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
             statement.setLong(1, dto.getInventoryID());
             statement.setLong(2,dto.getProductTypeID());
             statement.setLong(3, dto.getCategoryID());
-            statement.setLong(4, dto.getMarketID());
             statement.setLong(5, dto.getShopID());
             statement.setLong(6, dto.getCountryID());
             statement.setString(7, dto.getProductName());

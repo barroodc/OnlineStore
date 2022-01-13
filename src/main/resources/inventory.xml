@@ -32,7 +32,7 @@
         <amountInStock>72</amountInStock>
     </invt>
     <cust id="6">
-        <proudctName>Email gift card</proudctName>
+        <proudctName>Email Gift Card</proudctName>
         <description>$25.00 gift card to be used on any item on our site</description>
         <price>$25.00</price>
         <amountInStock>1500</amountInStock>
