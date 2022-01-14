@@ -37,24 +37,15 @@ public enum Countries {
     TUNISIA("Tunisia"), TURKEY("Turkey"), TURKMENISTAN("Turkmenistan"), TUVALU("Tuvalu"), UGANDA("Uganda"), UKRAINE("Ukraine"),
     UNITEDARABEMIRATES("United Arab Emirates"), UNITEDKINGDOM("United Kingdom"), UNITEDSTATES("United States"), URUGUAY("Uruguay"),
     UZBEKISTAN("Uzbekistan"), VANUATU("Vanuatu"), VATICANCITY("Vatican City"), VENEZUELA("Venezuela"), VIETNAM("Vietnam"),
-    YEMEN("Yemen"), ZAMBIA("Zambia"), ZIMBABWE("Zimbabwe"), NOTHINGFOUND("Nothing Found");
+    YEMEN("Yemen"), ZAMBIA("Zambia"), ZIMBABWE("Zimbabwe"), NOTHING_FOUND("Nothing Found");
 
     private static final Logger logger = LogManager.getLogger(Currencies.class);
 
 
     private String name;
 
-    Countries(String names) {
+    Countries(String name){
         this.setName(name);
-    }
-
-    public static Countries valueOfName(final String name) {
-        final String enumName = name.toUpperCase().replaceAll(" ", "_");
-        try {
-            return valueOf(enumName);
-        } catch (final IllegalArgumentException e) {
-            return Countries.NOTHINGFOUND;
-        }
     }
 
     public String getName() {
@@ -64,5 +55,21 @@ public enum Countries {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    public static Countries valueOfName(final String name) {
+        final String enumName = name.toUpperCase().replaceAll(" ", "_");
+        try {
+            return valueOf(enumName);
+        } catch (final IllegalArgumentException e) {
+            return Countries.NOTHING_FOUND;
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Countries{" +
+                "Name='" + name + '\'' +
+                '}';
+    }
 }

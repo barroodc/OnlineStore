@@ -50,14 +50,22 @@ public enum Currencies {
     private static final Logger logger = LogManager.getLogger(Currencies.class);
 
 
-    private String name;
+    private String currencyName;
 
-    Currencies(String names) {
-        this.setName(name);
+    Currencies(String currencyName) {
+        this.setName(currencyName);
     }
 
-    public static Currencies valueOfName(final String name) {
-        final String enumName = name.toUpperCase().replaceAll(" ", "_");
+    public String getName() {
+        return currencyName;
+    }
+
+    public void setName(String name) {
+        this.currencyName = name;
+    }
+
+    public static Currencies valueOfName(final String currencyName) {
+        final String enumName = currencyName.toUpperCase().replaceAll(" ", "_");
         try {
             return valueOf(enumName);
         } catch (final IllegalArgumentException e) {
@@ -65,11 +73,10 @@ public enum Currencies {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return "Currencies{" +
+                "Currency Abbreviation='" + currencyName + '\'' +
+                '}';
     }
 }

@@ -1,5 +1,9 @@
 package com.solvd.onlineshop;
 
+import com.solvd.onlineshop.enums.Countries;
+import com.solvd.onlineshop.enums.Currencies;
+import com.solvd.onlineshop.enums.Jobs;
+import com.solvd.onlineshop.enums.OrderStatus;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +14,8 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
+
+
 
 
 
