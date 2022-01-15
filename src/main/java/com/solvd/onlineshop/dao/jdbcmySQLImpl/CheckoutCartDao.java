@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.List;
+//Represents DTO Interface
 
 public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutCartDao {
 
@@ -135,8 +136,4 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
 
     }
 
-    public static void main(String[] args) {
-        CheckoutCartDao example = new CheckoutCartDao();
-        System.out.println(example);
-    }
 }

@@ -34,7 +34,7 @@ public class JAXBHandler {
 
     public static void main(String[] args) {
           JAXBHandler example = new JAXBHandler();
-          example.xmlParsingUsingJaxB("src/main/resources/inventory.xml");
+          example.xmlParsingUsingJaxB("src/main/resources/xmlFiles/entityXMLS/inventory.xml");
     }
 
 }

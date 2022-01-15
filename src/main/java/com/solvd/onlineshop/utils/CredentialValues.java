@@ -1,8 +1,10 @@
 package com.solvd.onlineshop.utils;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -12,19 +14,18 @@ public class CredentialValues {
     public CredentialValues(String s) {
     }
 
-    private static final Logger logger = LogManager.getLogger(CredentialValues.class);
-    private final Properties properties = new Properties();
-    private String driverName;
-    private String url;
-    private String name;
-    private String password;
+    private static final Logger logger = LogManager.getLogger(CredentialValues.class.getName());
+    private String driver = "db.driver";
+    private String url = "db.url";
+    private String name = "db.name";
+    private String password = "db.password";
 
-    public String getDriverName() {
-        return driverName;
+    public String getDriver() {
+        return driver;
     }
 
-    public void setDriverName(String driverName) {
-        this.driverName = driverName;
+    public void setDriver(String driver) {
+        this.driver = driver;
     }
 
     public String getUrl() {
@@ -39,18 +40,21 @@ public class CredentialValues {
         return password;
     }
 
+
     public void getPropValues(String value) throws IOException {
+        Properties properties = new Properties();
         try {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(value);
             if (inputStream != null) {
                 properties.load(inputStream);
             }
             url = properties.getProperty("url");
-            driverName = properties.getProperty("drivername");
+            driver = properties.getProperty("driver");
             name = properties.getProperty("name");
             password = properties.getProperty("password");
         } catch (IOException e) {
             logger.error("Exception:  " + e);
         }
+
     }
 }
