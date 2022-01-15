@@ -9,11 +9,6 @@ import java.sql.*;
 
 public class Main {
 
-    private static final String ADDRESS_XML_FILE = "src/main/resources/xmlFiles/entityXMLS/address.xml";
-    private static final String CHECKOUT_CART_XML_FILE = "src/main/resources/xmlFiles/entityXMLS/checkoutcart.xml";
-    private static final String CITY_XML_FILE = "src/main/resources/xmlFiles/entityXMLS/city.xml";
-    private static final String COUNTRY_XML_FILE = "src/main/resources/xmlFiles/entityXMLS/country.xml";
-    private static final String DEPARTMENTS_XML_FILE = "src/main/resources/xmlFiles/entityXMLS/departments.xml";
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 

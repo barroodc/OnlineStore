@@ -25,7 +25,6 @@ public class ConnectionPool {
     private static CredentialValues values;
     private static Properties properties;
     private static Connection connection;
-    private static boolean inUse;
 
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
