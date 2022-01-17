@@ -12,21 +12,20 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class JobsDao extends BaseDao<Jobs> implements IJobsDao {
+public class JobsDao extends AbstractMySQLDao<Jobs> implements IJobsDao {
 
-    private static final Logger logger = LogManager.getLogger(JobsDao.class);
-    protected final static String JOBS_SEQUENCE = "onlinestore_jobs_seq";
+    private static final Logger LOGGER = LogManager.getLogger(JobsDao.class);
 
 
     public JobsDao(Connection connection) {
         super(connection);
     }
 
-    private static final String INSERT = "INSERT INTO jobs (job_title, position_salary, min_salary, max_salary) VALUES (?, ?, ?, ?);";
+    private static final String INSERT = "INSERT INTO jobs (job_title, min_salary, max_salary) VALUES (?, ?, ?);";
 
-    private static final String GET_ONE = "SELECT id, job_title, position_salary, min_salary, max_salary FROM jobs WHERE id = ?";
+    private static final String GET_ONE = "SELECT id, job_title, min_salary, max_salary FROM jobs WHERE id = ?";
 
-    private static final String UPDATE = "UPDATE jobs SET position_salary = ?, min_salary = ?, max_salary = ? WHERE id = ?";
+    private static final String UPDATE = "UPDATE jobs SET job_title = ?, min_salary = ?, max_salary = ? WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM jobs WHERE id = ?";
 
@@ -39,14 +38,12 @@ public class JobsDao extends BaseDao<Jobs> implements IJobsDao {
             while(rs.next()){
                 jobs.setId(rs.getLong("id"));
                 jobs.setJobTitle(rs.getString("job_title"));
-                jobs.setPositionSalary(rs.getFloat("position_salary"));
                 jobs.setMinSalary(rs.getFloat("min_salary"));
                 jobs.setMaxSalary(rs.getFloat("max_salary"));
 
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return jobs;
     }
@@ -61,15 +58,13 @@ public class JobsDao extends BaseDao<Jobs> implements IJobsDao {
         Jobs jobs = null;
         try(PreparedStatement statement = this.connection.prepareStatement(UPDATE);) {
             statement.setString(1, dto.getJobTitle());
-            statement.setFloat(2, dto.getPositionSalary());
-            statement.setFloat(3, dto.getMinSalary());
-            statement.setFloat(4, dto.getMaxSalary());
-            statement.setLong(5, dto.getId());
+            statement.setFloat(2, dto.getMinSalary());
+            statement.setFloat(3, dto.getMaxSalary());
+            statement.setLong(4, dto.getId());
             statement.execute();
             jobs = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return jobs;
     }
@@ -78,16 +73,13 @@ public class JobsDao extends BaseDao<Jobs> implements IJobsDao {
     public Jobs create(Jobs dto) {
         try(PreparedStatement statement = this.connection.prepareStatement(INSERT);) {
             statement.setString(1, dto.getJobTitle());
-            statement.setFloat(2, dto.getPositionSalary());
-            statement.setFloat(3, dto.getMinSalary());
-            statement.setFloat(4, dto.getMaxSalary());
+            statement.setFloat(2, dto.getMinSalary());
+            statement.setFloat(3, dto.getMaxSalary());
             statement.execute();
-            int id = this.getLastVal(JOBS_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -96,18 +88,12 @@ public class JobsDao extends BaseDao<Jobs> implements IJobsDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public Map<String, Float> jobsAndSalary() {
-        return null;
-    }
-
-    @Override
-    public List<Jobs> getMinAndMaxSalaries(long id) {
+    public List<Jobs> getJobsByID(long id) {
         return null;
     }
 }

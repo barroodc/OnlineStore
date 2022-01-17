@@ -1,21 +1,16 @@
 package com.solvd.onlineshop.model.checkout;
-import com.fasterxml.jackson.annotation.JacksonAnnotation;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.solvd.onlineshop.utils.DataTransferObject;
-import org.json.JSONPropertyName;
 
 import javax.xml.bind.annotation.*;
-import java.lang.annotation.*;
 import java.sql.Date;
 import java.util.Arrays;
-import java.util.Vector;
+
 @XmlRootElement(name = "CheckoutCart")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "userID", "numberOfItems", "mobile", "email", "country",
 "timeCreated","cartUpdated", "isGift"})
 
 
-public class CheckoutCart  implements DataTransferObject {
+public class CheckoutCart {
     
     private Long id;
     private Long userID;
@@ -146,13 +141,6 @@ public class CheckoutCart  implements DataTransferObject {
     public void setIsGift(byte[] isGift) {
         this.isGift = isGift;
     }
-
-    @Override
-    public long id() {
-        return 0;
-    }
-
-
 
     @Override
     public String toString() {

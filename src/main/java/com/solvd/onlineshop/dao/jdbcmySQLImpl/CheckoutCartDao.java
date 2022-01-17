@@ -2,17 +2,17 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.ICheckoutCartDao;
 import com.solvd.onlineshop.model.checkout.CheckoutCart;
+import com.solvd.onlineshop.utils.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.List;
-//Represents DTO Interface
 
-public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutCartDao {
 
-    private static final Logger logger = LogManager.getLogger(CheckoutCartDao.class);
-    protected final static String CHECKOUT_CART_SEQUENCE = "onlinestore_checkout_cart_seq";
+public class CheckoutCartDao extends AbstractMySQLDao<CheckoutCart> implements ICheckoutCartDao {
+
+    private static final Logger LOGGER = LogManager.getLogger(CheckoutCartDao.class);
 
     public CheckoutCartDao() {
 
@@ -23,7 +23,7 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
     }
 
     private static final String INSERT = "INSERT INTO checkout_cart (user_id, number_of_items, mobile, email," +
-            "country, time_created, cart_updated, is_gift VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            "country, time_created, cart_updated, is_gift) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String GET_ONE = "SELECT id, user_id, number_of_items, mobile, email," +
             "country, time_created, cart_updated, is_gift FROM checkout_cart WHERE id = ?";
@@ -52,8 +52,7 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
                 checkoutCart.setIsGift(rs.getBytes("is_gift"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return checkoutCart;
     }
@@ -79,8 +78,7 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
             statement.execute();
             checkoutCart = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return checkoutCart;
     }
@@ -97,12 +95,10 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
             statement.setDate(7, dto.getCartUpdated());
             statement.setBytes(8, dto.getIsGift());
             statement.execute();
-            int id = this.getLastVal(CHECKOUT_CART_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -111,29 +107,12 @@ public class CheckoutCartDao extends BaseDao<CheckoutCart> implements ICheckoutC
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public CheckoutCart getNumberOfItemsInCart(long numberOfItems) {
+    public List<CheckoutCart> getCheckoutCartByID(long id) {
         return null;
     }
-
-    @Override
-    public CheckoutCart getContactInformation(String mobile, String email, String country) {
-        return null;
-    }
-
-    @Override
-    public CheckoutCart getCartHistory(Date timeCreated, Date cartUpdated) {
-        return null;
-    }
-
-    @Override
-    public void givenAsGift(byte[] isGift) {
-
-    }
-
 }

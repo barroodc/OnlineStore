@@ -1,6 +1,5 @@
 package com.solvd.onlineshop.model.product;
 
-import com.solvd.onlineshop.utils.DataTransferObject;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
@@ -9,7 +8,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "productID", "title", "metaTitle", "productName"})
 
-public class ProductCategory implements DataTransferObject {
+public class ProductCategory {
     private Long id;
     private Long productID;
     private String title;
@@ -82,10 +81,6 @@ public class ProductCategory implements DataTransferObject {
         this.productName = productName;
     }
 
-    @Override
-    public long id() {
-        return 0;
-    }
 
     @Override
     public String toString() {

@@ -8,10 +8,9 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.List;
 
-public class TransactionDao extends BaseDao<Transaction> implements ITransactionDao {
+public class TransactionDao extends AbstractMySQLDao<Transaction> implements ITransactionDao {
 
-    private static final Logger logger = LogManager.getLogger(TransactionDao.class);
-    protected final static String TRANSACTION_SEQUENCE = "onlinestore_transaction_seq";
+    private static final Logger LOGGER = LogManager.getLogger(TransactionDao.class);
 
 
     public TransactionDao(Connection connection) {
@@ -19,10 +18,10 @@ public class TransactionDao extends BaseDao<Transaction> implements ITransaction
     }
 
     private static final String INSERT = "INSERT INTO transaction (status, time_created," +
-            "approval status) VALUES (?, ?, ?)";
+            "approval_status) VALUES (?, ?, ?)";
 
     private static final String GET_ONE = "SELECT id, status, time_created, " +
-            "approval status FROM transaction WHERE id = ?";
+            "approval_status FROM transaction WHERE id = ?";
 
     private static final String UPDATE = "UPDATE transaction SET status = ?, time_created = ?, " +
             "approval_status = ? WHERE id = ?";
@@ -42,8 +41,7 @@ public class TransactionDao extends BaseDao<Transaction> implements ITransaction
                 transaction.setApprovalStatus(rs.getString("approval_status"));
             }
         }catch (SQLException e){
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return transaction;
     }
@@ -64,8 +62,7 @@ public class TransactionDao extends BaseDao<Transaction> implements ITransaction
             statement.execute();
             transaction = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return transaction;
     }
@@ -75,12 +72,10 @@ public class TransactionDao extends BaseDao<Transaction> implements ITransaction
         try(PreparedStatement statement = this.connection.prepareStatement(INSERT);) {
             statement.setString(1, dto.getStatus());
             statement.execute();
-            int id = this.getLastVal(TRANSACTION_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -89,13 +84,12 @@ public class TransactionDao extends BaseDao<Transaction> implements ITransaction
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public Transaction getTransactionCycle(Date timeCreated, String status, String approvalStatus) {
+    public List<Transaction> getAllTransactionsByID(long id) {
         return null;
     }
 }

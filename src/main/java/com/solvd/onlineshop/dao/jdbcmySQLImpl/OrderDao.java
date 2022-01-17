@@ -9,10 +9,9 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class OrderDao extends BaseDao<Order> implements IOrderDao {
+public class OrderDao extends AbstractMySQLDao<Order> implements IOrderDao {
 
-    private static final Logger logger = LogManager.getLogger(OrderDao.class);
-    protected final static String ORDER_ITEM_SEQUENCE = "onlinestore_order_seq";
+    private static final Logger LOGGER = LogManager.getLogger(OrderDao.class);
 
 
     public OrderDao(Connection connection) {
@@ -49,8 +48,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
                 order.setStatus(rs.getString("status"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return order;
     }
@@ -76,8 +74,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
             statement.execute();
             order = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return order;
     }
@@ -94,12 +91,10 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
             statement.setDate(7, dto.getTimeCreated());
             statement.setString(8, dto.getStatus());
             statement.execute();
-            int id = this.getLastVal(ORDER_ITEM_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -108,18 +103,12 @@ public class OrderDao extends BaseDao<Order> implements IOrderDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public List<Order> getOtherCustomerInformation(long id) {
-        return null;
-    }
-
-    @Override
-    public Map<Date, String> timePlacedAndStatus() {
+    public List<Order> getOrderByID(long id) {
         return null;
     }
 }

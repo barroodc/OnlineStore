@@ -6,11 +6,11 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
+
+import static java.lang.Class.forName;
 
 
 public class ConnectionPool {
@@ -23,8 +23,6 @@ public class ConnectionPool {
     private static String userName;
     private static String password;
     private static CredentialValues values;
-    private static Properties properties;
-    private static Connection connection;
 
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
@@ -61,63 +59,66 @@ public class ConnectionPool {
         ConnectionPool.password = password;
     }
 
-
-    public ConnectionPool() {
-        CredentialValues credentialValues = new CredentialValues("db.properties");
-        currentConnections = 0;
-        while (currentConnections < maximumConnections) {
-            Connection connection;
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                connection = DriverManager.getConnection(credentialValues.getUrl(),
-                                                         credentialValues.getName(), credentialValues.getPassword());
-                poolConnects.add(connection);
-            } catch (SQLException | ClassNotFoundException e) {
-                LOGGER.error(e);
-            }
-            currentConnections++;
-        }
+    public static void setPoolConnects(ArrayBlockingQueue<Connection> poolConnects) {
+        ConnectionPool.poolConnects = poolConnects;
     }
 
-    public static synchronized ConnectionPool getInstance() {
+
+    public ConnectionPool() {
+    }
+
+    public static ConnectionPool getInstance() {
         if (instance == null) {
             synchronized (ConnectionPool.class) {
                 if (instance == null) {
                     instance = new ConnectionPool();
+                    poolConnects = new ArrayBlockingQueue<>(10);
+                }
+                try (InputStream input = new FileInputStream("src/main/resources/db.properties")) {
+                    Properties properties = new Properties();
+                    properties.load(input);
+                    url = properties.getProperty("url");
+                    userName = properties.getProperty("username");
+                    password = properties.getProperty("password");
+                } catch (IOException e) {
+                    LOGGER.error(e);
                 }
             }
         }
         return instance;
+
     }
 
 
     public static synchronized Connection getConnection() throws Exception {
-
-        try (InputStream input = new FileInputStream("src/main/resources/db.properties")) {
-            properties = new Properties();
-            properties.load(input);
-            LOGGER.info("Retrieving Credentials");
-            url = properties.getProperty("url");
-            userName = properties.getProperty("username");
-            password = properties.getProperty("password");
-            connection = DriverManager.getConnection(url,userName,password);
-        } catch (Exception e) {
-            LOGGER.error(e);
+        Connection result = null;
+        boolean finished = false;
+        if (currentConnections < maximumConnections) {
+            try {
+                currentConnections++;
+                forName("com.mysql.cj.jdbc.Driver");
+                result = DriverManager.getConnection(url, userName, password);
+                finished = true;
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage() + "hello world");
+            }
         }
-        return connection;
+        if (!finished) {
+            Connection con = poolConnects.take();
+            LOGGER.info("Connection successful.");
+
+            result = con;
+        }
+        return result;
     }
+
     public synchronized void releaseConnection (Connection connection){
         if (poolConnects.add(connection)) {
             if (poolConnects.size() <= maximumConnections) {
                 LOGGER.info("Success");
             } else {
-                LOGGER.error("Something went wrong with releasing the connection");
+                LOGGER.error("Warning: Failure to pool");
             }
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-       getInstance();
-       getConnection();
     }
 }

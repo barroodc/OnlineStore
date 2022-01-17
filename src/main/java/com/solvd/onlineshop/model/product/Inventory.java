@@ -1,7 +1,5 @@
 package com.solvd.onlineshop.model.product;
 
-import com.solvd.onlineshop.utils.DataTransferObject;
-
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
@@ -9,7 +7,7 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "productName", "description", "price", "amountInStock"})
 
-public class Inventory implements DataTransferObject, Serializable {
+public class Inventory implements Serializable {
 
 
     private Long id;
@@ -89,11 +87,6 @@ public class Inventory implements DataTransferObject, Serializable {
 
     public void setAmountInStock(long amountInStock) {
         this.amountInStock = amountInStock;
-    }
-
-    @Override
-    public long id() {
-        return 0;
     }
 
     @Override

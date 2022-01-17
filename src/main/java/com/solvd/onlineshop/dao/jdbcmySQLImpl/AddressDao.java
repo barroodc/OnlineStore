@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class AddressDao extends BaseDao<Address> implements IAddressDao {
+public class AddressDao extends AbstractMySQLDao<Address> implements IAddressDao {
 
-    private static final Logger logger = LogManager.getLogger(AddressDao.class);
-    protected final static String ADDRESS_SEQUENCE = "onlinestore_address_seq";
+    private static final Logger LOGGER = LogManager.getLogger(AddressDao.class);
 
     public AddressDao() {
 
@@ -27,7 +26,7 @@ public class AddressDao extends BaseDao<Address> implements IAddressDao {
     private static final String INSERT = "INSERT INTO address (city_id, street_address, building_number, " +
             "last_update) VALUES (?, ?, ?, ?)";
 
-    private static final String GET_ONE = "SELECT id, city_id, street_address, building_number, last_update," +
+    private static final String GET_ONE = "SELECT id, city_id, street_address, building_number, last_update" +
             "FROM address WHERE id = ?";
 
     private static final String UPDATE = "UPDATE address SET city_id = ?, street_address = ?, building_number = ?, " +
@@ -50,8 +49,8 @@ public class AddressDao extends BaseDao<Address> implements IAddressDao {
                 address.setLastUpdate(rs.getTimestamp("last_update"));
             }
         }catch (SQLException e){
+            LOGGER.error(e);
             e.printStackTrace();
-            throw new RuntimeException(e);
         }
         return address;
     }
@@ -73,8 +72,7 @@ public class AddressDao extends BaseDao<Address> implements IAddressDao {
             statement.execute();
             address = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return address;
     }
@@ -87,12 +85,10 @@ public class AddressDao extends BaseDao<Address> implements IAddressDao {
             statement.setString(3, dto.getBuildingNumber());
             statement.setTimestamp(4, dto.getLastUpdate());
             statement.execute();
-            int id = this.getLastVal(ADDRESS_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -101,8 +97,7 @@ public class AddressDao extends BaseDao<Address> implements IAddressDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 

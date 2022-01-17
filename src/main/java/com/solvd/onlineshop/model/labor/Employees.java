@@ -1,5 +1,4 @@
 package com.solvd.onlineshop.model.labor;
-import com.solvd.onlineshop.utils.DataTransferObject;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
@@ -10,7 +9,7 @@ import java.sql.Date;
 "jobsID", "salary", "managerID", "departmentID"})
 
 
-public class Employees implements DataTransferObject {
+public class Employees {
     private Long id;
     private Long jobsID;
     private Long departmentsID;
@@ -144,10 +143,6 @@ public class Employees implements DataTransferObject {
         this.departmentID = departmentID;
     }
 
-    @Override
-    public long id() {
-        return 0;
-    }
 
     @Override
     public String toString() {

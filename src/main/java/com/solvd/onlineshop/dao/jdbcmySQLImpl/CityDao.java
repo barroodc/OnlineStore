@@ -9,12 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class CityDao extends BaseDao<City> implements ICityDao {
+public class CityDao extends AbstractMySQLDao<City> implements ICityDao {
 
-    private static final Logger logger = LogManager.getLogger(CityDao.class);
-    protected final static String CITY_SEQUENCE = "onlinestore_city_seq";
+    private static final Logger LOGGER = LogManager.getLogger(CityDao.class);
 
     public CityDao() {
 
@@ -25,13 +25,13 @@ public class CityDao extends BaseDao<City> implements ICityDao {
     }
 
     private static final String INSERT = "INSERT INTO city (country_id, city_name, location, " +
-            "postal_code, last_update) VALUES (?, ?, ?, ?, ?)";
+            "zip_code, last_update) VALUES (?, ?, ?, ?, ?)";
 
-    private static final String GET_ONE = "SELECT id, country_id, city_name, location, postal_code," +
+    private static final String GET_ONE = "SELECT id, country_id, city_name, location, zip_code," +
             "last_update FROM city WHERE id = ?";
 
     private static final String UPDATE = "UPDATE city SET country_id = ?, city_name = ?, location = ?, " +
-            "postal_code = ?, last_update FROM city WHERE id = ?";
+            "zip_code = ?, last_update FROM city WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM city WHERE id = ?";
 
@@ -46,19 +46,18 @@ public class CityDao extends BaseDao<City> implements ICityDao {
                 city.setCountryID(rs.getLong("country_id"));
                 city.setCity(rs.getString("city_name"));
                 city.setLocation(rs.getBytes("location"));
-                city.setPostalCode(rs.getString("postal_code"));
+                city.setZipCode(rs.getString("zip_code"));
                 city.setLastUpdate(rs.getTimestamp("last_update"));
             }
         }catch (SQLException e){
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return city;
     }
 
     @Override
     public List<City> findAll() {
-        return null;
+       return  null;
     }
 
     @Override
@@ -68,14 +67,13 @@ public class CityDao extends BaseDao<City> implements ICityDao {
             statement.setLong(1, dto.getCountryID());
             statement.setString(2, dto.getCityName());
             statement.setBytes(3, dto.getLocation());
-            statement.setString(4,dto.getPostalCode());
+            statement.setString(4,dto.getZipCode());
             statement.setTimestamp(5, dto.getLastUpdate());
             statement.setLong(5, dto.getId());
             statement.execute();
             city = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return city;
     }
@@ -86,15 +84,13 @@ public class CityDao extends BaseDao<City> implements ICityDao {
             statement.setLong(1, dto.getCountryID());
             statement.setString(2, dto.getCityName());
             statement.setBytes(3, dto.getLocation());
-            statement.setString(4,dto.getPostalCode());
+            statement.setString(4,dto.getZipCode());
             statement.setTimestamp(5, dto.getLastUpdate());
             statement.execute();
-            int id = this.getLastVal(CITY_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -103,8 +99,7 @@ public class CityDao extends BaseDao<City> implements ICityDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
@@ -112,4 +107,5 @@ public class CityDao extends BaseDao<City> implements ICityDao {
     public List<City> getCityByID(long id) {
         return null;
     }
+
 }

@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ProductCategoryDao extends BaseDao<ProductCategory> implements IProductCategoryDao {
+public class ProductCategoryDao extends AbstractMySQLDao<ProductCategory> implements IProductCategoryDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductCategoryDao.class);
-    protected final static String PRODUCT_CATEGORY_SEQUENCE = "onlinestore_product_category_seq";
+    private static final Logger LOGGER = LogManager.getLogger(ProductCategoryDao.class);
 
 
     public ProductCategoryDao(Connection connection) {
@@ -43,8 +42,7 @@ public class ProductCategoryDao extends BaseDao<ProductCategory> implements IPro
                 productCategory.setProductName(rs.getString("product_name"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return productCategory;
     }
@@ -66,8 +64,7 @@ public class ProductCategoryDao extends BaseDao<ProductCategory> implements IPro
             statement.execute();
             productCategory = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return productCategory;
     }
@@ -80,12 +77,10 @@ public class ProductCategoryDao extends BaseDao<ProductCategory> implements IPro
             statement.setString(3, dto.getMetaTitle());
             statement.setString(4, dto.getProductName());
             statement.execute();
-            int id = this.getLastVal(PRODUCT_CATEGORY_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -94,18 +89,12 @@ public class ProductCategoryDao extends BaseDao<ProductCategory> implements IPro
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public ProductCategory getProductName(String productName) {
-        return null;
-    }
-
-    @Override
-    public ProductCategory getClassifications(String title, String metaTitle) {
+    public List<ProductCategory> getProductCategoryByID(long id) {
         return null;
     }
 }

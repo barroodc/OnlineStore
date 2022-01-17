@@ -39,7 +39,7 @@ public class ItemsInCartService implements IItemsInCartService<ItemsInCart> {
                     float quantity = resultSet.getFloat("quantity");
                     Date timeCreated = resultSet.getDate("time_created");
                     Date cartUpdated = resultSet.getDate("cart_updated");
-                    itemsInCart = new ItemsInCart(id, productID, productName, sku, price, subTotalOfItems,
+                    itemsInCart = new ItemsInCart(id, productID, sku, price, subTotalOfItems,
                                                   discount, quantity, timeCreated, cartUpdated);
                     cartItemsList.add(itemsInCart);
                 }

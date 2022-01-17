@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CountryDao extends BaseDao<Country>implements ICountryDao {
+public class CountryDao extends AbstractMySQLDao<Country>implements ICountryDao {
 
-    private static final Logger logger = LogManager.getLogger(CountryDao.class);
-    protected final static String COUNTRY_SEQUENCE = "onlinestore_country_seq";
+    private static final Logger LOGGER = LogManager.getLogger(CountryDao.class);
 
     public CountryDao() {
 
@@ -49,8 +48,7 @@ public class CountryDao extends BaseDao<Country>implements ICountryDao {
                 country.setLastUpdate(rs.getTimestamp("last_update"));
             }
         }catch (SQLException e){
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return country;
     }
@@ -72,8 +70,7 @@ public class CountryDao extends BaseDao<Country>implements ICountryDao {
             statement.execute();
             country = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return country;
     }
@@ -86,12 +83,10 @@ public class CountryDao extends BaseDao<Country>implements ICountryDao {
             statement.setString(3, dto.getPhoneCode());
             statement.setTimestamp(4, dto.getLastUpdate());
             statement.execute();
-            int id = this.getLastVal(COUNTRY_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -100,8 +95,7 @@ public class CountryDao extends BaseDao<Country>implements ICountryDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 

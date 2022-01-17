@@ -1,25 +1,27 @@
 package com.solvd.onlineshop.model.location;
 
-import com.solvd.onlineshop.utils.DataTransferObject;
-
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
 @XmlRootElement(name = "City")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "countryID", "cityName", "location", "postalCode", "lastUpdate"})
+@XmlType(propOrder = {"id", "countryID", "cityName", "location", "zipCode", "lastUpdate"})
 
-public class City implements DataTransferObject {
+public class City {
     private Long id;
     private Long countryID;
     private String cityName;
     private byte[] location;
-    private String postalCode;
+    private String zipCode;
     private Timestamp lastUpdate;
 
     public City() {
 
+    }
+
+    public City(String cityName){
+        this.cityName = cityName;
     }
 
     public City(Long id, Long countryID) {
@@ -27,20 +29,20 @@ public class City implements DataTransferObject {
         this.countryID = countryID;
     }
 
-    public City(Long id, Long countryID, String cityName, byte[] location, String postalCode) {
+    public City(Long id, Long countryID, String cityName, byte[] location, String zipCode) {
         this.id = id;
         this.countryID = countryID;
         this.cityName = cityName;
         this.location = location;
-        this.postalCode = postalCode;
+        this.zipCode = zipCode;
     }
 
-    public City(Long id, Long countryID, String cityName, byte[] location, String postalCode, Timestamp lastUpdate) {
+    public City(Long id, Long countryID, String cityName, byte[] location, String zipCode, Timestamp lastUpdate) {
         this.id = id;
         this.countryID = countryID;
         this.cityName = cityName;
         this.location = location;
-        this.postalCode = postalCode;
+        this.zipCode = zipCode;
         this.lastUpdate = lastUpdate;
     }
 
@@ -80,13 +82,13 @@ public class City implements DataTransferObject {
         this.location = location;
     }
 
-    @XmlElement(name = "postalCode")
-    public String getPostalCode() {
-        return postalCode;
+    @XmlElement(name = "zipCode")
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     @XmlElement(name = "lastUpdate")
@@ -103,15 +105,10 @@ public class City implements DataTransferObject {
         return "City{" +
                 "id=" + id +
                 ", countryID=" + countryID +
-                ", city='" + cityName + '\'' +
+                ", cityName='" + cityName + '\'' +
                 ", location=" + Arrays.toString(location) +
-                ", postalCode='" + postalCode + '\'' +
+                ", zipCode='" + zipCode + '\'' +
                 ", lastUpdate=" + lastUpdate +
                 '}';
-    }
-
-    @Override
-    public long id() {
-        return 0;
     }
 }

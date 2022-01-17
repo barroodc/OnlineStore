@@ -1,5 +1,4 @@
 package com.solvd.onlineshop.model.checkout;
-import com.solvd.onlineshop.utils.DataTransferObject;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
@@ -7,13 +6,12 @@ import java.sql.Date;
 
 @XmlRootElement(name = "ItemsInCart")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "productID", "productName", "sku", "price",
+@XmlType(propOrder = {"id", "productID", "sku", "price",
 "subtotalOfItems", "discount", "quantity", "timeCreated", "cartUpdated"})
 
-public class ItemsInCart implements DataTransferObject {
+public class ItemsInCart {
     private Long id;
     private Long productID;
-    private String productName;
     private String sku;
     private float price;
     private float subtotalOfItems;
@@ -31,8 +29,7 @@ public class ItemsInCart implements DataTransferObject {
         this.quantity = quantity;
     }
 
-    public ItemsInCart(String productName, float price) {
-        this.productName = productName;
+    public ItemsInCart(float price) {
         this.price = price;
     }
 
@@ -47,10 +44,9 @@ public class ItemsInCart implements DataTransferObject {
         this.discount = discount;
     }
 
-    public ItemsInCart(Long id, Long productID, String productName, String sku, float price, float subtotalOfItems, float discount, float quantity, Date timeCreated, Date cartUpdated) {
+    public ItemsInCart(Long id, Long productID, String sku, float price, float subtotalOfItems, float discount, float quantity, Date timeCreated, Date cartUpdated) {
         this.id = id;
         this.productID = productID;
-        this.productName = productName;
         this.sku = sku;
         this.price = price;
         this.subtotalOfItems = subtotalOfItems;
@@ -76,15 +72,6 @@ public class ItemsInCart implements DataTransferObject {
 
     public void setProductID(Long productID) {
         this.productID = productID;
-    }
-
-    @XmlElement(name = "productName")
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     @XmlElement(name = "sku")
@@ -151,16 +138,10 @@ public class ItemsInCart implements DataTransferObject {
     }
 
     @Override
-    public long id() {
-        return 0;
-    }
-
-    @Override
     public String toString() {
         return "ItemsInCart{" +
                 "id=" + id +
                 ", productID=" + productID +
-                ", productName='" + productName + '\'' +
                 ", sku='" + sku + '\'' +
                 ", price=" + price +
                 ", subtotalOfItems=" + subtotalOfItems +

@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
+public class InvoiceDao extends AbstractMySQLDao<Invoice> implements IInvoiceDao {
 
-    private static final Logger logger = LogManager.getLogger(InvoiceDao.class);
-    protected final static String INVOICE_SEQUENCE = "onlinestore_invoice_seq";
+    private static final Logger LOGGER = LogManager.getLogger(InvoiceDao.class);
 
 
     public InvoiceDao(Connection connection) {
@@ -51,8 +50,7 @@ public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
                 invoice.setSubtotal(rs.getFloat("subtotal"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return invoice;
     }
@@ -78,8 +76,7 @@ public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
             statement.execute();
             invoice = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return invoice;
     }
@@ -96,12 +93,10 @@ public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
             statement.setFloat(7, dto.getTax());
             statement.setFloat(8, dto.getSubtotal());
             statement.execute();
-            int id = this.getLastVal(INVOICE_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -110,18 +105,12 @@ public class InvoiceDao extends BaseDao<Invoice> implements IInvoiceDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public void inStock(byte[] isInStock) {
-
-    }
-
-    @Override
-    public List<Invoice> getPaymentInformation(long id) {
+    public List<Invoice> getAllInvoicesByID(long id) {
         return null;
     }
 }

@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class OrderItemDao extends BaseDao<OrderItem> implements IOrderItemDao {
+public class OrderItemDao extends AbstractMySQLDao<OrderItem> implements IOrderItemDao {
 
-    private static final Logger logger = LogManager.getLogger(OrderItemDao.class);
-    protected final static String ORDER_ITEM_SEQUENCE = "onlinestore_order_item_seq";
+    private static final Logger LOGGER = LogManager.getLogger(OrderItemDao.class);
 
 
     public OrderItemDao(Connection connection) {
@@ -46,8 +45,7 @@ public class OrderItemDao extends BaseDao<OrderItem> implements IOrderItemDao {
                 orderItem.setTimeCreated(rs.getDate("time_created"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return orderItem;
     }
@@ -72,8 +70,7 @@ public class OrderItemDao extends BaseDao<OrderItem> implements IOrderItemDao {
             statement.execute();
             orderItem = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return orderItem;
     }
@@ -89,12 +86,10 @@ public class OrderItemDao extends BaseDao<OrderItem> implements IOrderItemDao {
             statement.setLong(3, dto.getQuantity());
             statement.setDate(4, dto.getTimeCreated());
             statement.execute();
-            int id = this.getLastVal(ORDER_ITEM_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -103,23 +98,13 @@ public class OrderItemDao extends BaseDao<OrderItem> implements IOrderItemDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
+
     @Override
-    public OrderItem getProductIdentifiers(String sku, float price) {
+    public List<OrderItem> getOrderItemByID(long id) {
         return null;
-    }
-
-    @Override
-    public void currentDiscount() {
-
-    }
-
-    @Override
-    public void timeOfOrder() {
-
     }
 }

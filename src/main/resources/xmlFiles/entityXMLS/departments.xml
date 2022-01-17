@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<Departments>
-    <dept id="1">
-        <departmentsName>Chess Materials</departmentsName>
-    </dept>
-    <dept id="2">
-        <departmentsName>Events</departmentsName>
-    </dept>
-    <dept id="3">
-        <departmentsName>Continuing Education</departmentsName>
-    </dept>
-    <dept id="4">
-        <departmentsName>Clothing</departmentsName>
-    </dept>
-    <dept id="5">
-        <departmentsName>Traveling</departmentsName>
-    </dept>
-    <dept id="6">
-        <departmentsName>Service</departmentsName>
-    </dept>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Departments id="1">
+    <departmentName>Marketing</departmentName>
 </Departments>

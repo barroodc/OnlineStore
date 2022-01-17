@@ -11,10 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ProductDao extends BaseDao<Product> implements IProductDao {
+public class ProductDao extends AbstractMySQLDao<Product> implements IProductDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductDao.class);
-    protected final static String PRODUCT_SEQUENCE = "onlinestore_product_seq";
+    private static final Logger LOGGER = LogManager.getLogger(ProductDao.class);
+
 
 
     public ProductDao(Connection connection) {
@@ -23,7 +23,7 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
 
     private static final String INSERT = "INSERT INTO product (inventory_id, product_type_id, category_id, shop_id, country_id, product_name) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String GET_ONE = "SELECT id, inventory_id, product_type_id, category_id, shop_id, country_id, product_name FROM product_review WHERE id = ?";
+    private static final String GET_ONE = "SELECT id, inventory_id, product_type_id, category_id, shop_id, country_id, product_name FROM product WHERE id = ?";
 
     private static final String UPDATE = "UPDATE id SET inventory_id = ?, product_type_id = ?, category_id = ?, shop_id = ?, country_id = ?, product_name = ? WHERE id = ?";
 
@@ -45,8 +45,7 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
                 product.setProductName(rs.getString("product_name"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return product;
     }
@@ -70,8 +69,7 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
             statement.execute();
             product = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return product;
     }
@@ -86,12 +84,10 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
             statement.setLong(6, dto.getCountryID());
             statement.setString(7, dto.getProductName());
             statement.execute();
-            int id = this.getLastVal(PRODUCT_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -100,13 +96,12 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public Product getProductName(String productName) {
+    public List<Product> getProductByID(long id) {
         return null;
     }
 }

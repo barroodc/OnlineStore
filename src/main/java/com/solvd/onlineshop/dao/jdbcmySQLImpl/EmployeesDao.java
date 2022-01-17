@@ -2,17 +2,16 @@ package com.solvd.onlineshop.dao.jdbcmySQLImpl;
 
 import com.solvd.onlineshop.dao.IEmployeesDao;
 import com.solvd.onlineshop.model.labor.Employees;
+import com.solvd.onlineshop.utils.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.List;
-import java.util.Map;
 
-public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
+public class EmployeesDao extends AbstractMySQLDao<Employees> implements IEmployeesDao{
 
-    private static final Logger logger = LogManager.getLogger(EmployeesDao.class);
-    protected final static String EMPLOYEES_SEQUENCE = "onlinestore_employees_seq";
+    private static final Logger LOGGER = LogManager.getLogger(EmployeesDao.class);
 
 
     public EmployeesDao(Connection connection) {
@@ -20,7 +19,7 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
     }
 
     private static final String INSERT = "INSERT INTO employees (departments_id, mobile, email," +
-            "hire_date, job_id, salary, manager_id, department_id VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            "hire_date, job_id, salary, manager_id, department_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String GET_ONE = "SELECT id, jobs_id, departments_id, mobile, email," +
             "hire_date, job_id, salary, manager_id, department_id FROM employees WHERE id = ?";
@@ -49,8 +48,7 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
                 employees.setDepartmentID(rs.getLong("department_id"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return employees;
     }
@@ -77,8 +75,7 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
             statement.execute();
             employees = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return employees;
     }
@@ -96,12 +93,10 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
             statement.setLong(8, dto.getManagerID());
             statement.setLong(9, dto.getDepartmentID());
             statement.execute();
-            int id = this.getLastVal(EMPLOYEES_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -110,8 +105,7 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
@@ -120,18 +114,4 @@ public class EmployeesDao extends BaseDao<Employees> implements IEmployeesDao {
         return null;
     }
 
-    @Override
-    public Employees getContactInformation(String firstName, String lastName, String mobile, String email) {
-        return null;
-    }
-
-    @Override
-    public Map<String, Date> nameAndHireDate() {
-        return null;
-    }
-
-    @Override
-    public Map<String, Float> nameAndSalary() {
-        return null;
-    }
 }

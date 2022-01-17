@@ -10,7 +10,4 @@ import java.util.Map;
 public interface IEmployeesDao extends IBaseDao<Employees> {
 
     List<Employees> getAllEmployees(long id);
-    Employees getContactInformation(String firstName, String lastName, String mobile, String email);
-    Map<String, Date> nameAndHireDate();
-    Map<String, Float>nameAndSalary();
 }

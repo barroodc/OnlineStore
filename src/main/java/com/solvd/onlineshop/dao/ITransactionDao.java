@@ -1,10 +1,12 @@
 package com.solvd.onlineshop.dao;
 
+import com.solvd.onlineshop.model.purchase.Invoice;
 import com.solvd.onlineshop.model.purchase.Transaction;
 
 import java.sql.Date;
+import java.util.List;
 
 
 public interface ITransactionDao extends IBaseDao<Transaction> {
-    Transaction getTransactionCycle(Date timeCreated,String status, String approvalStatus);
+    List<Transaction> getAllTransactionsByID(long id);
 }

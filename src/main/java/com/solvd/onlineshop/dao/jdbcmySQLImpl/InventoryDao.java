@@ -12,10 +12,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
+public class InventoryDao extends AbstractMySQLDao<Inventory> implements IInventoryDao {
 
-    private static final Logger logger = LogManager.getLogger(InventoryDao.class);
-    protected final static String INVENTORY_SEQUENCE = "onlinestore_inventory_seq";
+    private static final Logger LOGGER = LogManager.getLogger(InventoryDao.class);
 
 
     public InventoryDao(Connection connection) {
@@ -44,8 +43,7 @@ public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
                 inventory.setAmountInStock(rs.getLong("amount_in_stock"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return inventory;
     }
@@ -67,8 +65,7 @@ public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
             statement.execute();
             inventory = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return inventory;
     }
@@ -81,12 +78,10 @@ public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
             statement.setFloat(3, dto.getPrice());
             statement.setLong(4, dto.getAmountInStock());
             statement.execute();
-            int id = this.getLastVal(INVENTORY_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -95,23 +90,12 @@ public class InventoryDao extends BaseDao<Inventory> implements IInventoryDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public Map<String, String> productAndDescription() {
-        return null;
-    }
-
-    @Override
-    public Map<String, Float> productAndPrice() {
-        return null;
-    }
-
-    @Override
-    public Map<String, Integer> productAndAmountInStock() {
+    public List<Inventory> getAllInventory(long id) {
         return null;
     }
 }

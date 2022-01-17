@@ -1,15 +1,13 @@
 package com.solvd.onlineshop.dao;
 
 import com.solvd.onlineshop.model.checkout.ItemsInCart;
+import com.solvd.onlineshop.model.purchase.Invoice;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Map;
 
 
 public interface IItemsInCartDao extends IBaseDao<ItemsInCart> {
-
-    Map<String, Float> productAndPrice();
-    ItemsInCart getSubtotalWithoutDiscount(float subtotalOfItems);
-    ItemsInCart getSubtotalWithDiscount(float subtotalOfItems, float quantity, float discount);
-    ItemsInCart getCartHistory(Date timeCreated, Date cartUpdated);
+    List<ItemsInCart> getAllItemsByID(long id);
 }

@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class StateDao extends BaseDao<State> implements IStateDao {
+public class StateDao extends AbstractMySQLDao<State> implements IStateDao {
 
-    private static final Logger logger = LogManager.getLogger(StateDao.class);
-    protected final static String STATE_SEQUENCE = "onlinestore_state_seq";
+    private static final Logger LOGGER = LogManager.getLogger(StateDao.class);
 
     public StateDao() {
 
@@ -45,8 +44,7 @@ public class StateDao extends BaseDao<State> implements IStateDao {
                 state.setLastUpdate(rs.getTimestamp("last_update"));
             }
         }catch (SQLException e){
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return state;
     }
@@ -67,8 +65,7 @@ public class StateDao extends BaseDao<State> implements IStateDao {
             statement.execute();
             state = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return state;
     }
@@ -80,12 +77,10 @@ public class StateDao extends BaseDao<State> implements IStateDao {
             statement.setString(2, dto.getStateName());
             statement.setTimestamp(3, dto.getLastUpdate());
             statement.execute();
-            int id = this.getLastVal(STATE_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -94,8 +89,7 @@ public class StateDao extends BaseDao<State> implements IStateDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 

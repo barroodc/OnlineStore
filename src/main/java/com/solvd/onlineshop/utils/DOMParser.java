@@ -1,57 +1,46 @@
 package com.solvd.onlineshop.utils;
 
+
+import com.solvd.onlineshop.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
+
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.IOException;
-import java.util.stream.IntStream;
+
+
 
 public class DOMParser {
 
-    private static final Logger logger = LogManager.getLogger(DOMParser.class);
+    private static final Logger LOGGER = LogManager.getLogger(DOMParser.class);
 
-    private void parser() {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+    public static void main(String[] args){
         try {
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(new File("src/main/resources/inventory.xml"));
+            File fXmlFile = new File("src/main/resources/xmlFiles/entityXMLS/domtest.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(fXmlFile);
             doc.getDocumentElement().normalize();
-            NodeList nodeList = doc.getElementsByTagName("Clothes");
+            NodeList nodeList = doc.getElementsByTagName("Dom Parser Example");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    System.out.println("id : " + element.getAttribute("id"));
 
-            for (int i = 1; i < nodeList.getLength(); i++) {
-                Node c = nodeList.item(i);
-                if (c.getNodeType() == Node.ELEMENT_NODE) {
-                    Element clothes = (Element) c;
-                    String id = clothes.getAttribute("id");
-                    NodeList clothesList = clothes.getChildNodes();
-                    for (int j = 0; j < clothesList.getLength(); j++) {
-                        Node n = clothesList.item(j);
-                        if (n.getNodeType() == Node.ELEMENT_NODE) {
-                            Element name = (Element) n;
-                            logger.info("Clothes " + id + ": " + name.getTagName() + " = " + name.getTextContent());
-                        }
-                    }
+                    System.out.println("\nELEMENTS :");
+                    System.out.println("HusbandName : " + element.getElementsByTagName("HusbandName").item(0).getTextContent());
+                    System.out.println("WifeName: " + element.getElementsByTagName("WifeName").item(0).getTextContent());
+                    System.out.println("MarriageStatus : " + element.getElementsByTagName("MarriageStatus").item(0).getTextContent());
                 }
             }
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            logger.error(e);
+        } catch (Exception e) {
+            LOGGER.error(e);
         }
-
     }
-
-   /* public static void main(String[] args) {
-        DOMParser parser = new DOMParser();
-        parser.parser();
-    }
-
-    */
 }

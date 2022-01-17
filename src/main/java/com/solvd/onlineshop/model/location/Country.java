@@ -1,7 +1,5 @@
 package com.solvd.onlineshop.model.location;
 
-import com.solvd.onlineshop.utils.DataTransferObject;
-
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 
@@ -9,7 +7,7 @@ import java.sql.Timestamp;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "countryName", "currencyName", "phoneCode", "lastUpdate"})
 
-public class Country implements DataTransferObject {
+public class Country {
     private Long id;
     private String countryName;
     private String currencyName;
@@ -102,8 +100,4 @@ public class Country implements DataTransferObject {
                 '}';
     }
 
-    @Override
-    public long id() {
-        return 0;
-    }
 }

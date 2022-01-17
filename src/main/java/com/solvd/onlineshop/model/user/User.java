@@ -1,5 +1,5 @@
 package com.solvd.onlineshop.model.user;
-import com.solvd.onlineshop.utils.DataTransferObject;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
@@ -9,17 +9,28 @@ import java.sql.Date;
 @XmlType(propOrder = {"id", "employeesID", "firstName", "middleName", "lastName", "mobile",
 "email", "password", "userName", "timeCreated", "lastLogin"})
 
-public class User implements DataTransferObject {
+public class User {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("employeesID")
     private Long employeesID;
+    @JsonProperty("firstName")
     private String firstName;
+    @JsonProperty("middleName")
     private String middleName;
+    @JsonProperty("lastName")
     private String lastName;
+    @JsonProperty("mobile")
     private String mobile;
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("password")
     private String password;
+    @JsonProperty("userName")
     private String userName;
+    @JsonProperty("timeCreated")
     private Date timeCreated;
+    @JsonProperty("lastLogin")
     private Date lastLogin;
 
     public User() {
@@ -167,10 +178,6 @@ public class User implements DataTransferObject {
         this.lastLogin = lastLogin;
     }
 
-    @Override
-    public long id() {
-        return 0;
-    }
 
     @Override
     public String toString() {

@@ -1,7 +1,5 @@
 package com.solvd.onlineshop.model.purchase;
 
-import com.solvd.onlineshop.utils.DataTransferObject;
-
 import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
@@ -10,7 +8,7 @@ import java.util.Arrays;
 @XmlType(propOrder = {"id", "transactionID", "inventoryID", "isInStock", "price", "discount",
 "preTax", "tax", "subtotal"})
 
-public class Invoice implements DataTransferObject {
+public class Invoice {
     private Long id;
     private Long transactionID;
     private long inventoryID;
@@ -129,10 +127,6 @@ public class Invoice implements DataTransferObject {
         this.subtotal = subtotal;
     }
 
-    @Override
-    public long id() {
-        return 0;
-    }
 
     @Override
     public String toString() {

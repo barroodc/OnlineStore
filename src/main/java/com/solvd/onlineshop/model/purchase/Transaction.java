@@ -1,5 +1,4 @@
 package com.solvd.onlineshop.model.purchase;
-import com.solvd.onlineshop.utils.DataTransferObject;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
@@ -8,7 +7,7 @@ import java.sql.Date;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "userID", "status", "timeCreated", "approvalStatus"})
 
-public class Transaction implements DataTransferObject {
+public class Transaction {
     private Long id;
     private Long userID;
     private String status;
@@ -72,10 +71,6 @@ public class Transaction implements DataTransferObject {
         this.approvalStatus = approvalStatus;
     }
 
-    @Override
-    public long id() {
-        return 0;
-    }
 
     @Override
     public String toString() {

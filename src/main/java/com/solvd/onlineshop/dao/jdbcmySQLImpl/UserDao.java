@@ -8,10 +8,9 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.List;
 
-public class UserDao extends BaseDao<User> implements IUserDao {
+public class UserDao extends AbstractMySQLDao<User> implements IUserDao {
 
-    private static final Logger logger = LogManager.getLogger(UserDao.class);
-    protected final static String USER_SEQUENCE = "onlinestore_user_seq";
+    private static final Logger LOGGER = LogManager.getLogger(UserDao.class);
 
     public UserDao(Connection connection) {
         super(connection);
@@ -21,7 +20,7 @@ public class UserDao extends BaseDao<User> implements IUserDao {
             "last_name, mobile, email, password, user_name, time_created, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String GET_ONE = "SELECT id, first_name, middle_name, " +
-            "last_name, mobile, email, password, user_name, time_created, last_login FROM customer WHERE id = ?";
+            "last_name, mobile, email, password, user_name, time_created, last_login FROM user WHERE id = ?";
 
     private static final String UPDATE = "UPDATE user SET first_name = ?, middle_name = ?, " +
             "last_name = ?, mobile = ?, email = ?, password = ?, user_name = ?, time_created = ?, last_login WHERE id = ?";
@@ -51,8 +50,7 @@ public class UserDao extends BaseDao<User> implements IUserDao {
                 user.setLastLogin(rs.getDate("last_login"));
             }
         }catch (SQLException e){
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return user;
     }
@@ -79,8 +77,7 @@ public class UserDao extends BaseDao<User> implements IUserDao {
             statement.execute();
             user = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return user;
     }
@@ -98,12 +95,10 @@ public class UserDao extends BaseDao<User> implements IUserDao {
             statement.setDate(8, dto.getTimeCreated());
             statement.setDate(9,dto.getLastLogin());
             statement.execute();
-            int id = this.getLastVal(USER_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -112,18 +107,12 @@ public class UserDao extends BaseDao<User> implements IUserDao {
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
     @Override
-    public User getNameAndNumber(String firstName, String middleName, String lastName, String mobile) {
-        return null;
-    }
-
-    @Override
-    public User getAccountInformation(Date timeCreated, String email, String username, String password, Date lastLogin) {
+    public List<User> getAllUsersByID(long id) {
         return null;
     }
 }

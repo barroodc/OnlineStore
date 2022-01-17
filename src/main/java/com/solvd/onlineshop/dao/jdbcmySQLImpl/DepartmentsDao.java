@@ -11,10 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DepartmentsDao extends BaseDao<Departments> implements IDepartmentsDao {
+public class DepartmentsDao extends AbstractMySQLDao<Departments> implements IDepartmentsDao {
 
-    private static final Logger logger = LogManager.getLogger(DepartmentsDao.class);
-    protected final static String DEPARTMENTS_SEQUENCE = "onlinestore_departments_seq";
+    private static final Logger LOGGER = LogManager.getLogger(DepartmentsDao.class);
 
 
     public DepartmentsDao(Connection connection) {
@@ -40,8 +39,7 @@ public class DepartmentsDao extends BaseDao<Departments> implements IDepartments
                 departments.setDepartmentName(rs.getString("department_name"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return departments;
     }
@@ -60,8 +58,7 @@ public class DepartmentsDao extends BaseDao<Departments> implements IDepartments
             statement.execute();
             departments = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return departments;
     }
@@ -71,12 +68,10 @@ public class DepartmentsDao extends BaseDao<Departments> implements IDepartments
         try(PreparedStatement statement = this.connection.prepareStatement(INSERT);) {
             statement.setString(1, dto.getDepartmentName());
             statement.execute();
-            int id = this.getLastVal(DEPARTMENTS_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -85,8 +80,7 @@ public class DepartmentsDao extends BaseDao<Departments> implements IDepartments
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 

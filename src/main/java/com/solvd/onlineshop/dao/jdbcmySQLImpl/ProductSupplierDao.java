@@ -9,10 +9,9 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IProductSupplierDao {
+public class ProductSupplierDao extends AbstractMySQLDao<ProductSupplier> implements IProductSupplierDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductSupplierDao.class);
-    protected final static String PRODUCT_SUPPLIER_SEQUENCE = "onlinestore_product_supplier_seq";
+    private static final Logger LOGGER = LogManager.getLogger(ProductSupplierDao.class);
 
 
     public ProductSupplierDao(Connection connection) {
@@ -39,8 +38,7 @@ public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IPro
                 productSupplier.setCategoryOfProducts("category_of_products");
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return productSupplier;
     }
@@ -60,8 +58,7 @@ public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IPro
             statement.execute();
             productSupplier = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return productSupplier;
     }
@@ -72,12 +69,10 @@ public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IPro
             statement.setString(1, dto.getSupplierName());
             statement.setString(2,dto.getCategoryOfProducts());
             statement.execute();
-            int id = this.getLastVal(PRODUCT_SUPPLIER_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -86,14 +81,12 @@ public class ProductSupplierDao extends BaseDao<ProductSupplier> implements IPro
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
-
     @Override
-    public Map<String, String> supplierAndProductsSupplied() {
+    public List<ProductSupplier> getAllProductSuppliersByID(long id) {
         return null;
     }
 }

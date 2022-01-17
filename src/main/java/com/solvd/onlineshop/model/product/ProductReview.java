@@ -1,5 +1,4 @@
 package com.solvd.onlineshop.model.product;
-import com.solvd.onlineshop.utils.DataTransferObject;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
@@ -9,7 +8,7 @@ import java.sql.Date;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "productID", "overallRating", "title", "parentID", "timeCreated", "userReview"})
 
-public class ProductReview implements DataTransferObject {
+public class ProductReview {
     private Long id;
     private Long productID;
     private float overallRating;
@@ -108,11 +107,6 @@ public class ProductReview implements DataTransferObject {
 
     public void setUserReview(String userReview) {
         this.userReview = userReview;
-    }
-
-    @Override
-    public long id() {
-        return 0;
     }
 
     @Override

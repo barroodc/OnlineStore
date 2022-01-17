@@ -1,11 +1,12 @@
 package com.solvd.onlineshop.dao;
 
+import com.solvd.onlineshop.model.purchase.Invoice;
 import com.solvd.onlineshop.model.user.User;
 
 import java.sql.Date;
+import java.util.List;
 
 
 public interface IUserDao extends IBaseDao<User> {
-    User getNameAndNumber(String firstName, String middleName, String lastName, String mobile);
-    User getAccountInformation(Date timeCreated, String email, String username, String password, Date lastLogin);
+    List<User> getAllUsersByID(long id);
 }

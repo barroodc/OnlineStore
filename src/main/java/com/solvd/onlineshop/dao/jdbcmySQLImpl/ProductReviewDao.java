@@ -9,10 +9,9 @@ import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-public class ProductReviewDao extends BaseDao<ProductReview> implements IProductReviewDao {
+public class ProductReviewDao extends AbstractMySQLDao<ProductReview> implements IProductReviewDao {
 
-    private static final Logger logger = LogManager.getLogger(ProductReviewDao.class);
-    protected final static String PRODUCT_REVIEW_SEQUENCE = "onlinestore_product_review_seq";
+    private static final Logger LOGGER = LogManager.getLogger(ProductReviewDao.class);
 
 
     public ProductReviewDao(Connection connection) {
@@ -41,8 +40,7 @@ public class ProductReviewDao extends BaseDao<ProductReview> implements IProduct
                 productReview.setTimeCreated(rs.getDate("time_created"));
             }
         }catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return productReview;
     }
@@ -64,8 +62,7 @@ public class ProductReviewDao extends BaseDao<ProductReview> implements IProduct
             statement.execute();
             productReview = this.findById(dto.getId());
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
         return productReview;
     }
@@ -78,12 +75,10 @@ public class ProductReviewDao extends BaseDao<ProductReview> implements IProduct
             statement.setLong(3, dto.getParentID());
             statement.setDate(4, dto.getTimeCreated());
             statement.execute();
-            int id = this.getLastVal(PRODUCT_REVIEW_SEQUENCE);
-            return this.findById(id);
         }catch(SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
+        return null;
     }
 
     @Override
@@ -92,24 +87,12 @@ public class ProductReviewDao extends BaseDao<ProductReview> implements IProduct
             statement.setLong(1, id);
             statement.execute();
         } catch (SQLException e){
-            logger.error(e);
-            throw new RuntimeException(e);
+            LOGGER.error(e);
         }
     }
 
-
     @Override
-    public Map<String, Float> titleAndRating() {
-        return null;
-    }
-
-    @Override
-    public Map<Float, String> ratingAndUserReview() {
-        return null;
-    }
-
-    @Override
-    public Map<String, Date> titleAndTimeStamp() {
+    public List<ProductReview> getAllProductReviewsByID(long id) {
         return null;
     }
 }
