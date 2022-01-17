@@ -21,18 +21,8 @@ public class ConnectionPool {
     private static AtomicReference<String> url = new AtomicReference<>();
     private static AtomicReference<String> userName = new AtomicReference<>();
     private static AtomicReference<String> password = new AtomicReference<>();
-    private static CredentialValues values;
 
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
-
-
-    public static CredentialValues getValues() {
-        return values;
-    }
-
-    public static void setValues(CredentialValues values) {
-        ConnectionPool.values = values;
-    }
 
     public static String getUrl() {
         return url.get();
@@ -77,8 +67,6 @@ public class ConnectionPool {
        return instance;
 
     }
-
-
 
     public static synchronized Connection getConnection() throws Exception {
         Connection result = null;

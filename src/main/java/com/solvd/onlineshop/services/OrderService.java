@@ -34,11 +34,12 @@ public class OrderService implements IOrderService<Order> {
                     Date dateOfOrder = resultSet.getDate("date_of_order");
                     Date dateOfDelivery = resultSet.getDate("date_of_delivery");
                     Date timeOfDelivery = resultSet.getDate("time_of_delivery");
+                    String postalCode = resultSet.getString("postal_code");
                     String mobile = resultSet.getString("mobile");
                     String email = resultSet.getString("email");
                     Date timeCreated = resultSet.getDate("time_created");
                     String status = resultSet.getString("status");
-                    order = new Order(id, userID, dateOfOrder, dateOfDelivery, timeOfDelivery, mobile, email,
+                    order = new Order(id, userID, dateOfOrder, dateOfDelivery, timeOfDelivery, postalCode, mobile, email,
                                       timeCreated, status);
                     orderList.add(order);
                 }

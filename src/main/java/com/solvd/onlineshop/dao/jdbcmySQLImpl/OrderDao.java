@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.List;
-import java.util.Map;
 
 public class OrderDao extends AbstractMySQLDao<Order> implements IOrderDao {
 
@@ -19,13 +18,13 @@ public class OrderDao extends AbstractMySQLDao<Order> implements IOrderDao {
     }
 
     private static final String INSERT = "INSERT INTO order (user_id, date_of_order, date_of_delivery, time_of_delivery, " +
-            "mobile, email, time_created, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            " postal_code, mobile, email, time_created, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private static final String GET_ONE = "SELECT id, user_id, date_of_order, date_of_delivery, time_of_delivery, " +
-            "mobile, email, time_created, status FROM order WHERE id = ?";
+    private static final String GET_ONE = "SELECT id, user_id, date_of_order, date_of_delivery, time_of_delivery," +
+            " postal_code, mobile, email, time_created, status FROM order WHERE id = ?";
 
     private static final String UPDATE = "UPDATE order SET user_id = ?, date_of_order = ?, date_of_delivery = ?, time_of_delivery = ?, " +
-            "mobile = ?, email = ?, time_created = ?, status = ? WHERE id = ?";
+            " postal_code = ?, mobile = ?, email = ?, time_created = ?, status = ? WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM order WHERE id = ?";
 
@@ -41,7 +40,7 @@ public class OrderDao extends AbstractMySQLDao<Order> implements IOrderDao {
                 order.setDateOfOrder(rs.getDate("date_of_order"));
                 order.setDateOfDelivery(rs.getDate("date_of_delivery"));
                 order.setTimeOfDelivery(rs.getDate("time_of_delivery"));
-                order.setTimeCreated(rs.getDate("postal_code"));
+                order.setPostalCode(rs.getString("postal_code"));
                 order.setMobile(rs.getString("mobile"));
                 order.setEmail(rs.getString("email"));
                 order.setTimeCreated(rs.getDate("time_created"));

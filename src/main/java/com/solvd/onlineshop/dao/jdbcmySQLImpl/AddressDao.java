@@ -27,7 +27,7 @@ public class AddressDao extends AbstractMySQLDao<Address> implements IAddressDao
             "last_update) VALUES (?, ?, ?, ?)";
 
     private static final String GET_ONE = "SELECT id, city_id, street_address, building_number, last_update" +
-            "FROM address WHERE id = ?";
+            " FROM address WHERE id = ?";
 
     private static final String UPDATE = "UPDATE address SET city_id = ?, street_address = ?, building_number = ?, " +
             "last_update = ? FROM address WHERE id = ?";

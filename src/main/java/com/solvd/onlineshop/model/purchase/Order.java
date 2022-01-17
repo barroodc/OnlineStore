@@ -5,7 +5,7 @@ import java.sql.Date;
 
 @XmlRootElement(name = "Order")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "userID", "dateOfOrder", "dateOfDelivery", "timeOfDelivery", "mobile",
+@XmlType(propOrder = {"id", "userID", "dateOfOrder", "dateOfDelivery", "timeOfDelivery", "postalCode", "mobile",
         "email", "timeCreated", "status"})
 
 public class Order {
@@ -14,6 +14,7 @@ public class Order {
     private Date dateOfOrder;
     private Date dateOfDelivery;
     private Date timeOfDelivery;
+    private String postalCode;
     private String mobile;
     private String email;
     private Date timeCreated;
@@ -36,17 +37,19 @@ public class Order {
         this.status = status;
     }
 
-    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String mobile, String email, Date timeCreated, String status) {
+    public Order(Long id, Long userID, Date dateOfOrder, Date dateOfDelivery, Date timeOfDelivery, String postalCode, String mobile, String email, Date timeCreated, String status) {
         this.id = id;
         this.userID = userID;
         this.dateOfOrder = dateOfOrder;
         this.dateOfDelivery = dateOfDelivery;
         this.timeOfDelivery = timeOfDelivery;
+        this.postalCode = postalCode;
         this.mobile = mobile;
         this.email = email;
         this.timeCreated = timeCreated;
         this.status = status;
     }
+
 
     @XmlAttribute
     public Long getId() {
@@ -91,6 +94,15 @@ public class Order {
 
     public void setTimeOfDelivery(Date timeOfDelivery) {
         this.timeOfDelivery = timeOfDelivery;
+    }
+
+    @XmlElement(name = "postalCode")
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     @XmlElement(name = "mobile")

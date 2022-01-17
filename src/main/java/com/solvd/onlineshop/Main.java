@@ -61,14 +61,13 @@ public class Main {
             City city = cityDao.findById(1);
             System.out.println(city.getId());
             /*------------------------------------------------------------------------ */
-            //CheckoutCartDao checkoutCartDao = new CheckoutCartDao();
-            //CheckoutCart checkoutCart = checkoutCartDao.findById(1);
-            //System.out.println(checkoutCart.getId());
+            CheckoutCartDao checkoutCartDao = new CheckoutCartDao(connection);
+            CheckoutCart checkoutCart = checkoutCartDao.findById(1);
+            System.out.println(checkoutCart.getId());
             /*------------------------------------------------------------------------ */
-            //AddressDao addressDao = new AddressDao(connection);
-            //Address address = addressDao.findById(1);
-            //System.out.println(address.getId());
-            //check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE id = 1' at line 1
+            AddressDao addressDao = new AddressDao(connection);
+            Address address = addressDao.findById(1);
+            System.out.println(address.getId());
             /*------------------------------------------------------------------------ */
             CountryDao countryDao = new CountryDao(connection);
             Country country = countryDao.findById(1);
@@ -90,9 +89,9 @@ public class Main {
             Jobs jobs = jobsDao.findById(1);
             System.out.println(jobs.getId());
             /*------------------------------------------------------------------------ */
-            //OrderDao orderDao = new OrderDao(connection);
-            //Order order = orderDao.findById(1);
-            //System.out.println(order.getId());
+            OrderDao orderDao = new OrderDao(connection);
+            Order order = orderDao.findById(1);
+            System.out.println(order.getId());
             //check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE id = 1' at line 1
             /*------------------------------------------------------------------------ */
             OrderItemDao orderItemDao = new OrderItemDao(connection);
