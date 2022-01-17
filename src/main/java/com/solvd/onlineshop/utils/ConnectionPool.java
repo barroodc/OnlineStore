@@ -10,8 +10,6 @@ import java.sql.DriverManager;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 
-import static java.lang.Class.forName;
-
 
 public class ConnectionPool {
 
@@ -96,7 +94,7 @@ public class ConnectionPool {
         if (currentConnections < maximumConnections) {
             try {
                 currentConnections++;
-                forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 result = DriverManager.getConnection(url, userName, password);
                 finished = true;
             } catch (Exception e) {
