@@ -19,13 +19,13 @@ public class EmployeesDao extends AbstractMySQLDao<Employees> implements IEmploy
     }
 
     private static final String INSERT = "INSERT INTO employees (departments_id, mobile, email," +
-            "hire_date, job_id, salary, manager_id, department_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            "hire_date, id_card_number, salary, manager_id, department_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String GET_ONE = "SELECT id, jobs_id, departments_id, mobile, email," +
-            "hire_date, job_id, salary, manager_id, department_id FROM employees WHERE id = ?";
+            "hire_date, id_card_number, salary, manager_id, department_id FROM employees WHERE id = ?";
 
     private static final String UPDATE = "UPDATE employees SET jobs_id = ?, departments_id = ?, mobile = ?, " +
-            "email = ?, hire_date = ?, job_id = ?, salary = ?, manager_id = ?, department_id = ? FROM employees WHERE id = ?";
+            "email = ?, hire_date = ?, id_card_number = ?, salary = ?, manager_id = ?, department_id = ? FROM employees WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM employees WHERE id = ?";
 
@@ -42,7 +42,7 @@ public class EmployeesDao extends AbstractMySQLDao<Employees> implements IEmploy
                 employees.setMobile(rs.getString("mobile"));
                 employees.setEmail(rs.getString("email"));
                 employees.setHireDate(rs.getDate("hire_date"));
-                employees.setJobID(rs.getString("job_id"));
+                employees.setIdCardNumber(rs.getString("id_card_number"));
                 employees.setSalary(rs.getFloat("salary"));
                 employees.setManagerID(rs.getLong("manager_id"));
                 employees.setDepartmentID(rs.getLong("department_id"));
@@ -67,7 +67,7 @@ public class EmployeesDao extends AbstractMySQLDao<Employees> implements IEmploy
             statement.setString(3, dto.getMobile());
             statement.setString(4, dto.getEmail());
             statement.setDate(5, dto.getHireDate());
-            statement.setString(6, dto.getJobID());
+            statement.setString(6, dto.getIdCardNumber());
             statement.setFloat(7, dto.getSalary());
             statement.setLong(8, dto.getManagerID());
             statement.setLong(9, dto.getDepartmentID());
@@ -88,7 +88,7 @@ public class EmployeesDao extends AbstractMySQLDao<Employees> implements IEmploy
             statement.setString(3, dto.getMobile());
             statement.setString(4, dto.getEmail());
             statement.setDate(5, dto.getHireDate());
-            statement.setString(6, dto.getJobID());
+            statement.setString(6, dto.getIdCardNumber());
             statement.setFloat(7, dto.getSalary());
             statement.setLong(8, dto.getManagerID());
             statement.setLong(9, dto.getDepartmentID());

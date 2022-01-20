@@ -1,8 +1,6 @@
 package com.solvd.onlineshop;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.solvd.onlineshop.dao.jdbcmySQLImpl.*;
 import com.solvd.onlineshop.model.checkout.CheckoutCart;
 import com.solvd.onlineshop.model.checkout.ItemsInCart;
@@ -21,14 +19,8 @@ import com.solvd.onlineshop.model.user.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+
+
 import java.sql.*;
 
 
@@ -122,22 +114,7 @@ public class Main {
             LOGGER.error(e);
         }
 
-        try {
-            String json = "{\"id\":\"1\",\"employeesID\":\"1\",\"fName\":\"Annette\",\"mName\":\"Emily\",\"lName\":\"Smith\",\"mobile\":\"3268408450\",\"email\":\"annette74@yahoo.com\",\"password\":\"fHMpqaPGW9e7sy3W\",\"userName\":\"Annette1\",\"timeCreated\":\"2021-10-18T10:15:17.075Z\",\"lastLogin\":\"2021-12-02T13:26:48.976Z\"}";
-
-            ObjectMapper mapper = new ObjectMapper();
-            SimpleModule module = new SimpleModule("UserDeserializer");
-            mapper.registerModule(module);
-            User user = mapper.readValue(json, User.class);
-            LOGGER.info(user);
-        } catch (Exception e){
-            LOGGER.error(e);
-        }
-
-
-
     }
-
 }
 
 

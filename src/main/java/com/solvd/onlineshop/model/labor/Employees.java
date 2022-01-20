@@ -7,8 +7,8 @@ import java.sql.Date;
 
 @XmlRootElement(name = "Employees")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(propOrder = {"id", "jobs", "departmentsID", "mobile", "email", "hireDate",
-"jobsID", "salary", "managerID", "departmentID"})
+@XmlType(propOrder = {"id", "jobsID", "departmentsID", "mobile", "email", "hireDate",
+"idCardNumber", "salary", "managerID", "departmentID"})
 
 
 public class Employees {
@@ -24,14 +24,14 @@ public class Employees {
     private String email;
     @JsonProperty("hireDate")
     private Date hireDate;
-    @JsonProperty("jobID")
-    private String jobID; //look into this one. It does make sense. Consider renaming
+    @JsonProperty("idCardNumber")
+    private String idCardNumber; //look into this one. It does make sense. Consider renaming
     @JsonProperty("salary")
     private float salary;
     @JsonProperty("managerID")
     private long managerID;
     @JsonProperty("departmentID")
-    private long departmentID; //look into this one as well. Consider renaming
+    private long departmentID;
 
     public Employees() {
 
@@ -52,14 +52,14 @@ public class Employees {
     }
 
 
-    public Employees(Long id, Long jobsID, Long departmentsID, String mobile, String email, Date hireDate, String jobID, float salary, long managerID, long departmentID) {
+    public Employees(Long id, Long jobsID, Long departmentsID, String mobile, String email, Date hireDate, String idCardNumber, float salary, long managerID, long departmentID) {
         this.id = id;
         this.jobsID = jobsID;
         this.departmentsID = departmentsID;
         this.mobile = mobile;
         this.email = email;
         this.hireDate = hireDate;
-        this.jobID = jobID;
+        this.idCardNumber = idCardNumber;
         this.salary = salary;
         this.managerID = managerID;
         this.departmentID = departmentID;
@@ -119,13 +119,13 @@ public class Employees {
         this.hireDate = hireDate;
     }
 
-    @XmlElement(name = "jobID")
-    public String getJobID() {
-        return jobID;
+    @XmlElement(name = "idCardNumber")
+    public String getIdCardNumber() {
+        return idCardNumber;
     }
 
-    public void setJobID(String jobID) {
-        this.jobID = jobID;
+    public void setIdCardNumber(String idCardNumber) {
+        this.idCardNumber = idCardNumber;
     }
 
     @XmlElement(name = "salary")
@@ -165,7 +165,7 @@ public class Employees {
                 ", mobile='" + mobile + '\'' +
                 ", email='" + email + '\'' +
                 ", hireDate=" + hireDate +
-                ", jobID='" + jobID + '\'' +
+                ", idCardNumber='" + idCardNumber + '\'' +
                 ", salary=" + salary +
                 ", managerID=" + managerID +
                 ", departmentID=" + departmentID +

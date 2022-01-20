@@ -1,42 +1,40 @@
 package com.solvd.onlineshop.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.solvd.onlineshop.model.user.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.File;
+
 
 public class Jackson {
 
     private static final Logger LOGGER = LogManager.getLogger(Jackson.class);
-    private static String serialization;
-    private static ObjectMapper objectMapper = new ObjectMapper();
 
 
-    public static void main(String[] args) {
-        User user = new User();
-        String jason = null;
-        serialization(user);
-
-        deserialize(jason);
-    }
-
-    private static void deserialize(String jason) {
+    public static String serialize(File file){
+        String json = "";
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            Jackson jackson = objectMapper.readValue(jason, Jackson.class);
-            LOGGER.info(jackson.toString());
+            file = new File("jackson.json");
+            json = objectMapper.writeValueAsString(file);
         } catch (JsonProcessingException e) {
             LOGGER.error(e);
         }
+
+        return json;
     }
 
-    private static void serialization(User user) {
+    public static <T> T deserialize(String jsonString, Class<T> cls){
+        T result = null;
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            serialization = objectMapper.writeValueAsString(user);
-            LOGGER.info(serialization);
+            result = objectMapper.readValue(jsonString,cls);
         } catch (JsonProcessingException e) {
             LOGGER.error(e);
         }
+        return result;
     }
+
 }
