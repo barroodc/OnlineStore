@@ -187,7 +187,7 @@ public class CustomerInformation {
 
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         generalAdvertisements();
         greetingsToCustomers();
         customerTerminations();
@@ -195,6 +195,7 @@ public class CustomerInformation {
         rankedPlayerCustomers();
         customersWithoutNewsLetters();
     }
+     */
 
     @Override
     public String toString() {
