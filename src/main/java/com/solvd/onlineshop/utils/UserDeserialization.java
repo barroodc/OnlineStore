@@ -20,8 +20,8 @@ public class UserDeserialization extends StdDeserializer<User> {
         this(null);
     }
 
-    public UserDeserialization(Class<?> vc) {
-        super(vc);
+    public UserDeserialization(Class<?> deserialization) {
+        super(deserialization);
     }
 
     @Override

@@ -50,7 +50,6 @@ public class AddressDao extends AbstractMySQLDao<Address> implements IAddressDao
             }
         }catch (SQLException e){
             LOGGER.error(e);
-            e.printStackTrace();
         }
         return address;
     }
