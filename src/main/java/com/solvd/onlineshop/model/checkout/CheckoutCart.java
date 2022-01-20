@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.checkout;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 import java.util.Arrays;
@@ -11,15 +13,24 @@ import java.util.Arrays;
 
 
 public class CheckoutCart {
-    
+
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("userID")
     private Long userID;
+    @JsonProperty("numberOfItems")
     private long numberOfItems;
+    @JsonProperty("mobile")
     private String mobile;
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("country")
     private String country;
+    @JsonProperty("timeCreated")
     private Date timeCreated;
+    @JsonProperty("cartUpdated")
     private Date cartUpdated;
+    @JsonProperty("isGift")
     private byte[] isGift;
 
 

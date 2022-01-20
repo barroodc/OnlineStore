@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.labor;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "Jobs")
@@ -7,9 +9,13 @@ import javax.xml.bind.annotation.*;
 @XmlType(propOrder = {"id", "jobTitle", "minSalary", "maxSalary"})
 
 public class Jobs  {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("jobTitle")
     private String jobTitle;
+    @JsonProperty("minSalary")
     private float minSalary;
+    @JsonProperty("maxSalary")
     private float maxSalary;
 
     public Jobs() {

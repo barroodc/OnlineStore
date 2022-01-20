@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
@@ -8,12 +10,15 @@ import java.io.Serializable;
 @XmlType(propOrder = {"id", "productName", "description", "price", "amountInStock"})
 
 public class Inventory implements Serializable {
-
-
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("productName")
     private String productName;
+    @JsonProperty("description")
     private String description;
+    @JsonProperty("price")
     private float price;
+    @JsonProperty("amountInStock")
     private long amountInStock;
 
 

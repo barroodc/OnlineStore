@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.purchase;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
@@ -9,14 +11,23 @@ import java.util.Arrays;
 "preTax", "tax", "subtotal"})
 
 public class Invoice {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("transactionID")
     private Long transactionID;
+    @JsonProperty("inventoryID")
     private long inventoryID;
+    @JsonProperty("isInStock")
     private byte[] isInStock;
+    @JsonProperty("price")
     private float price;
+    @JsonProperty("discount")
     private float discount;
+    @JsonProperty("preTax")
     private float preTax;
+    @JsonProperty("tax")
     private float tax;
+    @JsonProperty("subtotal")
     private float subtotal;
 
     public Invoice() {

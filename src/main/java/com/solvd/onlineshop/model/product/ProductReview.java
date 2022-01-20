@@ -1,4 +1,5 @@
 package com.solvd.onlineshop.model.product;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
@@ -9,12 +10,19 @@ import java.sql.Date;
 @XmlType(propOrder = {"id", "productID", "overallRating", "title", "parentID", "timeCreated", "userReview"})
 
 public class ProductReview {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("productID")
     private Long productID;
+    @JsonProperty("overallRating")
     private float overallRating;
+    @JsonProperty("title")
     private String title;
+    @JsonProperty("parentID")
     private long parentID;
+    @JsonProperty("timeCreated")
     private Date timeCreated;
+    @JsonProperty("userReview")
     private String userReview;
 
     public ProductReview() {

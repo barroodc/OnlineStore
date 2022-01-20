@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "Product")
@@ -8,12 +10,19 @@ import javax.xml.bind.annotation.*;
 "shopID", "countryID", "productName"})
 
 public class Product {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("inventoryID")
     private Long inventoryID;
+    @JsonProperty("productTypeID")
     private long productTypeID;
+    @JsonProperty("categoryID")
     private long categoryID;
+    @JsonProperty("shopID")
     private long shopID;
+    @JsonProperty("countryID")
     private long countryID;
+    @JsonProperty("productName")
     private String productName;
 
     public Product() {

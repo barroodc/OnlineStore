@@ -48,7 +48,8 @@ public class JAXBHandler {
         return departments;
     }
 
-    /*public static void main(String[] args) {
+    /*
+    public static void main(String[] args) {
       Departments chessMaterials = new Departments(1L,"Marketing");
       try {
           JAXBHandler.marshal(chessMaterials, new File("src/main/resources/xmlFiles/entityXMLS/departments.xml"));

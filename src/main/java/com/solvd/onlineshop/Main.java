@@ -1,10 +1,7 @@
 package com.solvd.onlineshop;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.solvd.onlineshop.dao.jdbcmySQLImpl.*;
 import com.solvd.onlineshop.model.checkout.CheckoutCart;
@@ -51,15 +48,15 @@ public class Main {
             /*------------------------------------------------------------------------ */
             EmployeesDao employeesDao = new EmployeesDao(connection);
             Employees employees = employeesDao.findById(2);
-            System.out.println(employees.getId());
+            LOGGER.info(employees.getId());
             /*------------------------------------------------------------------------ */
             ProductCategoryDao productCategoryDao = new ProductCategoryDao(connection);
             ProductCategory productCategory = productCategoryDao.findById(1);
-            System.out.println(productCategory.getId());
+            LOGGER.info(productCategory.getId());
             /*------------------------------------------------------------------------ */
             CityDao cityDao = new CityDao(connection);
             City city = cityDao.findById(1);
-            System.out.println(city.getId());
+            LOGGER.info(city.getId());
             /*------------------------------------------------------------------------ */
             CheckoutCartDao checkoutCartDao = new CheckoutCartDao(connection);
             CheckoutCart checkoutCart = checkoutCartDao.findById(1);
@@ -67,65 +64,65 @@ public class Main {
             /*------------------------------------------------------------------------ */
             AddressDao addressDao = new AddressDao(connection);
             Address address = addressDao.findById(1);
-            System.out.println(address.getId());
+            LOGGER.info(address.getId());
             /*------------------------------------------------------------------------ */
             CountryDao countryDao = new CountryDao(connection);
             Country country = countryDao.findById(1);
-            System.out.println(country.getId());
+            LOGGER.info(country.getId());
             /*------------------------------------------------------------------------ */
             DepartmentsDao departmentsDao = new DepartmentsDao(connection);
             Departments departments = departmentsDao.findById(1);
-            System.out.println(departments.getId());
+            LOGGER.info(departments.getId());
             /*------------------------------------------------------------------------ */
             InventoryDao inventoryDao = new InventoryDao(connection);
             Inventory inventory = inventoryDao.findById(1);
-            System.out.println(inventory.getId());
+            LOGGER.info(inventory.getId());
             /*------------------------------------------------------------------------ */
             ItemsInCartDao itemsInCartDao = new ItemsInCartDao(connection);
             ItemsInCart itemsInCart = itemsInCartDao.findById(1);
-            System.out.println(itemsInCart.getId());
+            LOGGER.info(itemsInCart.getId());
             /*------------------------------------------------------------------------ */
             JobsDao jobsDao = new JobsDao(connection);
             Jobs jobs = jobsDao.findById(1);
-            System.out.println(jobs.getId());
+            LOGGER.info(jobs.getId());
             /*------------------------------------------------------------------------ */
             OrderDao orderDao = new OrderDao(connection);
             Order order = orderDao.findById(1);
-            System.out.println(order.getId());
+            LOGGER.info(order.getId());
             //check the manual that corresponds to your MySQL server version for the right syntax to use near 'order WHERE id = 1' at line 1
             /*------------------------------------------------------------------------ */
             OrderItemDao orderItemDao = new OrderItemDao(connection);
             OrderItem orderItem = orderItemDao.findById(1);
-            System.out.println(orderItem.getId());
+            LOGGER.info(orderItem.getId());
             /*------------------------------------------------------------------------ */
             ProductDao productDao = new ProductDao(connection);
             Product product = productDao.findById(1);
-            System.out.println(product);
+            LOGGER.info(product.getId());
             /*------------------------------------------------------------------------ */
             ProductReviewDao productReviewDao = new ProductReviewDao(connection);
             ProductReview productReview = productReviewDao.findById(1);
-            System.out.println(productReview.getId());
+            LOGGER.info(productReview.getId());
             /*------------------------------------------------------------------------ */
             ProductSupplierDao productSupplierDao = new ProductSupplierDao(connection);
             ProductSupplier productSupplier = productSupplierDao.findById(1);
-            System.out.println(productSupplier.getId());
+            LOGGER.info(productSupplier.getId());
             /*------------------------------------------------------------------------ */
             StateDao stateDao = new StateDao(connection);
             State state = stateDao.findById(1);
-            System.out.println(state.getId());
+            LOGGER.info(state.getId());
             /*------------------------------------------------------------------------ */
             TransactionDao transactionDao = new TransactionDao(connection);
             Transaction transaction = transactionDao.findById(1);
-            System.out.println(transaction.getId());
+            LOGGER.info(transaction.getId());
             /*------------------------------------------------------------------------ */
             UserDao userDao = new UserDao(connection);
             User user = userDao.findById(1);
-            System.out.println(user.getId());
+            LOGGER.info(user.getId());
         } catch (SQLException e) {
-            System.out.println(e.getErrorCode());
+            LOGGER.error(e);
         }
 
-        /*try {
+        try {
             String json = "{\"id\":\"1\",\"employeesID\":\"1\",\"fName\":\"Annette\",\"mName\":\"Emily\",\"lName\":\"Smith\",\"mobile\":\"3268408450\",\"email\":\"annette74@yahoo.com\",\"password\":\"fHMpqaPGW9e7sy3W\",\"userName\":\"Annette1\",\"timeCreated\":\"2021-10-18T10:15:17.075Z\",\"lastLogin\":\"2021-12-02T13:26:48.976Z\"}";
 
             ObjectMapper mapper = new ObjectMapper();
@@ -137,7 +134,7 @@ public class Main {
             LOGGER.error(e);
         }
 
-         */
+
 
     }
 

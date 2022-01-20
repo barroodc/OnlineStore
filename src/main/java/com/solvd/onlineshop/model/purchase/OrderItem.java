@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.purchase;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 
@@ -9,13 +11,21 @@ import java.sql.Date;
 
 
 public class OrderItem {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("orderID")
     private Long orderID;
+    @JsonProperty("productID")
     private Long productID;
+    @JsonProperty("sku")
     private String sku;
+    @JsonProperty("price")
     private float price;
+    @JsonProperty("discount")
     private float discount;
+    @JsonProperty("quantity")
     private long quantity;
+    @JsonProperty("timeCreated")
     private Date timeCreated;
 
     public OrderItem() {

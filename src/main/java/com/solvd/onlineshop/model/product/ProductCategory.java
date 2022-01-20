@@ -1,5 +1,6 @@
 package com.solvd.onlineshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
@@ -9,10 +10,15 @@ import javax.xml.bind.annotation.*;
 @XmlType(propOrder = {"id", "productID", "title", "metaTitle", "productName"})
 
 public class ProductCategory {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("productID")
     private Long productID;
+    @JsonProperty("title")
     private String title;
+    @JsonProperty("metaTitle")
     private String metaTitle;
+    @JsonProperty("productName")
     private String productName;
 
     public ProductCategory() {

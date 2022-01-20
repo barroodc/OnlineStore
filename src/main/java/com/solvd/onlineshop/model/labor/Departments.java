@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.labor;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "Departments")
@@ -7,7 +9,9 @@ import javax.xml.bind.annotation.*;
 @XmlType(propOrder = {"id", "departmentName"})
 
 public class Departments {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("departmentName")
     private String departmentName;
 
     public Departments() {

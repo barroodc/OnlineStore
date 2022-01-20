@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.location;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 
@@ -8,10 +10,15 @@ import java.sql.Timestamp;
 @XmlType(propOrder = {"id", "countryName", "currencyName", "phoneCode", "lastUpdate"})
 
 public class Country {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("countryName")
     private String countryName;
+    @JsonProperty("currencyName")
     private String currencyName;
+    @JsonProperty("phoneCode")
     private String phoneCode;
+    @JsonProperty("lastUpdate")
     private Timestamp lastUpdate;
 
     public Country() {

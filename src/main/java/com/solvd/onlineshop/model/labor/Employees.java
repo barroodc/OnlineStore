@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.model.labor;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 
@@ -10,15 +12,25 @@ import java.sql.Date;
 
 
 public class Employees {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("jobsID")
     private Long jobsID;
+    @JsonProperty("departmentsID")
     private Long departmentsID;
+    @JsonProperty("mobile")
     private String mobile;
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("hireDate")
     private Date hireDate;
+    @JsonProperty("jobID")
     private String jobID; //look into this one. It does make sense. Consider renaming
+    @JsonProperty("salary")
     private float salary;
+    @JsonProperty("managerID")
     private long managerID;
+    @JsonProperty("departmentID")
     private long departmentID; //look into this one as well. Consider renaming
 
     public Employees() {

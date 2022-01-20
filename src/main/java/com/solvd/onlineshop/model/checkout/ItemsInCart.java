@@ -1,4 +1,5 @@
 package com.solvd.onlineshop.model.checkout;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.*;
@@ -10,14 +11,23 @@ import java.sql.Date;
 "subtotalOfItems", "discount", "quantity", "timeCreated", "cartUpdated"})
 
 public class ItemsInCart {
+    @JsonProperty("id")
     private Long id;
+    @JsonProperty("productID")
     private Long productID;
+    @JsonProperty("sku")
     private String sku;
+    @JsonProperty("price")
     private float price;
+    @JsonProperty("subtotalOfItems")
     private float subtotalOfItems;
+    @JsonProperty("discount")
     private float discount;
+    @JsonProperty("quantity")
     private float quantity;
+    @JsonProperty("timeCreated")
     private Date timeCreated;
+    @JsonProperty("cartUpdated")
     private Date cartUpdated;
 
     public ItemsInCart() {
