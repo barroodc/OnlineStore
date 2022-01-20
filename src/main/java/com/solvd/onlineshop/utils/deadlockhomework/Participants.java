@@ -1,4 +1,4 @@
-package com.solvd.onlineshop.utils;
+package com.solvd.onlineshop.utils.deadlockhomework;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

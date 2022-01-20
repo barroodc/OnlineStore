@@ -1,4 +1,4 @@
-package com.solvd.onlineshop.utils;
+package com.solvd.onlineshop.utils.deadlockhomework;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

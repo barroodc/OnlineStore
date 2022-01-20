@@ -1,4 +1,4 @@
-package com.solvd.onlineshop.utils;
+package com.solvd.onlineshop.utils.apachewordcount;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -33,15 +33,15 @@ public class ApacheWordCount {
 
         logger.info(wordsOccurrences);
 
-        FileUtils.writeStringToFile(new File("src/main/resources/apacheresults.txt"), String.valueOf(wordCount), "UTF-8");
+        FileUtils.writeStringToFile(new File("/Users/christopher/Desktop/OnlineShop/src/main/resources/apacheresults.txt"), String.valueOf(wordCount), "UTF-8");
 
     }
 
 
 
-   /* public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         uniqueWordFunction();
     }
 
-    */
+
 }
