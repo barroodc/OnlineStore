@@ -28,6 +28,10 @@ public class DepartmentsDao extends AbstractMySQLDao<Departments> implements IDe
 
     private static final String DELETE = "DELETE FROM departments WHERE id = ?";
 
+    public DepartmentsDao() {
+
+    }
+
     @Override
     public Departments findById(long id) {
         Departments departments = new Departments();

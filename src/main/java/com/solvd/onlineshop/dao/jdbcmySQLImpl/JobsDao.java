@@ -29,6 +29,10 @@ public class JobsDao extends AbstractMySQLDao<Jobs> implements IJobsDao {
 
     private static final String DELETE = "DELETE FROM jobs WHERE id = ?";
 
+    public JobsDao() {
+
+    }
+
     @Override
     public Jobs findById(long id) {
         Jobs jobs = new Jobs();

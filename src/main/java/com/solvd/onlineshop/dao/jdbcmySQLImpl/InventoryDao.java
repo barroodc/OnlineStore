@@ -29,6 +29,10 @@ public class InventoryDao extends AbstractMySQLDao<Inventory> implements IInvent
 
     private static final String DELETE = "DELETE FROM inventory WHERE id = ?";
 
+    public InventoryDao() {
+
+    }
+
     @Override
     public Inventory findById(long id) {
         Inventory inventory = new Inventory();

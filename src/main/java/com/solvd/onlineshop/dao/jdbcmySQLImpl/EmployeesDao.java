@@ -29,6 +29,10 @@ public class EmployeesDao extends AbstractMySQLDao<Employees> implements IEmploy
 
     private static final String DELETE = "DELETE FROM employees WHERE id = ?";
 
+    public EmployeesDao() {
+
+    }
+
     @Override
     public Employees findById(long id) {
         Employees employees = new Employees();

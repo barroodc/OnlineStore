@@ -28,6 +28,10 @@ public class OrderItemDao extends AbstractMySQLDao<OrderItem> implements IOrderI
 
     private static final String DELETE = "DELETE FROM order_item WHERE id = ?";
 
+    public OrderItemDao() {
+
+    }
+
     @Override
     public OrderItem findById(long id) {
         OrderItem orderItem = new OrderItem();

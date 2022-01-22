@@ -30,6 +30,10 @@ public class ItemsInCartDao extends AbstractMySQLDao<ItemsInCart> implements IIt
 
     private static final String DELETE = "DELETE FROM items_in_cart WHERE id = ?";
 
+    public ItemsInCartDao() {
+
+    }
+
     @Override
     public ItemsInCart findById(long id) {
         ItemsInCart itemsInCart = new ItemsInCart();

@@ -28,6 +28,10 @@ public class ProductCategoryDao extends AbstractMySQLDao<ProductCategory> implem
 
     private static final String DELETE = "DELETE FROM product_category WHERE id = ?";
 
+    public ProductCategoryDao() {
+
+    }
+
     @Override
     public ProductCategory findById(long id) {
         ProductCategory productCategory = new ProductCategory();

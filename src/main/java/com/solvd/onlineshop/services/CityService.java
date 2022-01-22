@@ -1,49 +1,32 @@
 package com.solvd.onlineshop.services;
 
-import com.solvd.onlineshop.model.checkout.CheckoutCart;
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.AddressDao;
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.CityDao;
+import com.solvd.onlineshop.model.location.Address;
 import com.solvd.onlineshop.model.location.City;
 import com.solvd.onlineshop.services.interfaces.ICityService;
-import com.solvd.onlineshop.utils.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.*;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicReference;
-
 public class CityService implements ICityService<City> {
 
-    private static final Logger logger = LogManager.getLogger(CityService.class);
-    private static PreparedStatement preparedStatement;
-    private static CopyOnWriteArrayList<City> cityList;
+    private static final Logger LOGGER = LogManager.getLogger(CityService.class);
+    private static final CityDao cityDao;
+    private static City city;
+
+    static {
+        cityDao = new CityDao();
+        city = null;
+    }
 
     @Override
     public City getCityByID(long id) {
-        City city = null;
-        AtomicReference<String> select = new AtomicReference<>("select * from city where id = ?");
-        try(Connection c = ConnectionPool.getConnection()) {
-            preparedStatement = c.prepareStatement(select.get());
-            preparedStatement.setString(1, String.valueOf(id));
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    id = resultSet.getLong("id");
-                    Long countryID = resultSet.getLong("country_id");
-                    String cityName = resultSet.getString("city_name");
-                    byte[] location = resultSet.getBytes("location");
-                    String postalCode = resultSet.getString("postal_code");
-                    Timestamp lastUpdate = resultSet.getTimestamp("last_update");
-                    city = new City(id, countryID, cityName, location, postalCode, lastUpdate);
-                    cityList.add(city);
-                }
-
-            } catch (Exception e) {
-                logger.error(e);
-
-            }
-        } catch (Exception e) {
-            logger.error(e);
+        try {
+            city = (City) cityDao.getCityByID(id);
+            LOGGER.info(city);
+        } catch (Exception e){
+            LOGGER.error(e);
         }
-
-        return city;
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.services;
 
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.ProductCategoryDao;
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.ProductReviewDao;
 import com.solvd.onlineshop.model.product.ProductCategory;
 import com.solvd.onlineshop.model.product.ProductReview;
 import com.solvd.onlineshop.services.interfaces.IProductReviewService;
@@ -16,39 +18,23 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ProductReviewService implements IProductReviewService<ProductReview> {
 
-    private static final Logger logger = LogManager.getLogger(ProductReviewService.class);
-    private static PreparedStatement preparedStatement;
-    private static CopyOnWriteArrayList<ProductReview> productReviewList;
+    private static final Logger LOGGER = LogManager.getLogger(ProductReviewService.class);
+    private static final ProductReviewDao productReviewDao;
+    private static ProductReview productReview;
 
+    static {
+        productReviewDao = new ProductReviewDao();
+        productReview = null;
+    }
 
     @Override
     public ProductReview getProductReviewById(long id) {
-        ProductReview productReview = null;
-        AtomicReference<String> select = new AtomicReference<>("select * from product_review where id = ?");
-        try(Connection c = ConnectionPool.getConnection()) {
-            preparedStatement = c.prepareStatement(select.get());
-            preparedStatement.setString(1, String.valueOf(id));
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    id = resultSet.getLong("id");
-                    Long productID = resultSet.getLong("product_id");
-                    float overallRating = resultSet.getFloat("overall_rating");
-                    String title = resultSet.getString("title");
-                    long parentID = resultSet.getLong("parent_id");
-                    Date timeCreated = resultSet.getDate("time_created");
-                    String userReview = resultSet.getString("user_review");
-                    productReview = new ProductReview(id, productID, overallRating, title, parentID, timeCreated, userReview);
-                    productReviewList.add(productReview);
-                }
-
-            } catch (Exception e) {
-                logger.error(e);
-
-            }
-        } catch (Exception e) {
-            logger.error(e);
+        try {
+            productReview = (ProductReview) productReviewDao.getAllProductReviewsByID(id);
+            LOGGER.info(productReview);
+        } catch (Exception e){
+            LOGGER.error(e);
         }
-
-        return productReview;
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.services;
 
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.OrderDao;
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.OrderItemDao;
 import com.solvd.onlineshop.model.purchase.Order;
 import com.solvd.onlineshop.model.purchase.OrderItem;
 import com.solvd.onlineshop.services.interfaces.IOrderService;
@@ -16,42 +18,23 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class OrderService implements IOrderService<Order> {
 
-    private static final Logger logger = LogManager.getLogger(OrderService.class);
-    private static PreparedStatement preparedStatement;
-    private static CopyOnWriteArrayList<Order> orderList;
+    private static final Logger LOGGER = LogManager.getLogger(OrderService.class);
+    private static final OrderDao orderDao;
+    private static Order order;
+
+    static {
+        orderDao = new OrderDao();
+        order = null;
+    }
 
     @Override
     public Order getOrderById(long id) {
-        Order order = null;
-        AtomicReference<String> select = new AtomicReference<>("select * from order where id = ?");
-        try(Connection c = ConnectionPool.getConnection()) {
-            preparedStatement = c.prepareStatement(select.get());
-            preparedStatement.setString(1, String.valueOf(id));
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    id = resultSet.getLong("id");
-                    Long userID = resultSet.getLong("user_id");
-                    Date dateOfOrder = resultSet.getDate("date_of_order");
-                    Date dateOfDelivery = resultSet.getDate("date_of_delivery");
-                    Date timeOfDelivery = resultSet.getDate("time_of_delivery");
-                    String postalCode = resultSet.getString("postal_code");
-                    String mobile = resultSet.getString("mobile");
-                    String email = resultSet.getString("email");
-                    Date timeCreated = resultSet.getDate("time_created");
-                    String status = resultSet.getString("status");
-                    order = new Order(id, userID, dateOfOrder, dateOfDelivery, timeOfDelivery, postalCode, mobile, email,
-                                      timeCreated, status);
-                    orderList.add(order);
-                }
-
-            } catch (Exception e) {
-                logger.error(e);
-
-            }
-        } catch (Exception e) {
-            logger.error(e);
+        try {
+            order = (Order) orderDao.getOrderByID(id);
+            LOGGER.info(order);
+        } catch (Exception e){
+            LOGGER.error(e);
         }
-
-        return order;
+        return null;
     }
 }

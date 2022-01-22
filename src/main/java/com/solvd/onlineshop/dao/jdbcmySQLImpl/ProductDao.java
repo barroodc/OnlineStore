@@ -29,6 +29,10 @@ public class ProductDao extends AbstractMySQLDao<Product> implements IProductDao
 
     private static final String DELETE = "DELETE FROM product WHERE id = ?";
 
+    public ProductDao() {
+
+    }
+
     @Override
     public Product findById(long id) {
         Product product = new Product();

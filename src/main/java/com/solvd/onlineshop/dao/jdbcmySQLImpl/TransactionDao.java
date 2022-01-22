@@ -28,6 +28,10 @@ public class TransactionDao extends AbstractMySQLDao<Transaction> implements ITr
 
     private static final String DELETE = "DELETE FROM transaction WHERE id = ?";
 
+    public TransactionDao() {
+
+    }
+
     @Override
     public Transaction findById(long id) {
         Transaction transaction = new Transaction();

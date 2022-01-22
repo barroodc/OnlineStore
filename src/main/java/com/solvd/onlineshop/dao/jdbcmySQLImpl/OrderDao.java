@@ -28,6 +28,10 @@ public class OrderDao extends AbstractMySQLDao<Order> implements IOrderDao {
 
     private static final String DELETE = "DELETE FROM order WHERE id = ?";
 
+    public OrderDao() {
+
+    }
+
     @Override
     public Order findById(long id) {
         Order order = new Order();

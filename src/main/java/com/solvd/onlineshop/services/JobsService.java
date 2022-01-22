@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.services;
 
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.ItemsInCartDao;
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.JobsDao;
 import com.solvd.onlineshop.model.checkout.ItemsInCart;
 import com.solvd.onlineshop.model.labor.Jobs;
 import com.solvd.onlineshop.services.interfaces.IJobsService;
@@ -15,36 +17,23 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class JobsService implements IJobsService<Jobs> {
 
-    private static final Logger logger = LogManager.getLogger(JobsService.class);
-    private static PreparedStatement preparedStatement;
-    private static CopyOnWriteArrayList<Jobs> jobsList;
+    private static final Logger LOGGER = LogManager.getLogger(JobsService.class);
+    private static final JobsDao jobsDao;
+    private static Jobs jobs;
+
+    static {
+        jobsDao = new JobsDao();
+        jobs = null;
+    }
 
     @Override
     public Jobs getJobsById(long id) {
-        Jobs jobs = null;
-        AtomicReference<String> select = new AtomicReference<>("select * from jobs where id = ?");
-        try(Connection c = ConnectionPool.getConnection()) {
-            preparedStatement = c.prepareStatement(select.get());
-            preparedStatement.setString(1, String.valueOf(id));
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    id = resultSet.getLong("id");
-                    String jobTitle = resultSet.getString("job_title");
-                    float positionSalary = resultSet.getFloat("position_salary");
-                    float minSalary = resultSet.getFloat("min_salary");
-                    float maxSalary = resultSet.getFloat("max_salary");
-                    jobs = new Jobs(id, jobTitle, positionSalary, minSalary, maxSalary);
-                    jobsList.add(jobs);
-                }
-
-            } catch (Exception e) {
-                logger.error(e);
-
-            }
-        } catch (Exception e) {
-            logger.error(e);
+        try {
+            jobs = (Jobs) jobsDao.getJobsByID(id);
+            LOGGER.info(jobs);
+        } catch (Exception e){
+            LOGGER.error(e);
         }
-
-        return jobs;
+        return null;
     }
 }

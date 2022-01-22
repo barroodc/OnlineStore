@@ -32,6 +32,10 @@ public class InvoiceDao extends AbstractMySQLDao<Invoice> implements IInvoiceDao
 
     private static final String DELETE = "DELETE FROM invoice WHERE id = ?";
 
+    public InvoiceDao() {
+
+    }
+
     @Override
     public Invoice findById(long id) {
         Invoice invoice = new Invoice();

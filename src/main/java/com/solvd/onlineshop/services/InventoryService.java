@@ -1,5 +1,7 @@
 package com.solvd.onlineshop.services;
 
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.EmployeesDao;
+import com.solvd.onlineshop.dao.jdbcmySQLImpl.InventoryDao;
 import com.solvd.onlineshop.model.labor.Employees;
 import com.solvd.onlineshop.model.location.Country;
 import com.solvd.onlineshop.model.product.Inventory;
@@ -17,36 +19,23 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class InventoryService implements IInventoryService<Inventory> {
 
-    private static final Logger logger = LogManager.getLogger(InventoryService.class);
-    private static PreparedStatement preparedStatement;
-    private static CopyOnWriteArrayList<Inventory> inventoryList;
+    private static final Logger LOGGER = LogManager.getLogger(InventoryService.class);
+    private static final InventoryDao inventoryDao;
+    private static Inventory inventory;
+
+    static {
+        inventoryDao = new InventoryDao();
+        inventory = null;
+    }
 
     @Override
     public Inventory getInventoryById(long id) {
-        Inventory inventory = null;
-        AtomicReference<String> select = new AtomicReference<>("select * from inventory where id = ?");
-        try(Connection c = ConnectionPool.getConnection()) {
-            preparedStatement = c.prepareStatement(select.get());
-            preparedStatement.setString(1, String.valueOf(id));
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    id = resultSet.getLong("id");
-                    String productName = resultSet.getString("product_name");
-                    String description = resultSet.getString("description");
-                    float price = resultSet.getFloat("price");
-                    long amountInStock = resultSet.getLong("amount_in_stock");
-                    inventory = new Inventory(id, productName, description, price, amountInStock);
-                    inventoryList.add(inventory);
-                }
-
-            } catch (Exception e) {
-                logger.error(e);
-
-            }
-        } catch (Exception e) {
-            logger.error(e);
+        try {
+            inventory = (Inventory) inventoryDao.getAllInventory(id);
+            LOGGER.info(inventory);
+        } catch (Exception e){
+            LOGGER.error(e);
         }
-
-        return inventory;
+        return null;
     }
 }

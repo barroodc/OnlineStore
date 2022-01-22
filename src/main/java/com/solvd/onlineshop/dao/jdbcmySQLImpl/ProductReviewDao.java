@@ -26,6 +26,10 @@ public class ProductReviewDao extends AbstractMySQLDao<ProductReview> implements
 
     private static final String DELETE = "DELETE FROM product_review WHERE id = ?";
 
+    public ProductReviewDao() {
+
+    }
+
     @Override
     public ProductReview findById(long id) {
         ProductReview productReview = new ProductReview();

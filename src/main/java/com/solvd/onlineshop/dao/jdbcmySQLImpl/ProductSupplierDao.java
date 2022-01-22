@@ -26,6 +26,10 @@ public class ProductSupplierDao extends AbstractMySQLDao<ProductSupplier> implem
 
     private static final String DELETE = "DELETE FROM product_supplier WHERE id = ?";
 
+    public ProductSupplierDao() {
+
+    }
+
     @Override
     public ProductSupplier findById(long id) {
         ProductSupplier productSupplier = new ProductSupplier();
