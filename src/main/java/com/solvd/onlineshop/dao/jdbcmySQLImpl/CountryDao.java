@@ -15,10 +15,6 @@ public class CountryDao extends AbstractMySQLDao<Country>implements ICountryDao 
 
     private static final Logger LOGGER = LogManager.getLogger(CountryDao.class);
 
-    public CountryDao() {
-
-    }
-
     public CountryDao(Connection connection) {
         super(connection);
     }
@@ -33,6 +29,10 @@ public class CountryDao extends AbstractMySQLDao<Country>implements ICountryDao 
             "last_update FROM country WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM country WHERE id = ?";
+
+    public CountryDao() {
+
+    }
 
     @Override
     public Country findById(long id) {

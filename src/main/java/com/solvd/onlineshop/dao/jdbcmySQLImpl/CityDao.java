@@ -16,10 +16,6 @@ public class CityDao extends AbstractMySQLDao<City> implements ICityDao {
 
     private static final Logger LOGGER = LogManager.getLogger(CityDao.class);
 
-    public CityDao() {
-
-    }
-
     public CityDao(Connection connection) {
         super(connection);
     }
@@ -34,6 +30,10 @@ public class CityDao extends AbstractMySQLDao<City> implements ICityDao {
             "zip_code = ?, last_update FROM city WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM city WHERE id = ?";
+
+    public CityDao() {
+
+    }
 
     @Override
     public City findById(long id) {

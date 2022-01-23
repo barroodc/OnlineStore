@@ -15,8 +15,6 @@ public class ProductDao extends AbstractMySQLDao<Product> implements IProductDao
 
     private static final Logger LOGGER = LogManager.getLogger(ProductDao.class);
 
-
-
     public ProductDao(Connection connection) {
         super(connection);
     }

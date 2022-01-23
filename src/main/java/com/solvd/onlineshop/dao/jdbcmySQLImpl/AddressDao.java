@@ -15,10 +15,6 @@ public class AddressDao extends AbstractMySQLDao<Address> implements IAddressDao
 
     private static final Logger LOGGER = LogManager.getLogger(AddressDao.class);
 
-    public AddressDao() {
-
-    }
-
     public AddressDao(Connection connection) {
         super(connection);
     }
@@ -33,6 +29,10 @@ public class AddressDao extends AbstractMySQLDao<Address> implements IAddressDao
             "last_update = ? FROM address WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM address WHERE id = ?";
+
+    public AddressDao() {
+
+    }
 
 
     @Override

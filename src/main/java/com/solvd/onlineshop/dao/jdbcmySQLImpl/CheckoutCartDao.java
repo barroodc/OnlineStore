@@ -14,10 +14,6 @@ public class CheckoutCartDao extends AbstractMySQLDao<CheckoutCart> implements I
 
     private static final Logger LOGGER = LogManager.getLogger(CheckoutCartDao.class);
 
-    public CheckoutCartDao() {
-
-    }
-
     public CheckoutCartDao(Connection connection) {
         super(connection);
     }
@@ -33,6 +29,9 @@ public class CheckoutCartDao extends AbstractMySQLDao<CheckoutCart> implements I
 
     private static final String DELETE = "DELETE FROM checkout_cart WHERE id = ?";
 
+    public CheckoutCartDao() {
+
+    }
 
     @Override
     public CheckoutCart findById(long id) {

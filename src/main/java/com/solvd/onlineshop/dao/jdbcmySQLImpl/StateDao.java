@@ -15,10 +15,6 @@ public class StateDao extends AbstractMySQLDao<State> implements IStateDao {
 
     private static final Logger LOGGER = LogManager.getLogger(StateDao.class);
 
-    public StateDao() {
-
-    }
-
     public StateDao(Connection connection) {
         super(connection);
     }
@@ -30,6 +26,10 @@ public class StateDao extends AbstractMySQLDao<State> implements IStateDao {
     private static final String UPDATE = "UPDATE state SET country_id = ?, state_name = ?, last_update FROM state WHERE id = ?";
 
     private static final String DELETE = "DELETE FROM state WHERE id = ?";
+
+    public StateDao() {
+
+    }
 
     @Override
     public State findById(long id) {
