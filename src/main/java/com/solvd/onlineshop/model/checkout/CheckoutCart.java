@@ -1,11 +1,16 @@
 package com.solvd.onlineshop.model.checkout;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 import java.util.Arrays;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id","userID","numberOfItems", "mobile", "email", "country",
+        "timeCreated", "cartUpdated", "isGift"
+})
 @XmlRootElement(name = "CheckoutCart")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "userID", "numberOfItems", "mobile", "email", "country",
@@ -72,83 +77,101 @@ public class CheckoutCart {
         this.isGift = isGift;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getUserID() {
         return userID;
     }
 
+    @JsonAnySetter
     public void setUserID(Long userID) {
         this.userID = userID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "numberOfItems")
     public long getNumberOfItems() {
         return numberOfItems;
     }
 
+    @JsonAnySetter
     public void setNumberOfItems(long numberOfItems) {
         this.numberOfItems = numberOfItems;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
 
+    @JsonAnySetter
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
 
+    @JsonAnySetter
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "country")
     public String getCountry() {
         return country;
     }
 
+    @JsonAnySetter
     public void setCountry(String country) {
         this.country = country;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
 
+    @JsonAnySetter
     public void setTimeCreated(Date timeCreated) {
         this.timeCreated = timeCreated;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "cartUpdated")
     public Date getCartUpdated() {
         return cartUpdated;
     }
 
+    @JsonAnySetter
     public void setCartUpdated(Date cartUpdated) {
         this.cartUpdated = cartUpdated;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "isGift")
     public byte[] getIsGift() {
         return isGift;
     }
 
+    @JsonAnySetter
     public void setIsGift(byte[] isGift) {
         this.isGift = isGift;
     }

@@ -1,10 +1,14 @@
 package com.solvd.onlineshop.model.location;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "countryName", "currencyName", "phoneCode", "lastUpdate"
+})
 @XmlRootElement(name = "Country")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "countryName", "currencyName", "phoneCode", "lastUpdate"})
@@ -51,47 +55,57 @@ public class Country {
         this.lastUpdate = lastUpdate;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "countryName")
     public String getCountryName() {
         return countryName;
     }
 
+    @JsonAnySetter
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "currencyName")
     public String getCurrencyName() {
         return currencyName;
     }
 
+    @JsonAnySetter
     public void setCurrencyName(String currencyName) {
         this.currencyName = currencyName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "phoneCode")
     public String getPhoneCode() {
         return phoneCode;
     }
 
+    @JsonAnySetter
     public void setPhoneCode(String phoneCode) {
         this.phoneCode = phoneCode;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
 
+    @JsonAnySetter
     public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }

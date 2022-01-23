@@ -1,9 +1,14 @@
 package com.solvd.onlineshop.model.product;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "inventoryID", "productTypeID", "categoryID",
+        "shopID", "countryID", "productName"
+})
 @XmlRootElement(name = "Product")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "inventoryID", "productTypeID", "categoryID",
@@ -43,65 +48,79 @@ public class Product {
         this.productName = productName;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getInventoryID() {
         return inventoryID;
     }
 
+    @JsonAnySetter
     public void setInventoryID(Long inventoryID) {
         this.inventoryID = inventoryID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "productTypeID")
     public long getProductTypeID() {
         return productTypeID;
     }
 
+    @JsonAnySetter
     public void setProductTypeID(long productTypeID) {
         this.productTypeID = productTypeID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "categoryID")
     public long getCategoryID() {
         return categoryID;
     }
 
+    @JsonAnySetter
     public void setCategoryID(long categoryID) {
         this.categoryID = categoryID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "shopID")
     public long getShopID() {
         return shopID;
     }
 
+    @JsonAnySetter
     public void setShopID(long shopID) {
         this.shopID = shopID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "countryID")
     public long getCountryID() {
         return countryID;
     }
 
+    @JsonAnySetter
     public void setCountryID(long countryID) {
         this.countryID = countryID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "productName")
     public String getProductName() {
         return productName;
     }
 
+    @JsonAnySetter
     public void setProductName(String productName) {
         this.productName = productName;
     }

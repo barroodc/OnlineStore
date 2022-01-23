@@ -1,9 +1,13 @@
 package com.solvd.onlineshop.model.labor;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id","departmentName"
+})
 @XmlRootElement(name = "Departments")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "departmentName"})
@@ -27,20 +31,24 @@ public class Departments {
         this.departmentName = departmentName;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "departmentName")
     public String getDepartmentName() {
         return departmentName;
     }
 
+    @JsonAnySetter
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }

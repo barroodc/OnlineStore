@@ -1,11 +1,15 @@
 package com.solvd.onlineshop.model.location;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "countryID", "cityName", "location", "zipCode", "lastUpdate"
+})
 @XmlRootElement(name = "City")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "countryID", "cityName", "location", "zipCode", "lastUpdate"})
@@ -54,56 +58,68 @@ public class City {
         this.lastUpdate = lastUpdate;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getCountryID() {
         return countryID;
     }
 
+    @JsonAnySetter
     public void setCountryID(Long countryID) {
         this.countryID = countryID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "cityName")
     public String getCityName() {
         return cityName;
     }
 
+    @JsonAnySetter
     public void setCity(String cityName) {
         this.cityName = cityName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "location")
     public byte[] getLocation() {
         return location;
     }
 
+    @JsonAnySetter
     public void setLocation(byte[] location) {
         this.location = location;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "zipCode")
     public String getZipCode() {
         return zipCode;
     }
 
+    @JsonAnySetter
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
 
+    @JsonAnySetter
     public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }

@@ -1,9 +1,14 @@
 package com.solvd.onlineshop.model.user;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "employeesID", "firstName", "middleName", "lastName", "mobile",
+        "email", "password", "userName", "timeCreated", "lastLogin"
+})
 @XmlRootElement(name = "User")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "employeesID", "firstName", "middleName", "lastName", "mobile",
@@ -79,101 +84,123 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getEmployeesID() {
         return employeesID;
     }
 
+    @JsonAnySetter
     public void setEmployeesID(Long employeesID) {
         this.employeesID = employeesID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "firstName")
     public String getFirstName() {
         return firstName;
     }
 
+    @JsonAnySetter
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "middleName")
     public String getMiddleName() {
         return middleName;
     }
 
+    @JsonAnySetter
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "lastName")
     public String getLastName() {
         return lastName;
     }
 
+    @JsonAnySetter
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
 
+    @JsonAnySetter
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
 
+    @JsonAnySetter
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "password")
     public String getPassword() {
         return password;
     }
 
+    @JsonAnySetter
     public void setPassword(String password) {
         this.password = password;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "userName")
     public String getUserName() {
         return userName;
     }
 
+    @JsonAnySetter
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
 
+    @JsonAnySetter
     public void setTimeCreated(Date timeCreated) {
         this.timeCreated = timeCreated;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "lastLogin")
     public Date getLastLogin() {
         return lastLogin;
     }
 
+    @JsonAnySetter
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
     }

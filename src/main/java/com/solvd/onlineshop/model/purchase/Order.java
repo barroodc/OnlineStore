@@ -1,10 +1,15 @@
 package com.solvd.onlineshop.model.purchase;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "userID", "dateOfOrder", "dateOfDelivery", "timeOfDelivery", "postalCode", "mobile",
+        "email", "timeCreated", "status"
+})
 @XmlRootElement(name = "Order")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "userID", "dateOfOrder", "dateOfDelivery", "timeOfDelivery", "postalCode", "mobile",
@@ -63,92 +68,112 @@ public class Order {
     }
 
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getUserID() {
         return userID;
     }
 
+    @JsonAnySetter
     public void setUserID(Long userID) {
         this.userID = userID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "dateOfOrder")
     public Date getDateOfOrder() {
         return dateOfOrder;
     }
 
+    @JsonAnySetter
     public void setDateOfOrder(Date dateOfOrder) {
         this.dateOfOrder = dateOfOrder;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "dateOfDelivery")
     public Date getDateOfDelivery() {
         return dateOfDelivery;
     }
 
+    @JsonAnySetter
     public void setDateOfDelivery(Date dateOfDelivery) {
         this.dateOfDelivery = dateOfDelivery;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "timeOfDelivery")
     public Date getTimeOfDelivery() {
         return timeOfDelivery;
     }
 
+    @JsonAnySetter
     public void setTimeOfDelivery(Date timeOfDelivery) {
         this.timeOfDelivery = timeOfDelivery;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "postalCode")
     public String getPostalCode() {
         return postalCode;
     }
 
+    @JsonAnySetter
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
 
+    @JsonAnySetter
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
 
+    @JsonAnySetter
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "timeCreated")
     public Date getTimeCreated() {
         return timeCreated;
     }
 
+    @JsonAnySetter
     public void setTimeCreated(Date timeCreated) {
         this.timeCreated = timeCreated;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "status")
     public String getStatus() {
         return status;
     }
 
+    @JsonAnySetter
     public void setStatus(String status) {
         this.status = status;
     }

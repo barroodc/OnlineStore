@@ -1,10 +1,15 @@
 package com.solvd.onlineshop.model.labor;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "jobsID", "departmentsID", "mobile", "email", "hireDate",
+        "idCardNumber", "salary", "managerID", "departmentID"
+})
 @XmlRootElement(name = "Employees")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "jobsID", "departmentsID", "mobile", "email", "hireDate",
@@ -65,92 +70,112 @@ public class Employees {
         this.departmentID = departmentID;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getJobsID() {
         return jobsID;
     }
 
+    @JsonAnySetter
     public void setJobsID(Long jobsID) {
         this.jobsID = jobsID;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getDepartmentsID() {
         return departmentsID;
     }
 
+    @JsonAnySetter
     public void setDepartmentsID(Long departmentsID) {
         this.departmentsID = departmentsID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "mobile")
     public String getMobile() {
         return mobile;
     }
 
+    @JsonAnySetter
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "email")
     public String getEmail() {
         return email;
     }
 
+    @JsonAnySetter
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "hireDate")
     public Date getHireDate() {
         return hireDate;
     }
 
+    @JsonAnySetter
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "idCardNumber")
     public String getIdCardNumber() {
         return idCardNumber;
     }
 
+    @JsonAnySetter
     public void setIdCardNumber(String idCardNumber) {
         this.idCardNumber = idCardNumber;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "salary")
     public float getSalary() {
         return salary;
     }
 
+    @JsonAnySetter
     public void setSalary(float salary) {
         this.salary = salary;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "managerID")
     public long getManagerID() {
         return managerID;
     }
 
+    @JsonAnySetter
     public void setManagerID(Long managerID) {
         this.managerID = managerID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "departmentID")
     public long getDepartmentID() {
         return departmentID;
     }
 
+    @JsonAnySetter
     public void setDepartmentID(Long departmentID) {
         this.departmentID = departmentID;
     }

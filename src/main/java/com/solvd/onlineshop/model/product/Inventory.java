@@ -1,10 +1,14 @@
 package com.solvd.onlineshop.model.product;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "productName", "description", "price", "amountInStock"
+})
 @XmlRootElement(name = "Inventory")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "productName", "description", "price", "amountInStock"})
@@ -49,47 +53,57 @@ public class Inventory implements Serializable {
         this.amountInStock = amountInStock;
     }
 
+    @JsonAnyGetter
     @XmlAttribute(name = "id")
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "productName")
     public String getProductName() {
         return productName;
     }
 
+    @JsonAnySetter
     public void setProductName(String productName) {
         this.productName = productName;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "description")
     public String getDescription() {
         return description;
     }
 
+    @JsonAnySetter
     public void setDescription(String description) {
         this.description = description;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "price")
     public float getPrice() {
         return price;
     }
 
+    @JsonAnySetter
     public void setPrice(float price) {
         this.price = price;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "amountInStock")
     public long getAmountInStock() {
         return amountInStock;
     }
 
+    @JsonAnySetter
     public void setAmountInStock(long amountInStock) {
         this.amountInStock = amountInStock;
     }

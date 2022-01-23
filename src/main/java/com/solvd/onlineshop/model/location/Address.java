@@ -1,11 +1,15 @@
 package com.solvd.onlineshop.model.location;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import org.intellij.lang.annotations.Identifier;
 
 import javax.xml.bind.annotation.*;
 import java.sql.Timestamp;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "cityID", "streetAddress", "buildingNumber", "lastUpdate"
+})
 @XmlRootElement(name = "Address")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "cityID", "streetAddress", "buildingNumber", "lastUpdate"})
@@ -56,47 +60,57 @@ public class Address {
         this.lastUpdate = lastUpdate;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getCityID() {
         return cityID;
     }
 
+    @JsonAnySetter
     public void setCityID(Long cityID) {
         this.cityID = cityID;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "streetAddress")
     public String getStreetAddress(){
         return this.streetAddress;
     }
 
+    @JsonAnySetter
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "buildingNumber")
     public String getBuildingNumber() {
         return buildingNumber;
     }
 
+    @JsonAnySetter
     public void setBuildingNumber(String buildingNumber) {
         this.buildingNumber = buildingNumber;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
 
+    @JsonAnySetter
     public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }

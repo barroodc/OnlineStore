@@ -1,9 +1,14 @@
 package com.solvd.onlineshop.model.labor;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.xml.bind.annotation.*;
 
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "id", "jobTitle", "minSalary", "maxSalary"
+})
 @XmlRootElement(name = "Jobs")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlType(propOrder = {"id", "jobTitle", "minSalary", "maxSalary"})
@@ -38,38 +43,46 @@ public class Jobs  {
         this.maxSalary = maxSalary;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public Long getId() {
         return id;
     }
 
+    @JsonAnySetter
     public void setId(Long id) {
         this.id = id;
     }
 
+    @JsonAnyGetter
     @XmlAttribute
     public String getJobTitle() {
         return jobTitle;
     }
 
+    @JsonAnySetter
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "minSalary")
     public float getMinSalary() {
         return minSalary;
     }
 
+    @JsonAnySetter
     public void setMinSalary(float minSalary) {
         this.minSalary = minSalary;
     }
 
+    @JsonAnyGetter
     @XmlElement(name = "maxSalary")
     public float getMaxSalary() {
         return maxSalary;
     }
 
+    @JsonAnySetter
     public void setMaxSalary(float maxSalary) {
         this.maxSalary = maxSalary;
     }
