@@ -15,10 +15,15 @@ import com.qaprosoft.carina.core.foundation.utils.tag.TestPriority;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.invoke.MethodHandles;
+
 public class APISampleTest implements IAbstractTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(APISampleTest.class);
+    private static final Logger LOGGER = LogManager.getLogger(MethodHandles.lookup().lookupClass());
 
+
+    @Test()
+    @MethodOwner(owner = "Chris")
     public void testCreateUser() throws Exception {
         LOGGER.info("test");
         setCases("4555,54545");
@@ -29,7 +34,7 @@ public class APISampleTest implements IAbstractTest {
     }
 
     @Test()
-    @MethodOwner(owner = "qpsdemo")
+    @MethodOwner(owner = "Chris")
     public void testCreateUserMissingSomeFields() throws Exception {
         PostUserMethod api = new PostUserMethod();
         api.getProperties().remove("name");
@@ -40,7 +45,7 @@ public class APISampleTest implements IAbstractTest {
     }
 
     @Test()
-    @MethodOwner(owner = "qpsdemo")
+    @MethodOwner(owner = "Chris")
     public void testGetUsers() {
         GetUserMethods getUsersMethods = new GetUserMethods();
         getUsersMethods.expectResponseStatus(HttpResponseStatusType.OK_200);
@@ -50,7 +55,7 @@ public class APISampleTest implements IAbstractTest {
     }
 
     @Test()
-    @MethodOwner(owner = "qpsdemo")
+    @MethodOwner(owner = "Chris")
     @TestPriority(Priority.P1)
     public void testDeleteUsers() {
         DeleteUserMethod deleteUserMethod = new DeleteUserMethod();
